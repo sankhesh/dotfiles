@@ -1,0 +1,23 @@
+[
+  {
+    "clean": ["~"]
+  },
+  
+  {
+    "link":
+      {
+        "~/.gitconfig": "gitconfig",
+        "~/.vimrc": "vimrc",
+        "~/.vim": "vim/",
+        "~/.bash_profile": "bash_profile",
+        "~/.bash_prompt": "bash_prompt"
+      }
+  },
+
+  {
+  "shell":
+    [
+      ["git submodule update --init --recursive", "Installing submodules"]
+    ]
+  }
+]
