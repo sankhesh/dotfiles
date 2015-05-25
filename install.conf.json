@@ -2,31 +2,26 @@
   {
     "clean": [
       "~",
-      "~/.config/terminator",
+      "~/.config",
       "~/.vim",
-      "~/.vim/bundle",
-      "~/.vim/ftplugin",
-      "~/.vim/UltiSnips"
     ]
   },
 
   {
-    "link":
-      {
+    "link": {
         "~/.bash_profile": "bash_profile",
         "~/.bash_prompt": "bash_prompt",
-        "~/.config/terminator/config":
-          create: true
-          path: "terminator_config"
-        "~/.gitconfig": "gitconfig",
+        "~/.config/terminator": {
+          create: true,
+          path: "config/terminator/"
+        },
         "~/.vimrc": "vimrc",
         "~/.vim": "vim/",
-      }
+    }
   },
 
   {
-  "shell":
-    [
+  "shell": [
       ["git submodule update --init --recursive", "Installing submodules"]
     ]
   }
