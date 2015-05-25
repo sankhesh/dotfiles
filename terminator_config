@@ -1,0 +1,25 @@
+[global_config]
+  always_split_with_profile = True
+  title_transmit_bg_color = "#6d748b"
+  focus = system
+  suppress_multiple_term_dialog = True
+[keybindings]
+[profiles]
+  [[default]]
+    background_image = None
+  [[custom]]
+    background_image = None
+    background_darkness = 0.78
+    background_type = transparent
+    cursor_color = "#808080"
+    foreground_color = "#ffffff"
+    scrollback_infinite = True
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]

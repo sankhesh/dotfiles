@@ -2,15 +2,18 @@
   {
     "clean": ["~"]
   },
-  
+
   {
     "link":
       {
+        "~/.bash_profile": "bash_profile",
+        "~/.bash_prompt": "bash_prompt",
+        "~/.config/terminator/config":
+          create: true
+          path: "terminator_config"
         "~/.gitconfig": "gitconfig",
         "~/.vimrc": "vimrc",
         "~/.vim": "vim/",
-        "~/.bash_profile": "bash_profile",
-        "~/.bash_prompt": "bash_prompt"
       }
   },
 
