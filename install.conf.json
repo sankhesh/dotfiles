@@ -1,6 +1,13 @@
 [
   {
-    "clean": ["~"]
+    "clean": [
+      "~",
+      "~/.config/terminator",
+      "~/.vim",
+      "~/.vim/bundle",
+      "~/.vim/ftplugin",
+      "~/.vim/UltiSnips"
+    ]
   },
 
   {
