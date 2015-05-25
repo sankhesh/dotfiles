@@ -38,10 +38,10 @@ endif
 
 " Uncomment the following to have Vim load indentation rules and plugins
 " according to the detected filetype.
-"if has("autocmd")
+if has("autocmd")
 "  filetype plugin indent on
-"  filetype off
-"endif
+  filetype off
+endif
 
 " Vundle
 set rtp+=~/.vim/bundle/vundle/
@@ -140,16 +140,17 @@ set nocp
 inoremap <leader>fn <C-R>=expand("%t")<CR>
 
 " YouCompleteMe
-let g:ycm_global_ycm_extra_conf = '/Users/sankheshjhaveri/.vim/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = $HOME."/.vim/.ycm_extra_conf.py"
 let g:ycm_key_list_select_completion=[] " Load tab completion without pressing tab key
 let g:ycm_key_list_previous_completion=[] " Load tab completion without pressing tab key
 let g:ycm_register_as_syntastic_checker = 1
 let g:ycm_collect_identifiers_from_tags_files = 1 " Load identifiers from tags files
 let g:ycm_confirm_extra_conf = 0
+let g:ycm_always_populate_location_list = 1 " Allows to navigate to next/previous errors
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 " Tagbar
-"nmap <F8> :TagbarToggle<CR>
+nmap <F8> :TagbarToggle<CR>
 
 " Set omnifunc
 "autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -238,9 +239,16 @@ vnoremap <silent> # :<C-U>
   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
+" Set a 256 color terminal
+" set t_Co=256
+
 " Show trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
+
+" Highlight current line
+set cursorline
+:hi CursorLine cterm=NONE ctermbg=darkgray ctermfg=white guibg=darkred guifg=white
 
 " Add the current directory to the path
 let s:default_path = escape(&path, '\ ') " store default value of 'path'
@@ -271,7 +279,8 @@ nmap <leader>f :DiffChangesDiffToggle<CR>
 nmap <leader>p :DiffChangesPatchToggle<CR>
 
 " NERDTreeToggle
-nmap <leader>n :NERDTreeToggle<CR>
+nmap <leader>m :NERDTreeToggle<CR>
+nmap <leader>n :NERDTreeFind<CR>
 
 " CtrlP word under cursor
 nmap <leader>cp :CtrlP<CR><C-\>w
