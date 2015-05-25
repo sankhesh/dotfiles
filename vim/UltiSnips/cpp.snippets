@@ -1,0 +1,173 @@
+snippet qtheader
+/*=============================================================================
+Copyright and License information
+=============================================================================*/
+
+#ifndef __${1:`!p snip.rv = snip.basename`}_h
+#define __$1_h
+
+// Qt includes
+#include <$2>
+
+/// $0
+class $1 : public $2
+{
+  Q_OBJECT
+  typedef $2 Superclass;
+
+public:
+  $1($2 * parent = 0);
+  ~$1();
+
+private:
+  Q_DISABLE_COPY($1)
+};
+
+#endif //__$1_h
+endsnippet
+
+snippet qtimpl
+/*=============================================================================
+Copyright and License information
+=============================================================================*/
+
+// $3 includes
+#include "${1:`!p snip.rv = snip.basename`}.h"
+
+// Qt includes
+
+//-----------------------------------------------------------------------------
+$1::$1($2 * parent) :
+  Superclass(parent)
+{
+$0
+}
+
+//-----------------------------------------------------------------------------
+$1::~$1()
+{
+}
+endsnippet
+
+snippet vtktest
+/*=========================================================================
+
+  Program:   Visualization Toolkit
+  Module:    ${1:`!p snip.rv = snip.basename`}.cxx
+
+  Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
+  All rights reserved.
+  See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
+
+  This software is distributed WITHOUT ANY WARRANTY; without even
+  the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+  PURPOSE.  See the above copyright notice for more information.
+
+=========================================================================*/
+
+// Description
+// $2
+
+#include "vtkTestUtilities.h"
+#include "vtkTesting.h"
+
+int $1(int argc, char *argv[])
+{
+  cout << "CTEST_FULL_OUTPUT (Avoid ctest truncation of output)" << endl;
+  $0
+}
+endsnippet
+
+snippet vtkinit
+vtkNew<vtkRenderWindow> renWin;
+renWin->SetMultiSamples(0);
+renWin->SetSize(301, 300); // Intentional NPOT size
+
+vtkNew<vtkRenderer> ren;
+renWin->AddRenderer(ren.GetPointer());
+
+vtkNew<vtkRenderWindowInteractor> iren;
+iren->SetRenderWindow(renWin.GetPointer());
+
+renWin->Render();
+endsnippet
+
+snippet vtkcopyright
+/*=========================================================================
+
+  Program:   Visualization Toolkit
+  Module:    ${1:`!p snip.rv = snip.filename`}
+
+  Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
+  All rights reserved.
+  See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
+
+  This software is distributed WITHOUT ANY WARRANTY; without even
+  the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+  PURPOSE.  See the above copyright notice for more information.
+
+=========================================================================*/
+endsnippet
+
+snippet vtkheader
+/*=============================================================================
+Copyright and License information
+=============================================================================*/
+
+#ifndef __${1:`!p snip.rv = snip.basename`}_h
+#define __$1_h
+
+// VTK includes
+#include <$2.h>
+
+/// $0
+class $1 : public $2
+{
+public:
+  vtkTypeMacro($1, $2);
+  void PrintSelf(ostream &os, vtkIndent indent);
+
+  static $1* New();
+
+protected:
+  $1();
+  ~$1();
+
+private:
+  $1(const $1&); // Not implemented
+  void operator=(const $1); // Not implemented
+};
+
+#endif //__$1_h
+endsnippet
+
+snippet vtkimpl
+/*=============================================================================
+Copyright and License information
+=============================================================================*/
+
+// $2 includes
+#include "${1:`!p snip.rv = snip.basename`}.h"
+
+// VTK includes
+#include "vtkObjectFactory.h"
+
+vtkStandardNewMacro($1);
+
+//-----------------------------------------------------------------------------
+$1::$1()
+{
+$0
+}
+
+//-----------------------------------------------------------------------------
+$1::~$1()
+{
+}
+
+//----------------------------------------------------------------------------
+void $1::PrintSelf(ostream &os, vtkIndent indent)
+{
+  os << indent << " = " << this-> << endl;
+}
+endsnippet
