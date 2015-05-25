@@ -2,8 +2,8 @@
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot.git
 [submodule "vim/vundle"]
-	path = vim/vundle
+	path = vim/bundle/vundle
 	url = https://github.com/gmarik/vundle.git
 [submodule "vim/YouCompleteMe"]
-	path = vim/YouCompleteMe
+	path = vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
