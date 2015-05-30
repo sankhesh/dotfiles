@@ -8,5 +8,5 @@
 	path = vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
 [submodule "prezto"]
-	path = prezto
+	path = zsh/prezto
 	url = https://github.com/sorin-ionescu/prezto.git
