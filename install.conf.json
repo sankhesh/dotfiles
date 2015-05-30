@@ -17,6 +17,12 @@
         },
         "~/.vimrc": "vimrc",
         "~/.vim": "vim/",
+        "~/.zlogin": "zsh/prezto/runcoms/zlogin",
+        "~/.zlogout": "zsh/prezto/runcoms/zlogout",
+        "~/.zprofile": "zsh/prezto/runcoms/zprofile",
+        "~/.zshenv": "zsh/prezto/runcoms/zshenv",
+        "~/.zshrc": "zsh/prezto/runcoms/zshrc",
+        "~/.zpreztorc": "zsh/zpreztorc"
     }
   },
 
