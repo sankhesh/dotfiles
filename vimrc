@@ -77,6 +77,9 @@ Plugin 'majutsushi/tagbar.git'
 " UltiSnips
 Plugin 'SirVer/ultisnips.git'
 
+" Instant Preview
+Plugin 'greyblake/vim-preview.git'
+
 " Re-enable filetype plugins
 filetype plugin indent on
 
