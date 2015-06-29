@@ -21,7 +21,7 @@
         "~/.zlogout": "zsh/prezto/runcoms/zlogout",
         "~/.zprofile": "zsh/prezto/runcoms/zprofile",
         "~/.zshenv": "zsh/prezto/runcoms/zshenv",
-        "~/.zshrc": "zsh/prezto/runcoms/zshrc",
+        "~/.zshrc": "zsh/zshrc",
         "~/.zpreztorc": "zsh/zpreztorc",
         "~/.zprezto": "zsh/prezto"
     }
