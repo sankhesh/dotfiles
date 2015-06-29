@@ -251,7 +251,7 @@ match ExtraWhitespace /\s\+$/
 
 " Highlight current line
 set cursorline
-:hi CursorLine cterm=NONE ctermbg=darkgray ctermfg=white guibg=darkred guifg=white
+:hi CursorLine cterm=NONE ctermbg=16 ctermfg=white guibg=darkred guifg=white
 
 " Add the current directory to the path
 let s:default_path = escape(&path, '\ ') " store default value of 'path'
