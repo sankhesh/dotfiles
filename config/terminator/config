@@ -8,11 +8,13 @@
   [[default]]
     background_image = None
   [[custom]]
-    background_image = None
+    use_system_font = False
     background_darkness = 0.78
     background_type = transparent
+    background_image = None
     cursor_color = "#808080"
     foreground_color = "#ffffff"
+    font = Monaco 12
     scrollback_infinite = True
 [layouts]
   [[default]]
