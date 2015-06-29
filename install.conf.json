@@ -23,7 +23,8 @@
         "~/.zshenv": "zsh/prezto/runcoms/zshenv",
         "~/.zshrc": "zsh/zshrc",
         "~/.zpreztorc": "zsh/zpreztorc",
-        "~/.zprezto": "zsh/prezto"
+        "~/.zprezto": "zsh/prezto",
+        "~/.tmux.conf": "tmux.conf"
     }
   },
 
