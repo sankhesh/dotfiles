@@ -1,0 +1,17 @@
+diff --git a/modules/editor/init.zsh b/modules/editor/init.zsh
+index 9aa64d6..8c5c481 100644
+--- a/modules/editor/init.zsh
++++ b/modules/editor/init.zsh
+@@ -299,9 +299,9 @@ for keymap in 'emacs' 'viins'; do
+     bindkey -M "$keymap" "." expand-dot-to-parent-directory-path
+   fi
+ 
+-  # Display an indicator when completing.
+-  bindkey -M "$keymap" "$key_info[Control]I" \
+-    expand-or-complete-with-indicator
++#  # Display an indicator when completing.
++#  bindkey -M "$keymap" "$key_info[Control]I" \
++#    expand-or-complete-with-indicator
+ 
+   # Insert 'sudo ' at the beginning of the line.
+   bindkey -M "$keymap" "$key_info[Control]X$key_info[Control]S" prepend-sudo
