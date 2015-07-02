@@ -13,3 +13,14 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+# ZSH Auto Suggestions
+if [[ -s "${ZDOTDIR:-$HOME}/.zsh-autosuggestions/autosuggestions.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zsh-autosuggestions/autosuggestions.zsh"
+
+  #  Enable autosuggestions automatically
+  zle-line-init() {
+    zle autosuggest-start
+  }
+  zle -N zle-line-init
+fi

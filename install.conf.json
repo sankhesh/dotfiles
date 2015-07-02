@@ -24,6 +24,7 @@
         "~/.zshrc": "zsh/zshrc",
         "~/.zpreztorc": "zsh/zpreztorc",
         "~/.zprezto": "zsh/prezto",
+        "~/.zsh-autosuggestions": "zsh/zsh-autosuggestions",
         "~/.tmux.conf": "tmux.conf"
     }
   },
