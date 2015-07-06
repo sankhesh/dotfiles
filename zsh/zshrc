@@ -24,3 +24,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zsh-autosuggestions/autosuggestions.zsh" ]]; then
   }
   zle -N zle-line-init
 fi
+
+# Import local configuration
+if [[ -s "${ZDOTDIR:-$HOME}/.zshrc_local" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zshrc_local"
+fi
