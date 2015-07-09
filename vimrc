@@ -253,6 +253,12 @@ match ExtraWhitespace /\s\+$/
 set cursorline
 :hi CursorLine cterm=NONE ctermbg=16 ctermfg=white guibg=darkred guifg=white
 
+" Highlight for showmarks
+:hi ShowMarksHLl ctermfg=white ctermbg=darkblue guifg=darkblue guibg=white
+:hi ShowMarksHLu ctermfg=white ctermbg=darkblue guifg=darkblue guibg=white
+:hi ShowMarksHLo ctermfg=white ctermbg=darkblue guifg=darkblue guibg=white
+:hi ShowMarksHLm ctermfg=white ctermbg=darkblue guifg=darkblue guibg=white
+
 " Add the current directory to the path
 let s:default_path = escape(&path, '\ ') " store default value of 'path'
 " Always add the current file's directory to the path and tags list if not
