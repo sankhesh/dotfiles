@@ -18,7 +18,7 @@
         "~/.vimrc": "vimrc",
         "~/.vim": "vim/",
         "~/.zlogin": "zsh/prezto/runcoms/zlogin",
-        "~/.zlogout": "zsh/prezto/runcoms/zlogout",
+        "~/.zlogout": "zsh/zlogout",
         "~/.zprofile": "zsh/prezto/runcoms/zprofile",
         "~/.zshenv": "zsh/prezto/runcoms/zshenv",
         "~/.zshrc": "zsh/zshrc",

@@ -1,0 +1,12 @@
+#
+# Executes commands at logout.
+#
+#
+# Print the message.
+cat <<-EOF
+Logout: `date`
+
+Thank you. Come Again!
+  -- Sankhesh Jhaveri
+
+EOF
