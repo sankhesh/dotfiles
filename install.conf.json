@@ -25,7 +25,8 @@
         "~/.zpreztorc": "zsh/zpreztorc",
         "~/.zprezto": "zsh/prezto",
         "~/.zsh-autosuggestions": "zsh/zsh-autosuggestions",
-        "~/.tmux.conf": "tmux.conf"
+        "~/.tmux.conf": "tmux.conf",
+        "~/.config/flake8": "config/flake8"
     }
   },
 
