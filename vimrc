@@ -80,6 +80,9 @@ Plugin 'SirVer/ultisnips.git'
 " Instant Preview
 Plugin 'greyblake/vim-preview.git'
 
+" PEP 8 style checker for python files
+Plugin 'nvie/vim-flake8'
+
 " Re-enable filetype plugins
 filetype plugin indent on
 
@@ -154,6 +157,18 @@ nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
+
+"" flake8 settings
+" Show error marks in gutter
+let g:flake8_show_in_gutter=1
+" highlight using colors defined in the colorscheme
+highlight link Flake8_Error       Error
+highlight link Flake8_Warning     WarningMsg
+highlight link Flake8_Complexity  WarningMsg
+highlight link Flake8_Naming      WarningMsg
+highlight link Flake8_PyFlake     WarningMsg
+" auto run flake8 everytime when writing python files
+autocmd BufWritePost *.py call Flake8()
 
 " Set omnifunc
 "autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -231,16 +246,16 @@ endfunc
 nmap ,s :call SwitchSourceHeader()<CR>
 
 " Search for selected text, forwards or backwards.
-vnoremap <silent> * :<C-U>
-  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \gvy/<C-R><C-R>=substitute(
-  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-  \gV:call setreg('"', old_reg, old_regtype)<CR>
-vnoremap <silent> # :<C-U>
-  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \gvy?<C-R><C-R>=substitute(
-  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-  \gV:call setreg('"', old_reg, old_regtype)<CR>
+"vnoremap <silent> * :<C-U>
+"  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+"  \gvy/<C-R><C-R>=substitute(
+"  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+"  \gV:call setreg('"', old_reg, old_regtype)<CR>
+"vnoremap <silent> # :<C-U>
+"  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+"  \gvy?<C-R><C-R>=substitute(
+"  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+"  \gV:call setreg('"', old_reg, old_regtype)<CR>
 
 " Set a 256 color terminal
 " set t_Co=256
