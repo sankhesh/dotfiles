@@ -355,6 +355,12 @@ if exists("+showtabline")
     highlight link TabNum Special
 endif
 
+" Grep mappings
+"" Map gr to vimgrep word under cursor in parent directory of current file
+:nnoremap gr :execute "vimgrep /" . expand("<cword>") . "/j %:p:h/**" <Bar> cw<CR>
+"" Map Gr to git grep word under cursor in current working tree
+:nnoremap Gr :execute "Ggrep! " expand("<cword>") <Bar> cw<CR>
+
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
