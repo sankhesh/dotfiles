@@ -71,6 +71,9 @@ Plugin 'Valloric/YouCompleteMe'
 " Fugitive
 Plugin 'tpope/vim-fugitive.git'
 
+" Vim-unimpaired
+Plugin 'tpope/vim-unimpaired.git'
+
 " Tagbar
 Plugin 'majutsushi/tagbar.git'
 
