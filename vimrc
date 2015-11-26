@@ -134,7 +134,7 @@ set makeprg=make\ -C\ %:p:h/../bld\ -j10
 
 " Color 80th column
 set colorcolumn=80
-highlight ColorColumn ctermbg=Blue
+highlight ColorColumn ctermbg=Blue guibg=pink
 
 " Set leader (vim prefix) to ','
 :let mapleader = ","
@@ -267,9 +267,12 @@ vnoremap <silent> # :<C-U>
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
+" Automatically remove trailing whitespace
+autocmd FileType c,cpp,java,python autocmd BufWritePre <buffer> :%s/\s\+$//e
+
 " Highlight current line
 set cursorline
-:hi CursorLine cterm=NONE ctermbg=16 ctermfg=white guibg=darkred guifg=white
+:hi CursorLine cterm=NONE ctermbg=16 ctermfg=white guibg=darkgray
 
 " Highlight for showmarks
 :hi ShowMarksHLl ctermfg=white ctermbg=darkblue guifg=darkblue guibg=white
