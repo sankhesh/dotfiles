@@ -56,8 +56,8 @@ Plugin 'gmarik/vundle'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'scrooloose/nerdcommenter.git'
 
-" ShowMarks plugin
-Plugin 'ShowMarks7'
+" Vim-Signature plugin to show marks
+Plugin 'kshenoy/vim-signature'
 
 " CtrlP plugin
 Plugin 'ctrlp.vim'
