@@ -6,8 +6,6 @@
 [keybindings]
 [profiles]
   [[default]]
-    background_image = None
-  [[custom]]
     use_system_font = False
     background_darkness = 0.78
     background_type = transparent
