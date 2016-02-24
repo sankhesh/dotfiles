@@ -86,6 +86,12 @@ Plugin 'greyblake/vim-preview.git'
 " PEP 8 style checker for python files
 Plugin 'nvie/vim-flake8'
 
+" QuickFix list handling
+Plugin 'yssl/QFEnter'
+
+" Draw ASCII text drawings DrawIt
+Plugin 'vim-scripts/DrawIt'
+
 " Re-enable filetype plugins
 filetype plugin indent on
 
