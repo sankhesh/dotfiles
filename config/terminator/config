@@ -12,7 +12,7 @@
     background_image = None
     cursor_color = "#808080"
     foreground_color = "#ffffff"
-    font = Monaco 12
+    font = Monaco 11
     scrollback_infinite = True
 [layouts]
   [[default]]
