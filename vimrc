@@ -136,7 +136,8 @@ set splitbelow        " Open new horizontal split below
 set statusline=%<%f\ %{fugitive#statusline()}\ %h%m%r%=%-14.(%l/%L,%c%V%)\ %P  " Status line
 
 " Set make program
-set makeprg=make\ -C\ %:p:h/../bld\ -j10
+" set makeprg=make\ -C\ %:p:h/../bld\ -j10
+set makeprg=ninja\ -C\ %:p:h/../bld
 
 " Color 80th column
 set colorcolumn=80
