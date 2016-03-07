@@ -140,7 +140,7 @@ set statusline=%<%f\ %{fugitive#statusline()}\ %h%m%r%=%-14.(%l/%L,%c%V%)\ %P  "
 
 " Set make program
 " set makeprg=make\ -C\ %:p:h/../bld\ -j10
-set makeprg=ninja\ -C\ %:p:h/../bld
+set makeprg=ninja\ -C\ ../bld
 
 " Color 80th column
 set colorcolumn=80
@@ -382,7 +382,7 @@ let g:SignatureMarkTextHLDynamic = 1 " Dynamic mark highlight based on gitgutter
 
 " vim-airline options
 set updatetime=250 " Refresh gitgutter signs every 250ms
-let g:gitgutter_highlight_lines = 1 " Enable line highlighting by default
+" let g:gitgutter_highlight_lines = 1 " Enable line highlighting by default
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
