@@ -53,8 +53,8 @@ call vundle#rc()
 Plugin 'gmarik/vundle'
 
 " We could also add repositories with a '.git' extension
-Plugin 'scrooloose/nerdtree.git'
-Plugin 'scrooloose/nerdcommenter.git'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
 
 " Vim-Signature plugin to show marks
 Plugin 'kshenoy/vim-signature'
@@ -69,19 +69,19 @@ Plugin 'diffchanges.vim'
 Plugin 'Valloric/YouCompleteMe'
 
 " Fugitive
-Plugin 'tpope/vim-fugitive.git'
+Plugin 'tpope/vim-fugitive'
 
 " Vim-unimpaired
-Plugin 'tpope/vim-unimpaired.git'
+Plugin 'tpope/vim-unimpaired'
 
 " Tagbar
-Plugin 'majutsushi/tagbar.git'
+Plugin 'majutsushi/tagbar'
 
 " UltiSnips
-Plugin 'SirVer/ultisnips.git'
+Plugin 'SirVer/ultisnips'
 
 " Instant Preview
-Plugin 'greyblake/vim-preview.git'
+Plugin 'greyblake/vim-preview'
 
 " PEP 8 style checker for python files
 Plugin 'nvie/vim-flake8'
@@ -91,6 +91,9 @@ Plugin 'yssl/QFEnter'
 
 " Draw ASCII text drawings DrawIt
 Plugin 'vim-scripts/DrawIt'
+
+" Git Gutter plugin
+Plugin 'airblade/vim-gitgutter'
 
 " Re-enable filetype plugins
 filetype plugin indent on
@@ -373,6 +376,13 @@ endif
 :nnoremap gr :execute "vimgrep /" . expand("<cword>") . "/j %:p:h/**" <Bar> cw<CR>
 "" Map Gr to git grep word under cursor in current working tree
 :nnoremap Gr :execute "Ggrep! " expand("<cword>") <Bar> cw<CR>
+
+" vim-signature options
+let g:SignatureMarkTextHLDynamic = 1 " Dynamic mark highlight based on gitgutter
+
+" vim-airline options
+set updatetime=250 " Refresh gitgutter signs every 250ms
+let g:gitgutter_highlight_lines = 1 " Enable line highlighting by default
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
