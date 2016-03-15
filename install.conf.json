@@ -1,5 +1,14 @@
 [
   {
+    "defaults": {
+      "link": {
+        "create": "true",
+        "relink": "true"
+      }
+    }
+  },
+
+  {
     "clean": [
       "~",
       "~/.config",
@@ -12,7 +21,6 @@
         "~/.bash_profile": "bash_profile",
         "~/.bash_prompt": "bash_prompt",
         "~/.config/terminator": {
-          "create": "true",
           "path": "config/terminator/"
         },
         "~/.vimrc": "vimrc",
