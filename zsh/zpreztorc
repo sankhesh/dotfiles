@@ -30,6 +30,7 @@ zstyle ':prezto:load' pmodule \
   'history' \
   'syntax-highlighting' \
   'history-substring-search' \
+  'autosuggestions' \
   'directory' \
   'spectrum' \
   'utility' \
@@ -38,6 +39,13 @@ zstyle ':prezto:load' pmodule \
   'python' \
   'archive' \
   'prompt'
+
+#
+# Autosuggestions
+#
+
+# Set the query found color.
+# zstyle ':prezto:module:autosuggestions:color' found ''
 
 #
 # Editor
