@@ -281,7 +281,7 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
 " Automatically remove trailing whitespace
-autocmd FileType c,cpp,java,python autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,java,python,qml autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " Highlight current line
 set cursorline
