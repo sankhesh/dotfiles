@@ -95,6 +95,9 @@ Plugin 'vim-scripts/DrawIt'
 " Git Gutter plugin
 Plugin 'airblade/vim-gitgutter'
 
+" QML syntax highlighting and indenting
+Plugin 'peterhoeg/vim-qml'
+
 " Re-enable filetype plugins
 filetype plugin indent on
 
