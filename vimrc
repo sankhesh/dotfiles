@@ -71,6 +71,9 @@ Plugin 'Valloric/YouCompleteMe'
 " Fugitive
 Plugin 'tpope/vim-fugitive'
 
+" GV
+Plugin 'junegunn/gv.vim'
+
 " Vim-unimpaired
 Plugin 'tpope/vim-unimpaired'
 
@@ -327,6 +330,10 @@ nmap <leader>n :NERDTreeFind<CR>
 
 " CtrlP word under cursor
 nmap <leader>cp :CtrlP<CR><C-\>w
+
+" SimpylFold
+"autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr foldcolumn=1
+"autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
 
 " Rename tabs to show tab number.
 " (Based on http://stackoverflow.com/questions/5927952/whats-implementation-of-vims-default-tabline-function)
