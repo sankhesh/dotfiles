@@ -217,7 +217,7 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>410 364 620 392 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>701 332 570 473 0 0 1440 877 </string>
+	<string>685 250 570 473 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>11 68 570 452 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -1821,14 +1821,16 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/testing3.xml?shard=80</string>
+	<string>https://iterm2.com/appcasts/testing.xml?shard=80</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-07-01T22:24:50Z</date>
+	<date>2016-07-07T14:26:26Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
+	<false/>
+	<key>ShowFullScreenTabBar</key>
 	<false/>
 	<key>ShowPaneTitles</key>
 	<true/>
@@ -1871,6 +1873,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.3</string>
+	<string>3.0.4</string>
 </dict>
 </plist>
