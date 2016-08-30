@@ -71,8 +71,8 @@ Plugin 'Valloric/YouCompleteMe'
 " Fugitive
 Plugin 'tpope/vim-fugitive'
 
-" GV
-Plugin 'junegunn/gv.vim'
+" Gitv
+Plugin 'gregsexton/gitv'
 
 " Vim-unimpaired
 Plugin 'tpope/vim-unimpaired'
