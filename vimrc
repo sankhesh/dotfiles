@@ -23,7 +23,7 @@ if has("syntax")
 endif
 
 " Color scheme here would override all colors
-colorscheme hybrid
+colorscheme jellybeans
 let macvim_skip_colorscheme=1
 
 " If using a dark background within the editing area and syntax highlighting
@@ -100,6 +100,11 @@ Plugin 'airblade/vim-gitgutter'
 
 " QML syntax highlighting and indenting
 Plugin 'peterhoeg/vim-qml'
+
+" Colorschemes
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'tomasr/molokai'
+Plugin 'w0ng/vim-hybrid'
 
 " Re-enable filetype plugins
 filetype plugin indent on

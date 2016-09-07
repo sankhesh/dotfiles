@@ -16,6 +16,7 @@
       path: config/terminator/
     ~/.vimrc: vimrc
     ~/.vim: vim/
+    ~/.vim/colors: vim/bundle/jellybeans.vim/colors/
     ~/.zlogin: zsh/prezto/runcoms/zlogin
     ~/.zlogout: zsh/zlogout
     ~/.zprofile: zsh/prezto/runcoms/zprofile
