@@ -22,13 +22,13 @@ if has("syntax")
   syntax on
 endif
 
+" Color scheme here would override all colors
+colorscheme hybrid
+let macvim_skip_colorscheme=1
+
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
-if has("gui_running")
-  set background=light
-else
-  set background=dark
-endif
+set background=dark
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
@@ -150,7 +150,7 @@ set makeprg=ninja\ -C\ ../bld
 
 " Color 80th column
 set colorcolumn=80
-highlight ColorColumn ctermbg=Blue guibg=pink
+" highlight ColorColumn ctermbg=Blue guibg=pink
 
 " Set leader (vim prefix) to ','
 :let mapleader = ","
@@ -279,22 +279,32 @@ vnoremap <silent> # :<C-U>
 " Set a 256 color terminal
 " set t_Co=256
 
-" Show trailing whitespace
-highlight ExtraWhitespace ctermbg=red guibg=red
+" Show trailing whitespace and highlight based on the colorscheme
+highlight link ExtraWhitespace Error
 match ExtraWhitespace /\s\+$/
+
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬,space:٠
+
+"Invisible character colors
+" highlight NonText guifg=#4a4a59 ctermfg=239
+" highlight SpecialKey guifg=#4a4a59 ctermfg=239
 
 " Automatically remove trailing whitespace
 autocmd FileType c,cpp,java,python,qml autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " Highlight current line
 set cursorline
-:hi CursorLine cterm=NONE ctermbg=16 ctermfg=white guibg=darkgray
+":hi CursorLine cterm=NONE ctermbg=16 ctermfg=white guibg=darkgray
 
 " Highlight for showmarks
-:hi ShowMarksHLl ctermfg=white ctermbg=darkblue guifg=darkblue guibg=white
-:hi ShowMarksHLu ctermfg=white ctermbg=darkblue guifg=darkblue guibg=white
-:hi ShowMarksHLo ctermfg=white ctermbg=darkblue guifg=darkblue guibg=white
-:hi ShowMarksHLm ctermfg=white ctermbg=darkblue guifg=darkblue guibg=white
+" :hi ShowMarksHLl ctermfg=white ctermbg=darkblue guifg=darkblue guibg=white
+" :hi ShowMarksHLu ctermfg=white ctermbg=darkblue guifg=darkblue guibg=white
+" :hi ShowMarksHLo ctermfg=white ctermbg=darkblue guifg=darkblue guibg=white
+" :hi ShowMarksHLm ctermfg=white ctermbg=darkblue guifg=darkblue guibg=white
 
 " Add the current directory to the path
 let s:default_path = escape(&path, '\ ') " store default value of 'path'
