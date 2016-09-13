@@ -10,7 +10,9 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
   echo
   if [ "$accept" == "y" -o "$accept" == "Y" ]; then
     echo -n "Installing additional fonts..."
-    curl -kL https://raw.github.com/cstrap/monaco-font/master/install-font-ubuntu.sh | bash
+    curl -kL\
+      https://raw.github.com/cstrap/monaco-font/master/install-font-ubuntu.sh |\
+      bash -s http://jorrel.googlepages.com/Monaco_Linux.ttf
     if [ $? != 0 ]; then
       echo "FAILED: Installing additional fonts..."
       exit 1;
