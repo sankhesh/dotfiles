@@ -103,8 +103,8 @@ Plugin 'peterhoeg/vim-qml'
 
 " Colorschemes
 Plugin 'nanotech/jellybeans.vim'
-Plugin 'tomasr/molokai'
-Plugin 'w0ng/vim-hybrid'
+" Plugin 'tomasr/molokai'
+" Plugin 'w0ng/vim-hybrid'
 
 " Re-enable filetype plugins
 filetype plugin indent on
