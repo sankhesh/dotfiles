@@ -1,25 +1,25 @@
 [global_config]
   always_split_with_profile = True
-  title_transmit_bg_color = "#6d748b"
   focus = system
   suppress_multiple_term_dialog = True
+  title_transmit_bg_color = "#6d748b"
 [keybindings]
-[profiles]
-  [[default]]
-    use_system_font = False
-    background_darkness = 0.78
-    background_type = transparent
-    background_image = None
-    cursor_color = "#808080"
-    foreground_color = "#ffffff"
-    font = Monaco 11
-    scrollback_infinite = True
 [layouts]
   [[default]]
     [[[child1]]]
-      type = Terminal
       parent = window0
+      type = Terminal
     [[[window0]]]
-      type = Window
       parent = ""
+      type = Window
 [plugins]
+[profiles]
+  [[default]]
+    background_darkness = 0.89
+    background_image = None
+    background_type = transparent
+    copy_on_selection = True
+    cursor_color = "#808080"
+    font = Monaco 11
+    foreground_color = "#ffffff"
+    scrollback_infinite = True
