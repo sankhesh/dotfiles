@@ -10,12 +10,24 @@
 ]
 
 - link:
+    ~/.vim: vim/
+    ~/.vimrc: vimrc
+
+- shell:
+    - git submodule update --init --recursive # Installing submodules
+    - git config --global core.excludesfile ~/.vim/global_ignore # Ignore certain filetypes from git
+    -
+      command: vim +PluginInstall +qall # Fetch VIM plugins
+      stderr: true
+    -
+      command: ~/.vim/bundle/YouCompleteMe/install.py --clang-completer # Install YouCompleteme
+      stderr: true
+
+- link:
     ~/.bash_profile: bash_profile
     ~/.bash_prompt: bash_prompt
     ~/.config/terminator:
       path: config/terminator/
-    ~/.vimrc: vimrc
-    ~/.vim: vim/
     ~/.vim/colors: vim/bundle/jellybeans.vim/colors/
     ~/.zlogin: zsh/prezto/runcoms/zlogin
     ~/.zlogout: zsh/zlogout
@@ -26,7 +38,3 @@
     ~/.zprezto: zsh/prezto
     ~/.tmux.conf: tmux.conf
     ~/.config/flake8: config/flake8
-
-- shell:
-    - git submodule update --init --recursive # Installing submodules
-    - git config --global core.excludesfile ~/.vim/global_ignore # Ignore certain filetypes from git

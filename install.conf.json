@@ -18,13 +18,27 @@
 
   {
     "link": {
+        "~/.vimrc": "vimrc",
+        "~/.vim": "vim/"
+    }
+  },
+
+  {
+    "shell": [
+        ["git submodule update --init --recursive", "Installing submodules"],
+        ["git config --global core.excludesfile ~/.vim/global_ignore", "Ignore certain filetypes from git"],
+        ["vim +PluginInstall +qall", "Fetch VIM Plugins"],
+        ["~/.vim/bundle/YouCompleteMe/install.py --clang-completer", "Install YouCompleteMe"]
+      ]
+  },
+
+  {
+    "link": {
         "~/.bash_profile": "bash_profile",
         "~/.bash_prompt": "bash_prompt",
         "~/.config/terminator": {
           "path": "config/terminator/"
         },
-        "~/.vimrc": "vimrc",
-        "~/.vim": "vim/",
         "~/.zlogin": "zsh/prezto/runcoms/zlogin",
         "~/.zlogout": "zsh/zlogout",
         "~/.zprofile": "zsh/prezto/runcoms/zprofile",
@@ -35,12 +49,5 @@
         "~/.tmux.conf": "tmux.conf",
         "~/.config/flake8": "config/flake8"
     }
-  },
-
-  {
-  "shell": [
-      ["git submodule update --init --recursive", "Installing submodules"],
-      ["git config --global core.excludesfile ~/.vim/global_ignore", "Ignore certain filetypes from git"],
-    ]
   }
 ]
