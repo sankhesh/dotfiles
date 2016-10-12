@@ -106,6 +106,9 @@ Plugin 'nanotech/jellybeans.vim'
 " Plugin 'tomasr/molokai'
 " Plugin 'w0ng/vim-hybrid'
 
+" Vim-do plugin
+Plugin 'sankhesh/vim-do'
+
 " Re-enable filetype plugins
 filetype plugin indent on
 
