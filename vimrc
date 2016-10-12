@@ -109,6 +109,9 @@ Plugin 'nanotech/jellybeans.vim'
 " Vim-do plugin
 Plugin 'sankhesh/vim-do'
 
+" Vim CMake completion
+Plugin 'richq/vim-cmake-completion'
+
 " Re-enable filetype plugins
 filetype plugin indent on
 
@@ -180,6 +183,10 @@ let g:ycm_register_as_syntastic_checker = 1
 let g:ycm_collect_identifiers_from_tags_files = 1 " Load identifiers from tags files
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_always_populate_location_list = 1 " Allows to navigate to next/previous errors
+if !exists("g:ycm_semantic_triggers")
+  let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.cmake=['re!\_']
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 " Tagbar
@@ -229,7 +236,7 @@ map <C-F6> :!ctags -R --sort=yes --c++-kinds=+pl --fields=+iaS --extra=+q .<CR>
 
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-"set completeopt=menuone,menu,longest,preview
+set completeopt=menuone,menu,longest,preview
 
 " Smart_TabComplete
 "function! Smart_TabComplete()
