@@ -415,9 +415,12 @@ endif
 " vim-signature options
 let g:SignatureMarkTextHLDynamic = 1 " Dynamic mark highlight based on gitgutter
 
-" vim-airline options
+" vim-gitgutter options
 set updatetime=250 " Refresh gitgutter signs every 250ms
 " let g:gitgutter_highlight_lines = 1 " Enable line highlighting by default
+
+" Gitv options
+let g:Gitv_TruncateCommitSubjects = 1 " Fit log width to split
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
