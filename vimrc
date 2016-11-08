@@ -271,10 +271,10 @@ function! SwitchSourceHeader()
     if findfile(s:base . ".hpp" ) != "" | exe s:cmd . ".hpp" | return | en
     if findfile(s:base . ".hxx" ) != "" | exe s:cmd . ".hxx" | return | en
   else
+    if findfile(s:base . ".cxx" ) != "" | exe s:cmd . ".cxx" | return | en
     if findfile(s:base . ".cpp" ) != "" | exe s:cmd . ".cpp" | return | en
     if findfile(s:base . ".c"   ) != "" | exe s:cmd . ".c"   | return | en
     if findfile(s:base . ".C"   ) != "" | exe s:cmd . ".C"   | return | en
-    if findfile(s:base . ".cxx" ) != "" | exe s:cmd . ".cxx" | return | en
   endif
 endfunc
 nmap ,s :call SwitchSourceHeader()<CR>
