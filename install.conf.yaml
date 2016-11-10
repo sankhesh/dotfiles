@@ -17,8 +17,8 @@
     - git submodule update --init --recursive # Installing submodules
     - git config --global core.excludesfile ~/.vim/global_ignore # Ignore certain filetypes from git
     -
-      command: vim +PluginInstall +qall # Fetch VIM plugins
-      stderr: true
+      command: vim +PluginInstall +PluginUpdate +qall # Fetch VIM plugins
+      #stderr: true
     -
       command: ~/.vim/bundle/YouCompleteMe/install.py --clang-completer # Install YouCompleteme
       stderr: true
@@ -28,7 +28,7 @@
     ~/.bash_prompt: bash_prompt
     ~/.config/terminator:
       path: config/terminator/
-    ~/.vim/colors: vim/bundle/jellybeans.vim/colors/
+    ~/.vim/colors: vim/bundle/vim-atom-dark/colors/
     ~/.zlogin: zsh/prezto/runcoms/zlogin
     ~/.zlogout: zsh/zlogout
     ~/.zprofile: zsh/prezto/runcoms/zprofile

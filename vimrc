@@ -23,7 +23,9 @@ if has("syntax")
 endif
 
 " Color scheme here would override all colors
-colorscheme jellybeans
+if findfile('~/.vim/colors/atom-dark.vim' ) != ""
+  colorscheme atom-dark
+endif
 let macvim_skip_colorscheme=1
 
 " If using a dark background within the editing area and syntax highlighting
@@ -102,9 +104,9 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'peterhoeg/vim-qml'
 
 " Colorschemes
-Plugin 'nanotech/jellybeans.vim'
-" Plugin 'tomasr/molokai'
-" Plugin 'w0ng/vim-hybrid'
+" Plugin 'nanotech/jellybeans.vim'
+Plugin 'gosukiwi/vim-atom-dark'
+" Plugin 'flazz/vim-colorschemes'
 
 " Vim-do plugin
 Plugin 'sankhesh/vim-do'
