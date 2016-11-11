@@ -24,7 +24,7 @@ endif
 
 " Color scheme here would override all colors
 if findfile('~/.vim/colors/atom-dark.vim' ) != ""
-  colorscheme atom-dark
+  colorscheme atom-dark-256
 endif
 let macvim_skip_colorscheme=1
 
@@ -294,7 +294,7 @@ vnoremap <silent> # :<C-U>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
 " Set a 256 color terminal
-" set t_Co=256
+set t_Co=256
 
 " Show trailing whitespace and highlight based on the colorscheme
 highlight link ExtraWhitespace Error
