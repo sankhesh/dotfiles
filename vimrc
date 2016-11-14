@@ -23,10 +23,16 @@ if has("syntax")
 endif
 
 " Color scheme here would override all colors
-if findfile('~/.vim/colors/atom-dark.vim' ) != ""
-  colorscheme atom-dark-256
+if has("gui_running")
+  if findfile('~/.vim/colors/atom-dark.vim' ) != ""
+    colorscheme atom-dark
+  endif
+  let macvim_skip_colorscheme=1
+else
+  if findfile('~/.vim/colors/atom-dark-256.vim' ) != ""
+    colorscheme atom-dark-256
+  endif
 endif
-let macvim_skip_colorscheme=1
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
