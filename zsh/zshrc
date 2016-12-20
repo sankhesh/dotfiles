@@ -18,3 +18,5 @@ fi
 if [[ -s "${ZDOTDIR:-$HOME}/.zshrc_local" ]]; then
   source "${ZDOTDIR:-$HOME}/.zshrc_local"
 fi
+
+autoload -Uz zmv
