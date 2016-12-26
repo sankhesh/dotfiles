@@ -162,6 +162,7 @@ set tw=80             " Set textwidth to 80 characters so that line breaks at th
 set splitright        " Open new vertical split to right
 set splitbelow        " Open new horizontal split below
 set statusline=%<%f\ %{fugitive#statusline()}\ %h%m%r%=%-14.(%l/%L,%c%V%)\ %P  " Status line
+set switchbuf=usetab,newtab  " Use existing tab or open new tab when switching buffers
 
 " Set make program
 " set makeprg=make\ -C\ %:p:h/../bld\ -j10
