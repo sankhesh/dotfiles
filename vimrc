@@ -120,6 +120,15 @@ Plugin 'sankhesh/vim-do'
 " Vim CMake completion
 Plugin 'richq/vim-cmake-completion'
 
+" Vim 8 Grepper plugin for async grepping
+Plugin 'mhinz/vim-grepper'
+
+" Vim 8 asyncrun for asynchronous commands run
+Plugin 'skywind3000/asyncrun.vim'
+
+" Vim C++ syntax highlighting
+Plugin 'octol/vim-cpp-enhanced-highlight'
+
 " Re-enable filetype plugins
 filetype plugin indent on
 
@@ -417,9 +426,11 @@ endif
 
 " Grep mappings
 "" Map gr to vimgrep word under cursor in parent directory of current file
-:nnoremap gr :execute "vimgrep /" . expand("<cword>") . "/j %:p:h/**" <Bar> cw<CR>
+":nnoremap gr :execute "vimgrep /" . expand("<cword>") . "/j %:p:h/**" <Bar> cw<CR>
+:nnoremap gr :Grepper -cword -noprompt<CR>
 "" Map Gr to git grep word under cursor in current working tree
-:nnoremap Gr :execute "Ggrep! " expand("<cword>") <Bar> cw<CR>
+":nnoremap Gr :execute "Ggrep! " expand("<cword>") <Bar> cw<CR>
+:nnoremap Gr :Grepper -tool git -cword -noprompt<CR>
 
 " vim-signature options
 let g:SignatureMarkTextHLDynamic = 1 " Dynamic mark highlight based on gitgutter
@@ -430,6 +441,24 @@ set updatetime=250 " Refresh gitgutter signs every 250ms
 
 " Gitv options
 let g:Gitv_TruncateCommitSubjects = 1 " Fit log width to split
+
+" Asyncrun options
+"if exists(':Make') == 2
+"  noautocmd Make
+"else
+"  silent noautocmd make!
+"  redraw!
+"  return 'call fugitive#cwindow()'
+"endif
+command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
+augroup vimrc
+  autocmd User AsyncRunStart call asyncrun#quickfix_toggle(8, 1)
+augroup END
+
+" Enhanced C++ syntax highlight options
+let g:cpp_class_scope_highlight = 1
+let g:cpp_experimental_template_highlight = 1
+let g:cpp_concepts_highlight = 1
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
