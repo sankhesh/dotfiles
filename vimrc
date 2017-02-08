@@ -22,22 +22,6 @@ if has("syntax")
   syntax on
 endif
 
-" Color scheme here would override all colors
-if has("gui_running")
-  if findfile('~/.vim/colors/atom-dark.vim' ) != ""
-    colorscheme atom-dark
-  endif
-  let macvim_skip_colorscheme=1
-else
-  if findfile('~/.vim/colors/atom-dark-256.vim' ) != ""
-    colorscheme atom-dark-256
-  endif
-endif
-
-" If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
-set background=dark
-
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
 if has("autocmd")
@@ -53,7 +37,7 @@ endif
 
 " Vundle
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 
 " This is the Vundle package, which can be found on GitHub.
 " For GitHub repos, you specify plugins using the
@@ -111,8 +95,9 @@ Plugin 'peterhoeg/vim-qml'
 
 " Colorschemes
 " Plugin 'nanotech/jellybeans.vim'
-Plugin 'gosukiwi/vim-atom-dark'
+"Plugin 'gosukiwi/vim-atom-dark'
 " Plugin 'flazz/vim-colorschemes'
+Plugin 'dracula/vim'
 
 " Vim-do plugin
 Plugin 'sankhesh/vim-do'
@@ -129,8 +114,23 @@ Plugin 'skywind3000/asyncrun.vim'
 " Vim C++ syntax highlighting
 Plugin 'octol/vim-cpp-enhanced-highlight'
 
+" All the plugins must be added before the following line
+call vundle#end()
+
 " Re-enable filetype plugins
 filetype plugin indent on
+
+" If using a dark background within the editing area and syntax highlighting
+" turn on this option as well
+set background=dark
+
+" Color scheme here would override all colors
+if has("gui_running")
+  colorscheme dracula
+  let macvim_skip_colorscheme=1
+else
+  color dracula
+endif
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.

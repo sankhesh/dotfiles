@@ -28,7 +28,6 @@
     ~/.bash_prompt: bash_prompt
     ~/.config/terminator:
       path: config/terminator/
-    ~/.vim/colors: vim/bundle/vim-atom-dark/colors/
     ~/.zlogin: zsh/prezto/runcoms/zlogin
     ~/.zlogout: zsh/zlogout
     ~/.zprofile: zsh/prezto/runcoms/zprofile
