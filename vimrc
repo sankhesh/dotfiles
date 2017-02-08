@@ -94,13 +94,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'peterhoeg/vim-qml'
 
 " Colorschemes
-" Plugin 'nanotech/jellybeans.vim'
-" Plugin 'gosukiwi/vim-atom-dark'
-" Plugin 'flazz/vim-colorschemes'
-" Plugin 'dracula/vim'
-" Plugin 'chriskempson/base16-vim'
-" Plugin 'agude/vim-eldar'
-Plugin 'crater2150/vim-theme-chroma'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'gosukiwi/vim-atom-dark'
 
 " Vim-do plugin
 Plugin 'sankhesh/vim-do'
@@ -128,8 +123,16 @@ filetype plugin indent on
 set background=dark
 
 " Color scheme here would override all colors
-colorscheme chroma
-let macvim_skip_colorscheme=1
+if has("gui_running")
+  if findfile('~/.vim/colors/atom-dark.vim' ) != ""
+    colorscheme atom-dark
+  endif
+  let macvim_skip_colorscheme=1
+else
+  if findfile('~/.vim/colors/atom-dark-256.vim' ) != ""
+    colorscheme atom-dark-256
+  endif
+endif"
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
