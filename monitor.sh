@@ -40,6 +40,11 @@ function switch {
     4)
       xrandr --output DP-0 --off
     ;;
+    *)
+      echo -e "\nERROR: Invalid option" "$opt\n"
+      usage
+      exit 1
+    ;;
   esac
 }
 
@@ -53,12 +58,5 @@ else
   opt=$option
 fi
 
-if [[ $(contains $opt) =~ 0 ]]; then
-  switch $opt
-  exit 0
-else
-  echo -e "\nERROR: Invalid option" "$opt\n"
-  usage
-  exit 1
-fi
-
+switch $opt
+exit 0
