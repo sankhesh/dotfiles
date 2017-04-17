@@ -35,6 +35,9 @@ if has("autocmd")
   filetype off
 endif
 
+" Set a 256 color terminal
+set t_Co=256
+
 " Vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
@@ -118,10 +121,6 @@ call vundle#end()
 " Re-enable filetype plugins
 filetype plugin indent on
 
-" If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
-set background=dark
-
 " Color scheme here would override all colors
 if has("gui_running")
   if findfile('~/.vim/colors/atom-dark.vim' ) != ""
@@ -133,6 +132,10 @@ else
     colorscheme atom-dark-256
   endif
 endif"
+
+" If using a dark background within the editing area and syntax highlighting
+" turn on this option as well
+set background=dark
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
@@ -310,9 +313,6 @@ vnoremap <silent> # :<C-U>
   \gvy?<C-R><C-R>=substitute(
   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
-
-" Set a 256 color terminal
-set t_Co=256
 
 " Show trailing whitespace and highlight based on the colorscheme
 highlight link ExtraWhitespace Error
