@@ -10,7 +10,7 @@
 
 /* This is the overall wrapper, it should be treated as the `body` section. */
 .markdown-here-wrapper {
-  font-family: Verdana, Arial, sans-serif;
+  font-family: 'Lucida Sans', Verdana, sans-serif;
   color: #0B5394;
 }
 
@@ -167,7 +167,6 @@ h5 {
 h6 {
   font-size: 1em;
   color: #0b5394;
-  font-family: "Open Sans", Verdata, sans-serif;
   font-weight: normal;
 /*  color: #777;*/
 }
