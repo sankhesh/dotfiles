@@ -115,6 +115,9 @@ Plugin 'skywind3000/asyncrun.vim'
 " Vim C++ syntax highlighting
 Plugin 'octol/vim-cpp-enhanced-highlight'
 
+" Vim Latex vimtex
+Plugin 'lervag/vimtex'
+
 " All the plugins must be added before the following line
 call vundle#end()
 
