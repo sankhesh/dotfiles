@@ -119,6 +119,9 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 " Vim Latex vimtex
 Plugin 'lervag/vimtex'
 
+" Tmux.conf syntax highlighting
+Plugin 'tmux-plugins/vim-tmux'
+
 " All the plugins must be added before the following line
 call vundle#end()
 
