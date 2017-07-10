@@ -12,15 +12,19 @@
 - link:
     ~/.vim: vim/
     ~/.vimrc: vimrc
+    ~/.tmux: tmux
+    ~/.tmux.conf: tmux.conf
 
 - shell:
     - git submodule update --init --recursive # Installing submodules
     - git config --global core.excludesfile ~/.vim/global_ignore # Ignore certain filetypes from git
-    -
-      command: vim +PluginInstall +PluginUpdate +qall # Fetch VIM plugins
+    - command: vim +PluginInstall +PluginUpdate +qall # Fetch VIM plugins
       #stderr: true
-    -
-      command: ~/.vim/bundle/YouCompleteMe/install.py --clang-completer # Install YouCompleteme
+    - command: ~/.vim/bundle/YouCompleteMe/install.py --clang-completer # Install YouCompleteme
+      stderr: true
+    - command: ~/.tmux/plugins/tpm/bin/install_plugins # Install TMUX plugins
+      stderr: true
+    - command: ~/.tmux/plugins/tpm/bin/update_plugins all # Update TMUX plugins
       stderr: true
 
 - link:
@@ -36,6 +40,5 @@
     ~/.zshrc: zsh/zshrc
     ~/.zpreztorc: zsh/zpreztorc
     ~/.zprezto: zsh/prezto
-    ~/.tmux.conf: tmux.conf
     ~/.config/flake8: config/flake8
     ~/.monitor.sh: monitor.sh
