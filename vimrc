@@ -37,7 +37,11 @@ endif
 
 " Set a 256 color terminal
 set t_Co=256
-set term=screen-256color
+if exists('$TMUX')
+  set term=screen-256color
+else
+  set term=xterm-256color
+endif
 
 " Vundle
 set rtp+=~/.vim/bundle/vundle/
