@@ -106,7 +106,7 @@ Plugin 'nanotech/jellybeans.vim'
 Plugin 'gosukiwi/vim-atom-dark'
 
 " Vim-do plugin
-Plugin 'sankhesh/vim-do'
+" Plugin 'sankhesh/vim-do'
 
 " Vim CMake completion
 Plugin 'richq/vim-cmake-completion'

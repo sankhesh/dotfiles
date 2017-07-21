@@ -1,3 +1,4 @@
 vim/bundle/*
 vim/colors
 tmux/resurrect/*
+tmux/plugins/*
