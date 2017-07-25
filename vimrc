@@ -126,6 +126,9 @@ Plugin 'lervag/vimtex'
 " Tmux.conf syntax highlighting
 Plugin 'tmux-plugins/vim-tmux'
 
+" Clang format plugin for vim
+Plugin 'rhysd/vim-clang-format'
+
 " All the plugins must be added before the following line
 call vundle#end()
 
@@ -472,6 +475,27 @@ augroup END
 let g:cpp_class_scope_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 let g:cpp_concepts_highlight = 1
+
+" Clang format options
+let g:clang_format#style_options = {
+            \ "BasedOnStyle" : "Mozilla",
+            \ "AlignAfterOpenBracket" : "DontAlign",
+            \ "AlignOperands" : "false",
+            \ "AlwaysBreakAfterReturnType" : "None",
+            \ "AlwaysBreakAfterDefinitionReturnType" : "None",
+            \ "BreakBeforeBraces" : "Allman",
+            \ "ColumnLimit" : "80",
+            \ "Standard" : "C++11"}
+
+" map to <Leader>cf in C++ code
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+" if you install vim-operator-user
+autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
+" Toggle auto formatting:
+nmap <Leader>CF :ClangFormatAutoToggle<CR>
+" Auto-enable clang formatting for c and cpp code
+autocmd FileType c,cpp ClangFormatAutoEnable
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
