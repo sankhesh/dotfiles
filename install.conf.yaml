@@ -22,9 +22,9 @@
       #stderr: true
     - command: ~/.vim/bundle/YouCompleteMe/install.py --clang-completer # Install YouCompleteme
       stderr: true
-    - command: ~/.tmux/plugins/tpm/bin/install_plugins # Install TMUX plugins
+    - command: type tmux && { ~/.tmux/plugins/tpm/bin/install_plugins } || { exit 0 } # Install TMUX plugins
       stderr: true
-    - command: ~/.tmux/plugins/tpm/bin/update_plugins all # Update TMUX plugins
+    - command: type tmux && { ~/.tmux/plugins/tpm/bin/update_plugins all } || { exit 0 } # Update TMUX plugins
       stderr: true
 #    - command: ./vim_pyclewn.sh > pyclewn_log 2>&1 # Install the pyclewn vim plugin
 #      stderr: true
