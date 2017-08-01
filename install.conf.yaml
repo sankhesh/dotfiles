@@ -26,9 +26,9 @@
       stderr: true
     - command: type tmux && { ~/.tmux/plugins/tpm/bin/update_plugins all } || { exit 0 } # Update TMUX plugins
       stderr: true
-#    - command: ./vim_pyclewn.sh > pyclewn_log 2>&1 # Install the pyclewn vim plugin
-#      stderr: true
-#      stdout: true
+    - command: ./vim_pyclewn.sh # Install the pyclewn vim plugin
+      stdout: true
+      stderr: true
 
 - link:
     ~/.bash_profile: bash_profile
