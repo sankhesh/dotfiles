@@ -102,7 +102,6 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'peterhoeg/vim-qml'
 
 " Colorschemes
-Plugin 'nanotech/jellybeans.vim'
 Plugin 'gosukiwi/vim-atom-dark'
 
 " Vim-do plugin
@@ -129,6 +128,10 @@ Plugin 'tmux-plugins/vim-tmux'
 " Clang format plugin for vim
 Plugin 'rhysd/vim-clang-format'
 
+" Obsession plugin
+Plugin 'tpope/vim-obsession'
+Plugin 'dhruvasagar/vim-prosession'
+
 " All the plugins must be added before the following line
 call vundle#end()
 
@@ -153,7 +156,7 @@ set background=dark
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
-"set showcmd		" Show (partial) command in status line.
+set showcmd		" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
 set ignorecase	" Do case insensitive matching
 set smartcase		" Do smart case matching
@@ -189,7 +192,7 @@ set laststatus=2      " Show status line even if there is only one window
 set tw=80             " Set textwidth to 80 characters so that line breaks at that width
 set splitright        " Open new vertical split to right
 set splitbelow        " Open new horizontal split below
-set statusline=%<%f\ %{fugitive#statusline()}\ %h%m%r%=%-14.(%l/%L,%c%V%)\ %P  " Status line
+set statusline=%<%f\ %{fugitive#statusline()}\ %{ObsessionStatus('[Obsession]',\ '[ObsessionPaused]')}\ %h%m%r%=%-14.(%l/%L,%c%V%)\ %P  " Status line
 set switchbuf=usetab,newtab  " Use existing tab or open new tab when switching buffers
 
 " Set make program
@@ -240,6 +243,10 @@ highlight link Flake8_Naming      WarningMsg
 highlight link Flake8_PyFlake     WarningMsg
 " auto run flake8 everytime when writing python files
 autocmd BufWritePost *.py call Flake8()
+
+" Prosession
+let g:prosession_tmux_title = 1 " Update TMUX window title based on vim session
+let g:procession_default_session = 1 " Create a default session if none found
 
 " Set omnifunc
 "autocmd FileType python set omnifunc=pythoncomplete#Complete
