@@ -491,6 +491,7 @@ let g:clang_format#style_options = {
             \ "AlwaysBreakAfterReturnType" : "None",
             \ "AlwaysBreakAfterDefinitionReturnType" : "None",
             \ "BreakBeforeBraces" : "Allman",
+            \ "AllowShortFunctionsOnASingleLine" : "false",
             \ "ColumnLimit" : "80",
             \ "Standard" : "C++11"}
 
