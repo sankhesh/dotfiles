@@ -3,8 +3,8 @@ snippet qtheader
 Copyright and License information
 =============================================================================*/
 
-#ifndef __${1:`!p snip.rv = snip.basename`}_h
-#define __$1_h
+#ifndef ${1:`!p snip.rv = snip.basename`}_h
+#define $1_h
 
 // Qt includes
 #include <$2>
@@ -23,7 +23,7 @@ private:
   Q_DISABLE_COPY($1)
 };
 
-#endif //__$1_h
+#endif //$1_h
 endsnippet
 
 snippet qtimpl
@@ -114,8 +114,8 @@ snippet vtkheader
 Copyright and License information
 =============================================================================*/
 
-#ifndef __${1:`!p snip.rv = snip.basename`}_h
-#define __$1_h
+#ifndef ${1:`!p snip.rv = snip.basename`}_h
+#define $1_h
 
 // VTK includes
 #include <$2.h>
@@ -138,7 +138,7 @@ private:
   void operator=(const $1) VTK_DELETE_FUNCTION;
 };
 
-#endif //__$1_h
+#endif //$1_h
 endsnippet
 
 snippet vtkimpl
