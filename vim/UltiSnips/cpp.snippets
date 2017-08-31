@@ -171,3 +171,12 @@ void $1::PrintSelf(ostream &os, vtkIndent indent)
   os << indent << " = " << this-> << endl;
 }
 endsnippet
+
+snippet vtkincludes
+#include <vtkActor.h>
+#include <vtkCamera.h>
+#include <vtkNew.h>
+#include <vtkRenderWindow.h>
+#include <vtkRenderWindowInteractor.h>
+#include <vtkRenderer.h>
+endsnippet
