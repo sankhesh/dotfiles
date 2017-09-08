@@ -503,7 +503,7 @@ autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
 " Toggle auto formatting:
 nmap <Leader>CF :ClangFormatAutoToggle<CR>
 " Auto-enable clang formatting for c and cpp code
-autocmd FileType c,cpp ClangFormatAutoEnable
+"autocmd FileType c,cpp ClangFormatAutoEnable
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
