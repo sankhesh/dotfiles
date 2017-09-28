@@ -132,6 +132,10 @@ Plugin 'rhysd/vim-clang-format'
 Plugin 'tpope/vim-obsession'
 Plugin 'dhruvasagar/vim-prosession'
 
+" FastFold and FoldText plugins
+Plugin 'Konfekt/FastFold'
+Plugin 'Konfekt/FoldText'
+
 " All the plugins must be added before the following line
 call vundle#end()
 
