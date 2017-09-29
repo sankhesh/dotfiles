@@ -44,7 +44,7 @@ else
 endif
 
 " Vundle
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/vundle/,~/.vim/bundle/pyclewn
 call vundle#begin()
 
 " This is the Vundle package, which can be found on GitHub.
