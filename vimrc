@@ -490,14 +490,16 @@ let g:cpp_concepts_highlight = 1
 " Clang format options
 let g:clang_format#style_options = {
             \ "BasedOnStyle" : "Mozilla",
-            \ "AlignAfterOpenBracket" : "DontAlign",
             \ "AlignOperands" : "false",
             \ "AlwaysBreakAfterReturnType" : "None",
             \ "AlwaysBreakAfterDefinitionReturnType" : "None",
             \ "BreakBeforeBraces" : "Allman",
+            \ "BinPackParameters" : "false",
+            \ "BinPackArguments" : "false",
             \ "AllowShortFunctionsOnASingleLine" : "false",
             \ "ColumnLimit" : "80",
             \ "Standard" : "C++11"}
+"            \ \"AlignAfterOpenBracket" : \"AlwaysBreak",
 
 " map to <Leader>cf in C++ code
 autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
