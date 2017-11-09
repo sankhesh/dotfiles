@@ -51,6 +51,7 @@
         "~/.zpreztorc": "zsh/zpreztorc",
         "~/.zprezto": "zsh/prezto",
         "~/.config/flake8": "config/flake8"
+        "~/.local/share/applications": "applications/"
     }
   }
 ]

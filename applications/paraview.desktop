@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=ParaView
+Comment=Parallel visualization application
+Exec=/home/sankhesh/Projects/paraview/install/bin/paraview %U
+TryExec=/home/sankhesh/Projects/paraview/install/bin/paraview
+Icon=/home/sankhesh/Projects/paraview/install/share/icons/hicolor/96x96/apps/paraview.png
+MimeType=application/xml;text/plain;
+Categories=Development;Graphics;

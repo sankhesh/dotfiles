@@ -45,3 +45,4 @@
     ~/.zprezto: zsh/prezto
     ~/.config/flake8: config/flake8
     ~/.monitor.sh: monitor.sh
+    ~/.local/share/applications: applications/

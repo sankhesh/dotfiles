@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=QtDesigner
+Comment=Qt graphical interface designer
+Exec=/home/sankhesh/Projects/Qt/install/bin/designer %U
+TryExec=/home/sankhesh/Projects/Qt/install/bin/designer
+Icon=/home/sankhesh/Projects/Qt/qt5/qttools/src/designer/src/designer/images/designer.png
+MimeType=application/x-designer;
+Categories=Development;
