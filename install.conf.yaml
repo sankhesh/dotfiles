@@ -45,4 +45,6 @@
     ~/.zprezto: zsh/prezto
     ~/.config/flake8: config/flake8
     ~/.monitor.sh: monitor.sh
-    ~/.local/share/applications: applications/
+    ~/.local/share/applications/defaults.list: applications/defaults.list
+    ~/.local/share/applications/designer.desktop: applications/designer.desktop
+    ~/.local/share/applications/paraview.desktop: applications/paraview.desktop
