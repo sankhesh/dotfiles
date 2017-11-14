@@ -11,4 +11,24 @@ BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "${BASEDIR}"
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
+if [ -f /etc/os-release ]; then
+  . /etc/os-release
+  OS_NAME=$NAME
+elif type lsb_release >/dev/null 2>&1; then
+  OS_NAME=$(lsb_release -si)
+elif [ -f /etc/lsb-release ]; then
+  . /etc/lsb-release
+  OS_NAME=$DISTRIB_ID
+else
+  OS_NAME=$(uname -s)
+fi
+
+if [[ ! -z $(echo $OS_NAME | grep -e "Arch") ]]; then
+  export ARCHLINUX=1
+elif [[ ! -z $(echo $OS_NAME | grep -e "Darwin") ]]; then
+  export APPLEUNIX=1
+elif [[ ! -z $(echo $OS_NAME | grep -e "Ubuntu") ]]; then
+  export UBUNTULINUX=1
+fi
+
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
