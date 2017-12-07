@@ -246,7 +246,25 @@ highlight link Flake8_Complexity  WarningMsg
 highlight link Flake8_Naming      WarningMsg
 highlight link Flake8_PyFlake     WarningMsg
 " auto run flake8 everytime when writing python files
-autocmd BufWritePost *.py call Flake8()
+function! EnableAutoFlake8()
+  augroup Flake8AutoGroup
+    autocmd!
+    autocmd BufWritePost *.py call Flake8()
+  augroup END
+endfunction
+call EnableAutoFlake8()
+function! ToggleAutoFlake8()
+  if !exists('#Flake8AutoGroup#BufWritePost')
+    call EnableAutoFlake8()
+    echo "AutoFlake8 On" 
+  else
+    augroup Flake8AutoGroup
+      autocmd!
+      echo "AutoFlake8 Off" 
+    augroup END
+  endif
+endfunction
+nnoremap <F4> :call ToggleAutoFlake8()<CR>
 
 " Prosession
 let g:prosession_tmux_title = 1 " Update TMUX window title based on vim session
