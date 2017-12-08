@@ -20,3 +20,5 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zshrc_local" ]]; then
 fi
 
 autoload -Uz zmv
+
+alias vim='vim --servername vim'
