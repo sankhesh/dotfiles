@@ -416,6 +416,17 @@ nmap <leader>p :DiffChangesPatchToggle<CR>
 nmap <leader>m :NERDTreeToggle<CR>
 nmap <leader>n :NERDTreeFind<CR>
 
+" NERDCommenter
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prefitted multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code
+" indentation
+let g:NERDDefaultAlign = 'left'
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
 " CtrlP word under cursor
 nmap <leader>cp :CtrlP<CR><C-\>w
 
