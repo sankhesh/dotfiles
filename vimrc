@@ -139,6 +139,9 @@ Plug 'dhruvasagar/vim-prosession'
 Plug 'Konfekt/FastFold'
 Plug 'Konfekt/FoldText'
 
+" Asynchronous linting engine
+Plug 'w0rp/ale'
+
 " Initialize plugin system
 call plug#end()
 
