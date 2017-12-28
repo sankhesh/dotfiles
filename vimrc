@@ -44,103 +44,103 @@ else
 endif
 
 " Vundle
-set rtp+=~/.vim/bundle/vundle/,~/.vim/bundle/pyclewn
-call vundle#begin()
+set rtp+=~/.vim/bundle/pyclewn
 
-" This is the Vundle package, which can be found on GitHub.
-" For GitHub repos, you specify plugins using the
-" 'user/repository' format
-Plugin 'gmarik/vundle'
+" Specify a directory for plugins
+" Avoid using standard Vim directory names like plugins
+call plug#begin('~/.vim/plugged')
 
 " We could also add repositories with a '.git' extension
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
 
 " Vim-Signature plugin to show marks
-Plugin 'kshenoy/vim-signature'
+Plug 'kshenoy/vim-signature'
 
 " CtrlP plugin
-Plugin 'ctrlp.vim'
+Plug 'vim-scripts/ctrlp.vim'
 
 " Diffchanges plugin
-Plugin 'diffchanges.vim'
+Plug 'vim-scripts/diffchanges.vim'
 
 " Youcompleteme plugin
-Plugin 'Valloric/YouCompleteMe'
+function! BuildYCM(info)
+  if a:info.status == 'installed' || a:info.force
+    !./install.py --clang-completer
+  endif
+endfunction
+Plug 'Valloric/YouCompleteMe', { 'do' : function('BuildYCM') }
 
 " Fugitive
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " Gitv
-Plugin 'gregsexton/gitv'
+Plug 'gregsexton/gitv'
 
 " Vim-unimpaired
-Plugin 'tpope/vim-unimpaired'
+Plug 'tpope/vim-unimpaired'
 
 " Tagbar
-Plugin 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 
 " UltiSnips
-Plugin 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 
 " Instant Preview
-Plugin 'greyblake/vim-preview'
+Plug 'greyblake/vim-preview'
 
 " PEP 8 style checker for python files
-Plugin 'nvie/vim-flake8'
+Plug 'nvie/vim-flake8'
 
 " QuickFix list handling
-Plugin 'yssl/QFEnter'
+Plug 'yssl/QFEnter'
 
 " Draw ASCII text drawings DrawIt
-Plugin 'vim-scripts/DrawIt'
+Plug 'vim-scripts/DrawIt'
 
 " Git Gutter plugin
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 
 " QML syntax highlighting and indenting
-Plugin 'peterhoeg/vim-qml'
+Plug 'peterhoeg/vim-qml'
 
 " Colorschemes
-Plugin 'gosukiwi/vim-atom-dark'
+Plug 'gosukiwi/vim-atom-dark'
 
 " Vim-do plugin
-" Plugin 'sankhesh/vim-do'
+" Plug 'sankhesh/vim-do'
 
 " Vim CMake completion
-Plugin 'richq/vim-cmake-completion'
+Plug 'richq/vim-cmake-completion'
 
 " Vim 8 Grepper plugin for async grepping
-Plugin 'mhinz/vim-grepper'
+Plug 'mhinz/vim-grepper'
 
 " Vim 8 asyncrun for asynchronous commands run
-Plugin 'skywind3000/asyncrun.vim'
+Plug 'skywind3000/asyncrun.vim'
 
 " Vim C++ syntax highlighting
-Plugin 'octol/vim-cpp-enhanced-highlight'
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 " Vim Latex vimtex
-Plugin 'lervag/vimtex'
+Plug 'lervag/vimtex'
 
 " Tmux.conf syntax highlighting
-Plugin 'tmux-plugins/vim-tmux'
+Plug 'tmux-plugins/vim-tmux'
 
 " Clang format plugin for vim
-Plugin 'rhysd/vim-clang-format'
+Plug 'rhysd/vim-clang-format'
 
 " Obsession plugin
-Plugin 'tpope/vim-obsession'
-Plugin 'dhruvasagar/vim-prosession'
+Plug 'tpope/vim-obsession'
+Plug 'dhruvasagar/vim-prosession'
 
 " FastFold and FoldText plugins
-Plugin 'Konfekt/FastFold'
-Plugin 'Konfekt/FoldText'
+Plug 'Konfekt/FastFold'
+Plug 'Konfekt/FoldText'
 
-" All the plugins must be added before the following line
-call vundle#end()
-
-" Re-enable filetype plugins
-filetype plugin indent on
+" Initialize plugin system
+call plug#end()
 
 " Color scheme here would override all colors
 if has("gui_running")

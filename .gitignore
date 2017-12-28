@@ -1,4 +1,4 @@
-vim/bundle/*
+vim/plugged/*
 vim/colors
 vim/session/*
 tmux/resurrect/*

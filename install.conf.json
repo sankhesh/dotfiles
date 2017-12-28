@@ -29,8 +29,7 @@
     "shell": [
         ["git submodule update --init --recursive", "Installing submodules"],
         ["git config --global core.excludesfile ~/.vim/global_ignore", "Ignore certain filetypes from git"],
-        ["vim +PluginInstall +qall", "Fetch VIM Plugins"],
-        ["~/.vim/bundle/YouCompleteMe/install.py --clang-completer", "Install YouCompleteMe"],
+        ["vim +PlugInstall +PlugUpdate +qall", "Fetch VIM Plugins"],
         ["~/.tmux/plugins/tpm/bin/install_plugins", "Install TMUX plugins"],
         ["~/.tmux/plugins/tpm/bin/update_plugins", "Update TMUX plugins"]
       ]
