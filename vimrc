@@ -66,7 +66,7 @@ Plug 'vim-scripts/diffchanges.vim'
 " Youcompleteme plugin
 function! BuildYCM(info)
   if a:info.status == 'installed' || a:info.force
-    !./install.py --clang-completer
+    !./install.py --clang-completer --system-libclang
   endif
 endfunction
 Plug 'Valloric/YouCompleteMe', { 'do' : function('BuildYCM') }
