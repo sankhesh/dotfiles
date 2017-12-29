@@ -129,9 +129,6 @@ Plug 'lervag/vimtex'
 " Tmux.conf syntax highlighting
 Plug 'tmux-plugins/vim-tmux'
 
-" Clang format plugin for vim
-Plug 'rhysd/vim-clang-format'
-
 " Obsession plugin
 Plug 'tpope/vim-obsession'
 Plug 'dhruvasagar/vim-prosession'
@@ -501,29 +498,29 @@ let g:cpp_concepts_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 
-" Clang format options
-let g:clang_format#style_options = {
-            \ "BasedOnStyle" : "Mozilla",
-            \ "AlignOperands" : "false",
-            \ "AlwaysBreakAfterReturnType" : "None",
-            \ "AlwaysBreakAfterDefinitionReturnType" : "None",
-            \ "BreakBeforeBraces" : "Allman",
-            \ "BinPackParameters" : "false",
-            \ "BinPackArguments" : "false",
-            \ "AllowShortFunctionsOnASingleLine" : "false",
-            \ "ColumnLimit" : "80",
-            \ "Standard" : "C++11"}
+" Ale options
+" Disable ale linting for C/C++ as YCM does it for me
+let g:ale_linters = {
+      \ 'cpp': [],
+      \ 'c': [],
+      \}
+let g:ale_fixers = {
+      \ 'cpp': ['clang-format'],
+      \ 'javascript': ['eslint'],
+      \}
+" let g:ale_c_build_dir = '../bld'
+let g:ale_c_clangformat_options = '-style="{
+      \ BasedOnStyle : Mozilla,
+      \ AlignOperands : false,
+      \ AlwaysBreakAfterReturnType : None,
+      \ AlwaysBreakAfterDefinitionReturnType : None,
+      \ BreakBeforeBraces : Allman,
+      \ BinPackParameters : false,
+      \ BinPackArguments : false,
+      \ AllowShortFunctionsOnASingleLine : false,
+      \ ColumnLimit : 80,
+      \ Standard : C++11}"'
 "            \ \"AlignAfterOpenBracket" : \"AlwaysBreak",
-
-" map to <Leader>cf in C++ code
-autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
-autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
-" if you install vim-operator-user
-autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
-" Toggle auto formatting:
-nmap <Leader>CF :ClangFormatAutoToggle<CR>
-" Auto-enable clang formatting for c and cpp code
-"autocmd FileType c,cpp ClangFormatAutoEnable
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
