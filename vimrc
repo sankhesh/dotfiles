@@ -89,9 +89,6 @@ Plug 'SirVer/ultisnips'
 " Instant Preview
 Plug 'greyblake/vim-preview'
 
-" PEP 8 style checker for python files
-Plug 'nvie/vim-flake8'
-
 " QuickFix list handling
 Plug 'yssl/QFEnter'
 
@@ -238,36 +235,6 @@ nnoremap <leader>jd :YcmCompleter GoTo<CR>
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
-
-"" flake8 settings
-" Show error marks in gutter
-let g:flake8_show_in_gutter=1
-" highlight using colors defined in the colorscheme
-highlight link Flake8_Error       Error
-highlight link Flake8_Warning     WarningMsg
-highlight link Flake8_Complexity  WarningMsg
-highlight link Flake8_Naming      WarningMsg
-highlight link Flake8_PyFlake     WarningMsg
-" auto run flake8 everytime when writing python files
-function! EnableAutoFlake8()
-  augroup Flake8AutoGroup
-    autocmd!
-    autocmd BufWritePost *.py call Flake8()
-  augroup END
-endfunction
-call EnableAutoFlake8()
-function! ToggleAutoFlake8()
-  if !exists('#Flake8AutoGroup#BufWritePost')
-    call EnableAutoFlake8()
-    echo "AutoFlake8 On" 
-  else
-    augroup Flake8AutoGroup
-      autocmd!
-      echo "AutoFlake8 Off" 
-    augroup END
-  endif
-endfunction
-nnoremap <F4> :call ToggleAutoFlake8()<CR>
 
 " Prosession
 let g:prosession_tmux_title = 1 " Update TMUX window title based on vim session
