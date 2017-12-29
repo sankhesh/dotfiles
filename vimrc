@@ -60,6 +60,10 @@ Plug 'kshenoy/vim-signature'
 " CtrlP plugin
 Plug 'vim-scripts/ctrlp.vim'
 
+" File Fuzzy Finder plugin
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
 " Diffchanges plugin
 Plug 'vim-scripts/diffchanges.vim'
 
@@ -400,9 +404,18 @@ let g:NERDTrimTrailingWhitespace = 1
 " CtrlP word under cursor
 nmap <leader>cp :CtrlP<CR><C-\>w
 
-" SimpylFold
-"autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr foldcolumn=1
-"autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
+" Fzf options
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
+" [[B]Commits] Customize the options used by 'git log':
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+" [Tags] Command to generate tags file
+let g:fzf_tags_command = 'ctags -R'
+" [Commands] --expect expression for directly executing the command
+let g:fzf_commands_expect = 'alt-enter,ctrl-x'
+" Files command with preview window
+command! -bang -nargs=? -complete=dir Files
+ \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 " Rename tabs to show tab number.
 " (Based on http://stackoverflow.com/questions/5927952/whats-implementation-of-vims-default-tabline-function)
