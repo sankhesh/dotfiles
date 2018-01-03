@@ -400,6 +400,7 @@ let g:NERDTrimTrailingWhitespace = 1
 
 " CtrlP word under cursor
 nmap <leader>cp :CtrlP<CR><C-\>w
+let g:ctrlp_max_files = 0
 
 " Fzf options
 " [Buffers] Jump to the existing window if possible
