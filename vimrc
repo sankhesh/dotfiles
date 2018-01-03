@@ -84,6 +84,9 @@ Plug 'gregsexton/gitv'
 " Vim-unimpaired
 Plug 'tpope/vim-unimpaired'
 
+" repeat.vim
+Plug 'tpope/vim-repeat'
+
 " Tagbar
 Plug 'majutsushi/tagbar'
 
