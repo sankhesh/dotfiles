@@ -525,6 +525,12 @@ let g:ale_c_clangformat_options = '-style="{
       \ ColumnLimit : 80,
       \ Standard : C++11}"'
 "            \ \"AlignAfterOpenBracket" : \"AlwaysBreak",
+" Key mappings
+nmap ]w :ALENextWrap<CR>
+nmap [w :ALEPreviousWrap<CR>
+" Format echo messages
+let g:ale_echo_msg_format = '[%linter%] %code: %%s [%severity%]'
+let g:ale_set_loclist = 1
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
