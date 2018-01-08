@@ -512,6 +512,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
       \ 'cpp': ['clang-format'],
       \ 'javascript': ['prettier', 'eslint'],
+      \ 'python': ['autopep8'],
       \}
 " let g:ale_c_build_dir = '../bld'
 let g:ale_c_clangformat_options = '-style="{
