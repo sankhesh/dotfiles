@@ -143,6 +143,9 @@ Plug 'Konfekt/FoldText'
 " Asynchronous linting engine
 Plug 'w0rp/ale'
 
+" Goyo plugin for prose mode
+Plug 'junegunn/goyo.vim'
+
 " Initialize plugin system
 call plug#end()
 
@@ -533,6 +536,20 @@ nmap [w :ALEPreviousWrap<CR>
 " Format echo messages
 let g:ale_echo_msg_format = '[%linter%] %code: %%s [%severity%]'
 let g:ale_set_loclist = 1
+
+" Goyo options
+let g:goyo_width = 80  " (default: 80)
+let g:goyo_height = 95  " (default: 85%)
+let g:goyo_linenr = 0   " (default: 0)
+function! s:goyo_enter()
+  set nocindent
+endfunction
+function! s:goyo_leave()
+  set cindent
+endfunction
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+nnoremap <leader>g :Goyo<CR>
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
