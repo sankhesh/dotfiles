@@ -549,7 +549,7 @@ function! s:goyo_leave()
 endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
-nnoremap <leader>g :Goyo<CR>
+nnoremap <leader>pm :Goyo<CR>
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
