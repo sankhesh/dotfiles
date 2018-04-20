@@ -195,7 +195,7 @@ set softtabstop=2     " 2 stops
 set expandtab         " Spaces instead of tabs
 set autoindent        " Always set auto indenting on
 set cindent
-set cinoptions+=g0,{1s,:0,l1,c0,(0,m0 " Place public:, etc. on the same indent as the {. VTK/ITK style
+set cinoptions+=g0,l1,c0,(0,m0 " Place public:, etc. on the same indent as the {. VTK/ITK style
 "set spell            " Spell checker on
 set number            " Show line numbers
 set matchpairs+=<:>   " To match arguments of templates
