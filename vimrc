@@ -102,8 +102,8 @@ Plug 'yssl/QFEnter'
 " Draw ASCII text drawings DrawIt
 Plug 'vim-scripts/DrawIt'
 
-" Git Gutter plugin
-Plug 'airblade/vim-gitgutter'
+" Signify plugin
+Plug 'mhinz/vim-signify'
 
 " QML syntax highlighting and indenting
 Plug 'peterhoeg/vim-qml'
@@ -481,9 +481,14 @@ endif
 " vim-signature options
 let g:SignatureMarkTextHLDynamic = 1 " Dynamic mark highlight based on gitgutter
 
-" vim-gitgutter options
-set updatetime=250 " Refresh gitgutter signs every 250ms
-" let g:gitgutter_highlight_lines = 1 " Enable line highlighting by default
+" vim-signify options
+let g:signify_vcs_list = ['git'] " Default vcs is git
+let g:signify_realtime = 1       " Aggressive diffing
+let g:signify_sign_change = '~'
+let g:signify_sign_delete = '-'
+highlight SignifySignAdd    cterm=bold ctermbg=235  ctermfg=119
+highlight SignifySignDelete cterm=bold ctermbg=235  ctermfg=167
+highlight SignifySignChange cterm=bold ctermbg=235  ctermfg=227
 
 " Gitv options
 let g:Gitv_TruncateCommitSubjects = 1 " Fit log width to split
