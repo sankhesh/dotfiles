@@ -143,6 +143,9 @@ Plug 'Konfekt/FoldText'
 " Asynchronous linting engine
 Plug 'w0rp/ale'
 
+" Clang format plugin for vim
+Plug 'rhysd/vim-clang-format'
+
 " Goyo plugin for prose mode
 Plug 'junegunn/goyo.vim'
 
@@ -421,7 +424,7 @@ let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 " Files command with preview window
 command! -bang -nargs=? -complete=dir Files
  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-nnoremap <leader>cf :call fzf#vim#files('.', {'options':'--query '.expand('<cword>')})<CR>
+nnoremap <leader>cp :call fzf#vim#files('.', {'options':'--query '.expand('<cword>')})<CR>
 nnoremap <C-P> :Files<CR>
 
 " Rename tabs to show tab number.
@@ -537,6 +540,24 @@ let g:ale_c_clangformat_options = '-style="{
       \ ColumnLimit : 80,
       \ Standard : C++11}"'
 "            \ \"AlignAfterOpenBracket" : \"AlwaysBreak",
+
+" Clang format options
+let g:clang_format#style_options = {
+            \ "BasedOnStyle" : "Mozilla",
+            \ "AlignOperands" : "false",
+            \ "AlwaysBreakAfterReturnType" : "None",
+            \ "AlwaysBreakAfterDefinitionReturnType" : "None",
+            \ "BreakBeforeBraces" : "Allman",
+            \ "BinPackParameters" : "false",
+            \ "BinPackArguments" : "false",
+            \ "AllowShortFunctionsOnASingleLine" : "false",
+            \ "ColumnLimit" : "80",
+            \ "Standard" : "C++11"}
+" map to <Leader>cf in C++ code
+" Main reason why I need ClangFormat - be able to format only selected code
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+
 " Key mappings
 nmap ]w :ALENextWrap<CR>
 nmap [w :ALEPreviousWrap<CR>
