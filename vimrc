@@ -489,6 +489,7 @@ let g:signify_vcs_list = ['git'] " Default vcs is git
 let g:signify_realtime = 1       " Aggressive diffing
 let g:signify_sign_change = '~'
 let g:signify_sign_delete = '-'
+let g:signify_cursorhold_insert = 0 " Disable update in insert mode
 highlight SignifySignAdd    cterm=bold ctermbg=235  ctermfg=119 guifg=green
 highlight SignifySignDelete cterm=bold ctermbg=235  ctermfg=167 guifg=red
 highlight SignifySignChange cterm=bold ctermbg=235  ctermfg=227 guifg=yellow
