@@ -496,6 +496,7 @@ highlight SignifySignChange cterm=bold ctermbg=235  ctermfg=227 guifg=yellow
 
 " Gitv options
 let g:Gitv_TruncateCommitSubjects = 1 " Fit log width to split
+let g:Gitv_PromptToDeleteMergeBranch = 1 " Delete branch just merged
 
 " Asyncrun options
 "if exists(':Make') == 2
