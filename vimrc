@@ -69,7 +69,7 @@ Plug 'vim-scripts/diffchanges.vim'
 
 " Youcompleteme plugin
 function! BuildYCM(info)
-  if a:info.status == 'installed' || a:info.force
+  if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
     !./install.py --clang-completer --system-libclang --js-completer
   endif
 endfunction
