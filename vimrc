@@ -149,6 +149,9 @@ Plug 'rhysd/vim-clang-format'
 " Goyo plugin for prose mode
 Plug 'junegunn/goyo.vim'
 
+" Auto highlight word under cursor
+Plug 'obxhdx/vim-auto-highlight'
+
 " Initialize plugin system
 call plug#end()
 
