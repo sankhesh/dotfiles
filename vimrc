@@ -590,6 +590,13 @@ autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 nnoremap <leader>pm :Goyo<CR>
 
+" Auto-Highlight options
+if &background == 'dark'
+  highlight! AutoHighlightWord ctermbg=234 ctermfg=196 guibg=#3a3d3d guifg=#ff7623
+else
+  highlight! AutoHighlightWord ctermbg=254 ctermfg=NONE guibg=gray guifg=NONE
+endif
+
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
