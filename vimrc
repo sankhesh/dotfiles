@@ -592,7 +592,7 @@ nnoremap <leader>pm :Goyo<CR>
 
 " Auto-Highlight options
 if &background == 'dark'
-  highlight! AutoHighlightWord ctermbg=234 ctermfg=196 guibg=#3a3d3d guifg=#ff7623
+  highlight! AutoHighlightWord ctermbg=234 ctermfg=209 guibg=#3a3d3d guifg=#ff7623
 else
   highlight! AutoHighlightWord ctermbg=254 ctermfg=NONE guibg=gray guifg=NONE
 endif
