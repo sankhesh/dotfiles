@@ -155,21 +155,16 @@ Plug 'obxhdx/vim-auto-highlight'
 " Initialize plugin system
 call plug#end()
 
+" Set to a dark background
+set background=dark
+
 " Color scheme here would override all colors
 if has("gui_running")
-  if findfile('~/.vim/colors/atom-dark.vim' ) != ""
-    colorscheme atom-dark
-  endif
+  colorscheme atom-dark
   let macvim_skip_colorscheme=1
 else
-  if findfile('~/.vim/colors/atom-dark-256.vim' ) != ""
-    colorscheme atom-dark-256
-  endif
+  colorscheme atom-dark-256
 endif"
-
-" If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
-set background=dark
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
