@@ -350,7 +350,9 @@ set listchars=tab:▸\ ,eol:¬,space:٠
 " highlight SpecialKey guifg=#4a4a59 ctermfg=239
 
 " Automatically remove trailing whitespace
-autocmd FileType c,cpp,java,python,qml autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,java,python,qml
+  \ autocmd BufWritePre <buffer>
+  \ let w:wv = winsaveview() | :%s/\s\+$//e | call winrestview(w:wv)
 
 " Highlight current line
 set cursorline
