@@ -337,7 +337,7 @@ vnoremap <silent> # :<C-U>
 
 " Show trailing whitespace and highlight based on the colorscheme
 highlight link ExtraWhitespace Error
-match ExtraWhitespace /\s\+$/
+match ExtraWhitespace /\s\+\%#\@<!$/
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
