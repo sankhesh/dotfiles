@@ -117,9 +117,6 @@ Plug 'gosukiwi/vim-atom-dark'
 " Vim CMake completion
 Plug 'richq/vim-cmake-completion'
 
-" Vim 8 Grepper plugin for async grepping
-Plug 'mhinz/vim-grepper'
-
 " Vim 8 asyncrun for asynchronous commands run
 Plug 'skywind3000/asyncrun.vim'
 
@@ -481,14 +478,6 @@ if exists("+showtabline")
     set showtabline=1
     highlight link TabNum Special
 endif
-
-" Grep mappings
-"" Map gr to vimgrep word under cursor in parent directory of current file
-":nnoremap gr :execute "vimgrep /" . expand("<cword>") . "/j %:p:h/**" <Bar> cw<CR>
-:nnoremap gr :Grepper -cword -noprompt<CR>
-"" Map Gr to git grep word under cursor in current working tree
-":nnoremap Gr :execute "Ggrep! " expand("<cword>") <Bar> cw<CR>
-:nnoremap Gr :Grepper -tool git -cword -noprompt<CR>
 
 " vim-signature options
 let g:SignatureMarkTextHLDynamic = 1 " Dynamic mark highlight based on gitgutter
