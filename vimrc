@@ -147,7 +147,8 @@ Plug 'rhysd/vim-clang-format'
 Plug 'junegunn/goyo.vim'
 
 " Auto highlight word under cursor
-Plug 'obxhdx/vim-auto-highlight'
+" Plug 'obxhdx/vim-auto-highlight'
+Plug 'RRethy/vim-illuminate'
 
 " Initialize plugin system
 call plug#end()
@@ -579,12 +580,8 @@ autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 nnoremap <leader>pm :Goyo<CR>
 
-" Auto-Highlight options
-if &background == 'dark'
-  highlight! AutoHighlightWord ctermbg=234 ctermfg=209 guibg=#3a3d3d guifg=#ff7623
-else
-  highlight! AutoHighlightWord ctermbg=254 ctermfg=NONE guibg=gray guifg=NONE
-endif
+" vim-illuminate options
+hi link illuminatedWord ColorColumn
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
