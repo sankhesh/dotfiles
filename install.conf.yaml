@@ -18,7 +18,7 @@
 - shell:
     - git submodule update --init --recursive # Installing submodules
     - git config --global core.excludesfile ~/.vim/global_ignore # Ignore certain filetypes from git
-    - command: vim +PlugInstall! +PlugUpdate! +qall # Fetch VIM plugins
+    - command: vim +PlugInstall +PlugUpdate +qall # Fetch VIM plugins
       stdout: true
       # stderr: true
     - command: type tmux && { ~/.tmux/plugins/tpm/bin/install_plugins } || { exit 0 } # Install TMUX plugins
