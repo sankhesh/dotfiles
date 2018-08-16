@@ -125,7 +125,7 @@ class $1 : public $2
 {
 public:
   vtkTypeMacro($1, $2);
-  void PrintSelf(ostream &os, vtkIndent indent) VTK_OVERRIDE;
+  void PrintSelf(ostream &os, vtkIndent indent) override;
 
   static $1* New();
 
@@ -134,8 +134,8 @@ protected:
   ~$1();
 
 private:
-  $1(const $1&) VTK_DELETE_FUNCTION;
-  void operator=(const $1) VTK_DELETE_FUNCTION;
+  $1(const $1&) = delete;
+  void operator=(const $1) = delete;
 };
 
 #endif //$1_h
