@@ -180,3 +180,24 @@ snippet vtkincludes
 #include <vtkRenderWindowInteractor.h>
 #include <vtkRenderer.h>
 endsnippet
+
+snippet vtkvolumeincludes
+#include <vtkColorTransferFunction.h>
+#include <vtkGPUVolumeRayCastMapper.h>
+#include <vtkPiecewiseFunction.h>
+#include <vtkVolume.h>
+#include <vtkVolumeProperty.h>
+endsnippet
+
+snippet vtkvolumeinit
+  vtkNew<vtkColorTransferFunction> ctf;
+  vtkNew<vtkPiecewiseFunction> pf;
+  vtkNew<vtkVolumeProperty> volumeProperty;
+  vtkNew<vtkVolume> volume;
+  vtkNew<vtkGPUVolumeRayCastMapper> mapper;
+
+  volumeProperty->SetColor(ctf);
+  volumeProperty->SetScalarOpacity(pf);
+  volume->SetProperty(volumeProperty);
+  volume->SetMapper(mapper);
+endsnippet
