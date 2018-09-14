@@ -150,6 +150,9 @@ Plug 'junegunn/goyo.vim'
 " Plug 'obxhdx/vim-auto-highlight'
 Plug 'RRethy/vim-illuminate'
 
+" GLSL support
+Plug 'petrbroz/vim-glsl'
+
 " Initialize plugin system
 call plug#end()
 
