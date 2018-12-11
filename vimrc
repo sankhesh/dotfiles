@@ -73,7 +73,8 @@ function! BuildYCM(info)
     !./install.py --clang-completer --system-libclang --js-completer
   endif
 endfunction
-Plug 'Valloric/YouCompleteMe', { 'do' : function('BuildYCM') }
+Plug 'Valloric/YouCompleteMe', { 'do' : function('BuildYCM'), 'for': 'cpp' }
+autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 
 " Fugitive
 Plug 'tpope/vim-fugitive'
