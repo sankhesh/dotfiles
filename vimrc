@@ -51,7 +51,7 @@ set rtp+=~/.vim/bundle/pyclewn
 call plug#begin('~/.vim/plugged')
 
 " We could also add repositories with a '.git' extension
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'scrooloose/nerdcommenter'
 
 " Vim-Signature plugin to show marks
@@ -107,7 +107,7 @@ Plug 'vim-scripts/DrawIt'
 Plug 'mhinz/vim-signify'
 
 " QML syntax highlighting and indenting
-Plug 'peterhoeg/vim-qml'
+Plug 'peterhoeg/vim-qml', { 'for': 'qml' }
 
 " Colorschemes
 Plug 'gosukiwi/vim-atom-dark'
@@ -116,19 +116,19 @@ Plug 'gosukiwi/vim-atom-dark'
 " Plug 'sankhesh/vim-do'
 
 " Vim CMake completion
-Plug 'richq/vim-cmake-completion'
+Plug 'richq/vim-cmake-completion', { 'for': 'cmake' }
 
 " Vim 8 asyncrun for asynchronous commands run
 Plug 'skywind3000/asyncrun.vim'
 
 " Vim C++ syntax highlighting
-Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
 
 " Vim Latex vimtex
 Plug 'lervag/vimtex'
 
 " Tmux.conf syntax highlighting
-Plug 'tmux-plugins/vim-tmux'
+Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
 
 " Obsession plugin
 Plug 'tpope/vim-obsession'
@@ -152,7 +152,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'RRethy/vim-illuminate'
 
 " GLSL support
-Plug 'petrbroz/vim-glsl'
+Plug 'petrbroz/vim-glsl', { 'for': 'glsl' }
 
 " Initialize plugin system
 call plug#end()
