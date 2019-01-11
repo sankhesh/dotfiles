@@ -534,29 +534,33 @@ let g:ale_fixers = {
       \}
 " let g:ale_c_build_dir = '../bld'
 let g:ale_c_clangformat_options = '-style="{
-      \ BasedOnStyle : Mozilla,
       \ AlignOperands : false,
-      \ AlwaysBreakAfterReturnType : None,
-      \ AlwaysBreakAfterDefinitionReturnType : None,
-      \ BreakBeforeBraces : Allman,
-      \ BinPackParameters : false,
-      \ BinPackArguments : false,
+      \ AllowAllParametersOfDeclarationOnNextLine: false,
       \ AllowShortFunctionsOnASingleLine : false,
+      \ AlwaysBreakAfterDefinitionReturnType : None,
+      \ AlwaysBreakAfterReturnType : None,
+      \ BasedOnStyle : Mozilla,
+      \ BinPackArguments : false,
+      \ BinPackParameters : false,
+      \ BreakBeforeBraces : Allman,
       \ ColumnLimit : 80,
+      \ ExperimentalAutoDetectBinPacking: true,
       \ Standard : C++11}"'
 "            \ \"AlignAfterOpenBracket" : \"AlwaysBreak",
 
 " Clang format options
 let g:clang_format#style_options = {
-            \ "BasedOnStyle" : "Mozilla",
             \ "AlignOperands" : "false",
-            \ "AlwaysBreakAfterReturnType" : "None",
-            \ "AlwaysBreakAfterDefinitionReturnType" : "None",
-            \ "BreakBeforeBraces" : "Allman",
-            \ "BinPackParameters" : "false",
-            \ "BinPackArguments" : "false",
+            \ "AllowAllParametersOfDeclarationOnNextLine" : "false",
             \ "AllowShortFunctionsOnASingleLine" : "false",
+            \ "AlwaysBreakAfterDefinitionReturnType" : "None",
+            \ "AlwaysBreakAfterReturnType" : "None",
+            \ "BasedOnStyle" : "Mozilla",
+            \ "BinPackArguments" : "false",
+            \ "BinPackParameters" : "false",
+            \ "BreakBeforeBraces" : "Allman",
             \ "ColumnLimit" : "80",
+            \ "ExperimentalAutoDetectBinPacking" : "true",
             \ "Standard" : "C++11"}
 " map to <Leader>cf in C++ code
 " Main reason why I need ClangFormat - be able to format only selected code
