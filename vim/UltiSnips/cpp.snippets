@@ -113,6 +113,11 @@ snippet vtkheader
 /*=============================================================================
 Copyright and License information
 =============================================================================*/
+/**
+ * @class ${1:`!p snip.rv = snip.basename`}
+ * @brief $0
+ *
+ */
 
 #ifndef ${1:`!p snip.rv = snip.basename`}_h
 #define $1_h
@@ -120,7 +125,8 @@ Copyright and License information
 // VTK includes
 #include <$2.h>
 
-/// $0
+// Forward declarations
+
 class $1 : public $2
 {
 public:
