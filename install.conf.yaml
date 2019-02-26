@@ -46,3 +46,4 @@
     ~/.local/share/applications/defaults.list: applications/defaults.list
     ~/.local/share/applications/designer.desktop: applications/designer.desktop
     ~/.local/share/applications/paraview.desktop: applications/paraview.desktop
+    ~/.cmakelintrc: cmakelintrc
