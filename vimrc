@@ -154,6 +154,9 @@ Plug 'RRethy/vim-illuminate'
 " GLSL support
 Plug 'petrbroz/vim-glsl', { 'for': 'glsl' }
 
+" Switch between source/header files
+Plug 'ericcurtin/CurtineIncSw.vim', { 'for': ['cpp', 'c'] }
+
 " Initialize plugin system
 call plug#end()
 
@@ -306,24 +309,6 @@ set completeopt=menuone,menu,longest,preview
 "  endif
 "endfunction
 "inoremap <tab> <c-r>=Smart_TabComplete()<CR>
-
-" Switch between source and header files
-function! SwitchSourceHeader()
-  let s:ext = expand("%:e")
-  let s:base = expand("%:t:r")
-  let s:cmd = "find " . s:base
-  if (s:ext == "cpp" || s:ext == "c" || s:ext == "C" || s:ext == "cxx")
-    if findfile(s:base . ".h"   ) != "" | exe s:cmd . ".h"   | return | en
-    if findfile(s:base . ".hpp" ) != "" | exe s:cmd . ".hpp" | return | en
-    if findfile(s:base . ".hxx" ) != "" | exe s:cmd . ".hxx" | return | en
-  else
-    if findfile(s:base . ".cxx" ) != "" | exe s:cmd . ".cxx" | return | en
-    if findfile(s:base . ".cpp" ) != "" | exe s:cmd . ".cpp" | return | en
-    if findfile(s:base . ".c"   ) != "" | exe s:cmd . ".c"   | return | en
-    if findfile(s:base . ".C"   ) != "" | exe s:cmd . ".C"   | return | en
-  endif
-endfunc
-nmap ,s :call SwitchSourceHeader()<CR>
 
 " Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>
@@ -590,6 +575,9 @@ nnoremap <leader>pm :Goyo<CR>
 
 " vim-illuminate options
 hi link illuminatedWord ColorColumn
+
+" switch source header
+nmap ,s :call CurtineIncSw()<CR>
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
