@@ -53,6 +53,7 @@ call plug#begin('~/.vim/plugged')
 " We could also add repositories with a '.git' extension
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 Plug 'scrooloose/nerdcommenter'
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
 
 " Vim-Signature plugin to show marks
 Plug 'kshenoy/vim-signature'
@@ -379,9 +380,11 @@ set foldlevelstart=4                          " Start fold level
 nmap <leader>f :DiffChangesDiffToggle<CR>
 nmap <leader>p :DiffChangesPatchToggle<CR>
 
-" NERDTreeToggle
+" NERDTree
 nmap <leader>m :NERDTreeToggle<CR>
 nmap <leader>n :NERDTreeFind<CR>
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 
 " NERDCommenter
 " Add spaces after comment delimiters by default
