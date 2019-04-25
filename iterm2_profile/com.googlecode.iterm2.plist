@@ -151,7 +151,7 @@
 	<key>HideMenuBarInFullscreen</key>
 	<true/>
 	<key>HideScrollbar</key>
-	<false/>
+	<true/>
 	<key>HideTab</key>
 	<true/>
 	<key>HighlightTabLabels</key>
@@ -237,7 +237,7 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>225 240 857 615 0 0 1440 877 </string>
+	<string>37 175 1249 620 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>166 153 570 452 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -950,100 +950,9 @@
 					<integer>0</integer>
 					<key>font</key>
 					<string>.AppleSystemUIFont 12</string>
-					<key>separator color</key>
-					<dict>
-						<key>Alpha Component</key>
-						<real>0.25</real>
-						<key>Blue Component</key>
-						<real>0.0</real>
-						<key>Color Space</key>
-						<string>sRGB</string>
-						<key>Green Component</key>
-						<real>0.0</real>
-						<key>Red Component</key>
-						<real>0.0</real>
-					</dict>
 				</dict>
 				<key>components</key>
 				<array>
-					<dict>
-						<key>class</key>
-						<string>iTermStatusBarJobComponent</string>
-						<key>configuration</key>
-						<dict>
-							<key>knobs</key>
-							<dict>
-								<key>base: compression resistance</key>
-								<integer>1</integer>
-								<key>base: priority</key>
-								<real>5</real>
-								<key>maxwidth</key>
-								<real>+infinity</real>
-								<key>minwidth</key>
-								<integer>0</integer>
-							</dict>
-							<key>layout advanced configuration dictionary value</key>
-							<dict>
-								<key>algorithm</key>
-								<integer>0</integer>
-								<key>font</key>
-								<string>.AppleSystemUIFont 12</string>
-								<key>separator color</key>
-								<dict>
-									<key>Alpha Component</key>
-									<real>0.25</real>
-									<key>Blue Component</key>
-									<real>0.0</real>
-									<key>Color Space</key>
-									<string>sRGB</string>
-									<key>Green Component</key>
-									<real>0.0</real>
-									<key>Red Component</key>
-									<real>0.0</real>
-								</dict>
-							</dict>
-						</dict>
-					</dict>
-					<dict>
-						<key>class</key>
-						<string>iTermStatusBarGitComponent</string>
-						<key>configuration</key>
-						<dict>
-							<key>knobs</key>
-							<dict>
-								<key>base: compression resistance</key>
-								<integer>1</integer>
-								<key>base: priority</key>
-								<real>5</real>
-								<key>iTermStatusBarGitComponentPollingIntervalKey</key>
-								<real>2</real>
-								<key>maxwidth</key>
-								<real>+infinity</real>
-								<key>minwidth</key>
-								<integer>0</integer>
-							</dict>
-							<key>layout advanced configuration dictionary value</key>
-							<dict>
-								<key>algorithm</key>
-								<integer>0</integer>
-								<key>font</key>
-								<string>.AppleSystemUIFont 12</string>
-								<key>separator color</key>
-								<dict>
-									<key>Alpha Component</key>
-									<real>0.25</real>
-									<key>Blue Component</key>
-									<real>0.0</real>
-									<key>Color Space</key>
-									<string>sRGB</string>
-									<key>Green Component</key>
-									<real>0.0</real>
-									<key>Red Component</key>
-									<real>0.0</real>
-								</dict>
-							</dict>
-						</dict>
-					</dict>
 					<dict>
 						<key>class</key>
 						<string>iTermStatusBarCPUUtilizationComponent</string>
@@ -1051,8 +960,6 @@
 						<dict>
 							<key>knobs</key>
 							<dict>
-								<key>base: compression resistance</key>
-								<integer>1</integer>
 								<key>base: priority</key>
 								<real>5</real>
 							</dict>
@@ -1062,19 +969,6 @@
 								<integer>0</integer>
 								<key>font</key>
 								<string>.AppleSystemUIFont 12</string>
-								<key>separator color</key>
-								<dict>
-									<key>Alpha Component</key>
-									<real>0.25</real>
-									<key>Blue Component</key>
-									<real>0.0</real>
-									<key>Color Space</key>
-									<string>sRGB</string>
-									<key>Green Component</key>
-									<real>0.0</real>
-									<key>Red Component</key>
-									<real>0.0</real>
-								</dict>
 							</dict>
 						</dict>
 					</dict>
@@ -1085,8 +979,6 @@
 						<dict>
 							<key>knobs</key>
 							<dict>
-								<key>base: compression resistance</key>
-								<integer>1</integer>
 								<key>base: priority</key>
 								<real>5</real>
 							</dict>
@@ -1096,19 +988,6 @@
 								<integer>0</integer>
 								<key>font</key>
 								<string>.AppleSystemUIFont 12</string>
-								<key>separator color</key>
-								<dict>
-									<key>Alpha Component</key>
-									<real>0.25</real>
-									<key>Blue Component</key>
-									<real>0.0</real>
-									<key>Color Space</key>
-									<string>sRGB</string>
-									<key>Green Component</key>
-									<real>0.0</real>
-									<key>Red Component</key>
-									<real>0.0</real>
-								</dict>
 							</dict>
 						</dict>
 					</dict>
@@ -1887,9 +1766,9 @@
 	<key>NoSyncInstallationId</key>
 	<string>31C3AB7C-CC40-40C7-A31A-38F1FDF31DAE</string>
 	<key>NoSyncLastTipTime</key>
-	<real>575673849.74652195</real>
+	<real>576441691.763708</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>4</integer>
+	<integer>8</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
 	<real>575641382.210127</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
@@ -2559,6 +2438,10 @@
 		<string>0069</string>
 		<string>0072</string>
 		<string>0073</string>
+		<string>0074</string>
+		<string>0075</string>
+		<string>0076</string>
+		<string>0077</string>
 	</array>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
@@ -2624,7 +2507,9 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-03-29T12:22:54Z</date>
+	<date>2019-04-18T18:18:29Z</date>
+	<key>SUUpdateRelaunchingMarker</key>
+	<true/>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -2654,7 +2539,7 @@
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
 	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1553862656</real>
+	<real>1554147840</real>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>
@@ -2680,6 +2565,10 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.3.0beta1</string>
+	<string>3.3.0beta2</string>
+	<key>kCPKSelectionViewPreferredModeKey</key>
+	<integer>0</integer>
+	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
+	<false/>
 </dict>
 </plist>
