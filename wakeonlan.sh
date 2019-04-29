@@ -3,6 +3,8 @@
 # definition of MAC addresses
 sthir=54:bf:64:a1:4f:f8
 sanganak=macaddr
+macbook=48:d7:05:ce:a7:97
+# macbook=32:00:10:65:a0:00
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   wol="wol"
@@ -23,6 +25,7 @@ fi
 echo "Which PC to wake?"
 echo "s) sthir"
 echo "n) sanganak"
+echo "m) macbook"
 echo "q) quit"
 read input1
 case $input1 in
@@ -31,6 +34,9 @@ case $input1 in
     ;;
   n)
     eval $wol $sanganak
+    ;;
+  m)
+    eval $wol $macbook
     ;;
   Q|q)
     break
