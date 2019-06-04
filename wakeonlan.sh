@@ -2,7 +2,7 @@
 
 # definition of MAC addresses
 sthir=54:bf:64:a1:4f:f8
-sanganak=macaddr
+sanganak=90:b1:1c:8e:15:56
 macbook=48:d7:05:ce:a7:97
 # macbook=32:00:10:65:a0:00
 
