@@ -331,7 +331,7 @@ match ExtraWhitespace /\s\+\%#\@<!$/
 nmap <leader>l :set list!<CR>
 
 " Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬,space:٠
+set listchars=tab:▸\ ,eol:¬,space:·
 
 "Invisible character colors
 " highlight NonText guifg=#4a4a59 ctermfg=239
