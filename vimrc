@@ -158,6 +158,9 @@ Plug 'petrbroz/vim-glsl', { 'for': 'glsl' }
 " Switch between source/header files
 Plug 'ericcurtin/CurtineIncSw.vim', { 'for': ['cpp', 'c'] }
 
+" Matchup
+Plug 'andymass/vim-matchup'
+
 " Initialize plugin system
 call plug#end()
 
