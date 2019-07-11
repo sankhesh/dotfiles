@@ -95,8 +95,11 @@ Plug 'majutsushi/tagbar'
 " UltiSnips
 Plug 'SirVer/ultisnips'
 
-" Instant Preview
-Plug 'greyblake/vim-preview'
+" Tabular / vim-markdown
+Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
+
+" Markdown preview
+Plug 'JamshedVesuna/vim-markdown-preview'
 
 " QuickFix list handling
 Plug 'yssl/QFEnter'
@@ -584,6 +587,12 @@ hi link illuminatedWord ColorColumn
 
 " switch source header
 nmap ,s :call CurtineIncSw()<CR>
+
+" markdown-preview options
+let vim_markdown_preview_hotkey='<leader>P'
+let vim_markdown_preview_github=1
+let vim_markdown_preview_toggle=1
+let vim_markdown_preview_use_xdg_open=1
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
