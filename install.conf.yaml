@@ -5,36 +5,36 @@
 
 - clean: [
   '~',
-  '~/.config',
-  '~/.vim',
-  '~/.local/share/applications'
+  #  '~/.config',
+  #  '~/.vim'
+  # '~/.local/share/applications'
 ]
 
-- link:
-    ~/.vim: vim/
-    ~/.vimrc: vimrc
-    ~/.tmux: tmux
-    ~/.tmux.conf: tmux.conf
+#- link:
+#    ~/.vim: vim/
+#    ~/.vimrc: vimrc
+#    ~/.tmux: tmux
+#    ~/.tmux.conf: tmux.conf
 
 - shell:
     - git submodule update --init --recursive # Installing submodules
-    - git config --global core.excludesfile ~/.vim/global_ignore # Ignore certain filetypes from git
-    - command: vim +PlugInstall +PlugUpdate +qall # Fetch VIM plugins
-      stdout: true
-      # stderr: true
-    - command: type tmux && { ~/.tmux/plugins/tpm/bin/install_plugins } || { exit 0 } # Install TMUX plugins
-      stderr: true
-    - command: type tmux && { ~/.tmux/plugins/tpm/bin/update_plugins all } || { exit 0 } # Update TMUX plugins
-      stderr: true
-    - command: ./vim_pyclewn.sh # Install the pyclewn vim plugin
-      stdout: true
-      stderr: true
+      #    - git config --global core.excludesfile ~/.vim/global_ignore # Ignore certain filetypes from git
+      #    - command: vim +PlugInstall +PlugUpdate +qall # Fetch VIM plugins
+      #      stdout: true
+      #      # stderr: true
+      #    - command: type tmux && { ~/.tmux/plugins/tpm/bin/install_plugins } || { exit 0 } # Install TMUX plugins
+      #      stderr: true
+      #    - command: type tmux && { ~/.tmux/plugins/tpm/bin/update_plugins all } || { exit 0 } # Update TMUX plugins
+      #      stderr: true
+      #    - command: ./vim_pyclewn.sh # Install the pyclewn vim plugin
+      #      stdout: true
+      #      stderr: true
 
 - link:
-    ~/.bash_profile: bash_profile
-    ~/.bash_prompt: bash_prompt
-    ~/.config/terminator:
-      path: config/terminator/
+        #    ~/.bash_profile: bash_profile
+        #    ~/.bash_prompt: bash_prompt
+        #    ~/.config/terminator:
+        #      path: config/terminator/
     ~/.zlogin: zsh/prezto/runcoms/zlogin
     ~/.zlogout: zsh/zlogout
     ~/.zprofile: zsh/prezto/runcoms/zprofile
@@ -42,10 +42,10 @@
     ~/.zshrc: zsh/zshrc
     ~/.zpreztorc: zsh/zpreztorc
     ~/.zprezto: zsh/prezto
-    ~/.config/flake8: config/flake8
-    ~/.monitor.sh: monitor.sh
-    ~/.local/share/applications/defaults.list: applications/defaults.list
-    # ~/.local/share/applications/designer.desktop: applications/designer.desktop
-    ~/.local/share/applications/paraview.desktop: applications/paraview.desktop
-    ~/.local/share/applications/slicer.desktop: applications/slicer.desktop
-    ~/.cmakelintrc: cmakelintrc
+    #    ~/.config/flake8: config/flake8
+    #    ~/.monitor.sh: monitor.sh
+    #    ~/.local/share/applications/defaults.list: applications/defaults.list
+    #    ~/.local/share/applications/designer.desktop: applications/designer.desktop
+    #    ~/.local/share/applications/paraview.desktop: applications/paraview.desktop
+    #    ~/.local/share/applications/slicer.desktop: applications/slicer.desktop
+    #    ~/.cmakelintrc: cmakelintrc

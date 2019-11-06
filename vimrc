@@ -203,7 +203,6 @@ Plug 'rhysd/vim-clang-format'
 Plug 'junegunn/goyo.vim'
 
 " Auto highlight word under cursor
-" Plug 'obxhdx/vim-auto-highlight'
 Plug 'RRethy/vim-illuminate'
 
 " GLSL support
