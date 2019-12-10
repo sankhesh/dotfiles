@@ -213,7 +213,7 @@ set cinoptions+=g0,l1,c0,(0,m0 " Place public:, etc. on the same indent as the {
 set number            " Show line numbers
 set matchpairs+=<:>   " To match arguments of templates
 set laststatus=2      " Show status line even if there is only one window
-set tw=80             " Set textwidth to 80 characters so that line breaks at that width
+set tw=100             " Set textwidth to 100 characters so that line breaks at that width
 set splitright        " Open new vertical split to right
 set splitbelow        " Open new horizontal split below
 set statusline=%<%f\ %{fugitive#statusline()}\ %{ObsessionStatus('[Obsession]',\ '[ObsessionPaused]')}\ %h%m%r%=%-14.(%l/%L,%c%V%)\ %P  " Status line
@@ -224,7 +224,7 @@ set switchbuf=usetab,newtab  " Use existing tab or open new tab when switching b
 set makeprg=ninja\ -C\ ../bld
 
 " Color 80th column
-set colorcolumn=80
+set colorcolumn=100
 " highlight ColorColumn ctermbg=Blue guibg=pink
 
 " Set leader (vim prefix) to ','
@@ -528,34 +528,36 @@ let g:ale_fixers = {
       \}
 " let g:ale_c_build_dir = '../bld'
 let g:ale_c_clangformat_options = '-style="{
+      \ AlignAfterOpenBracket : DontAlign,
       \ AlignOperands : false,
       \ AllowAllParametersOfDeclarationOnNextLine: false,
       \ AllowShortFunctionsOnASingleLine : false,
       \ AlwaysBreakAfterDefinitionReturnType : None,
       \ AlwaysBreakAfterReturnType : None,
       \ BasedOnStyle : Mozilla,
-      \ BinPackArguments : false,
-      \ BinPackParameters : false,
+      \ BinPackArguments : true,
+      \ BinPackParameters : true,
       \ BreakBeforeBraces : Allman,
-      \ ColumnLimit : 80,
-      \ ExperimentalAutoDetectBinPacking: true,
+      \ ColumnLimit : 100,
+      \ SpaceAfterTemplateKeyword: true,
       \ Standard : C++11}"'
-"            \ \"AlignAfterOpenBracket" : \"AlwaysBreak",
 
 " Clang format options
 let g:clang_format#style_options = {
-            \ "AlignOperands" : "false",
-            \ "AllowAllParametersOfDeclarationOnNextLine" : "false",
-            \ "AllowShortFunctionsOnASingleLine" : "false",
-            \ "AlwaysBreakAfterDefinitionReturnType" : "None",
-            \ "AlwaysBreakAfterReturnType" : "None",
-            \ "BasedOnStyle" : "Mozilla",
-            \ "BinPackArguments" : "false",
-            \ "BinPackParameters" : "false",
-            \ "BreakBeforeBraces" : "Allman",
-            \ "ColumnLimit" : "80",
-            \ "ExperimentalAutoDetectBinPacking" : "true",
-            \ "Standard" : "C++11"}
+      \ "AlignAfterOpenBracket" : "DontAlign",
+      \ "AlignOperands" : "false",
+      \ "AllowAllParametersOfDeclarationOnNextLine": "false",
+      \ "AllowShortFunctionsOnASingleLine" : "false",
+      \ "AlwaysBreakAfterDefinitionReturnType" : "None",
+      \ "AlwaysBreakAfterReturnType" : "None",
+      \ "BasedOnStyle" : "Mozilla",
+      \ "BinPackArguments" : "true",
+      \ "BinPackParameters" : "true",
+      \ "BreakBeforeBraces" : "Allman",
+      \ "ColumnLimit" : "100",
+      \ "SpaceAfterTemplateKeyword": "true",
+      \ "Standard" : "C++11"}
+
 " map to <Leader>cf in C++ code
 " Main reason why I need ClangFormat - be able to format only selected code
 autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
@@ -569,7 +571,7 @@ let g:ale_echo_msg_format = '[%linter%] %code: %%s [%severity%]'
 let g:ale_set_loclist = 1
 
 " Goyo options
-let g:goyo_width = 80  " (default: 80)
+let g:goyo_width = 100  " (default: 80)
 let g:goyo_height = 95  " (default: 85%)
 let g:goyo_linenr = 0   " (default: 0)
 function! s:goyo_enter()
