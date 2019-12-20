@@ -143,7 +143,7 @@ Plug 'Konfekt/FastFold'
 Plug 'Konfekt/FoldText'
 
 " Asynchronous linting engine
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 
 " Clang format plugin for vim
 Plug 'rhysd/vim-clang-format'
