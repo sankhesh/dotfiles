@@ -164,6 +164,9 @@ Plug 'ericcurtin/CurtineIncSw.vim', { 'for': ['cpp', 'c'] }
 " Matchup
 Plug 'andymass/vim-matchup'
 
+" Uncrustify
+Plug 'embear/vim-localvimrc'
+
 " Initialize plugin system
 call plug#end()
 
@@ -595,6 +598,9 @@ let vim_markdown_preview_hotkey='<leader>P'
 let vim_markdown_preview_github=1
 let vim_markdown_preview_toggle=1
 let vim_markdown_preview_use_xdg_open=1
+
+" localvimrc options
+let g:localvimrc_ask = 0 " remove prompt asking user to load lvimrc
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
