@@ -523,11 +523,13 @@ let g:cpp_class_decl_highlight = 1
 let g:ale_linters = {
       \ 'cpp': [],
       \ 'c': [],
+      \ 'cmake': ['cmake-lint'],
       \}
 let g:ale_fixers = {
       \ 'cpp': ['clang-format'],
       \ 'javascript': ['prettier', 'eslint'],
       \ 'python': ['autopep8'],
+      \ 'cmake': ['cmakeformat'],
       \}
 " let g:ale_c_build_dir = '../bld'
 let g:ale_c_clangformat_options = '-style="{
@@ -560,6 +562,9 @@ let g:clang_format#style_options = {
       \ "ColumnLimit" : "100",
       \ "SpaceAfterTemplateKeyword": "true",
       \ "Standard" : "C++11"}
+
+let g:ale_cmake_cmakelint_executable = 'cmake-lint'
+let g:ale_cmake_cmakeformat_options = '-c /home/sankhesh/.cmake-format.json'
 
 " map to <Leader>cf in C++ code
 " Main reason why I need ClangFormat - be able to format only selected code
