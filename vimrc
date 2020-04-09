@@ -164,8 +164,8 @@ Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 " QuickFix list handling
 Plug 'yssl/QFEnter'
 
-" Draw ASCII text drawings DrawIt
-Plug 'vim-scripts/DrawIt'
+" " Draw ASCII text drawings DrawIt
+" Plug 'vim-scripts/DrawIt'
 
 " Signify plugin
 Plug 'mhinz/vim-signify'
@@ -176,49 +176,49 @@ Plug 'sheerun/vim-polyglot'
 " Colorschemes
 Plug 'tomasiser/vim-code-dark'
 
-" Vim CMake completion
-Plug 'richq/vim-cmake-completion', { 'for': 'cmake' }
+" Vim-do plugin
+" Plug 'sankhesh/vim-do'
 
-" Vim 8 asyncrun for asynchronous commands run
-Plug 'skywind3000/asyncrun.vim'
-
-" Youcompleteme plugin
-function! BuildYCM(info)
-  if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
-    if s:win_shell
-      !python install.py --preview-msvc --clangd-completer --ts-completer --cs-completer
-    else
-      !python install.py --clangd-completer --ts-completer
-    endif
-  endif
-endfunction
-Plug 'Valloric/YouCompleteMe', { 'do' : function('BuildYCM'), 'for': ['cpp', 'cs', 'javascript', 'python', 'typescript'] }
-autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
-
-if !s:win_shell
-  " Vim Latex vimtex
-  Plug 'lervag/vimtex', { 'for': 'tex' }
-
-  " Tmux.conf syntax highlighting
-  Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
-endif
-
-" Obsession plugin
-Plug 'tpope/vim-obsession'
-Plug 'dhruvasagar/vim-prosession'
+" " Vim 8 asyncrun for asynchronous commands run
+" Plug 'skywind3000/asyncrun.vim'
+" 
+" " Youcompleteme plugin
+" function! BuildYCM(info)
+"   if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
+"     if s:win_shell
+"       !python install.py --preview-msvc --clangd-completer --ts-completer --cs-completer
+"     else
+"       !python install.py --clangd-completer --ts-completer
+"     endif
+"   endif
+" endfunction
+" Plug 'Valloric/YouCompleteMe', { 'do' : function('BuildYCM'), 'for': ['cpp', 'cs', 'javascript', 'python', 'typescript'] }
+" autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
+" 
+" if !s:win_shell
+"   " Vim Latex vimtex
+"   Plug 'lervag/vimtex', { 'for': 'tex' }
+" 
+"   " Tmux.conf syntax highlighting
+"   Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
+" endif
+" 
+" " Obsession plugin
+" Plug 'tpope/vim-obsession'
+" Plug 'dhruvasagar/vim-prosession'
 
 " FastFold and FoldText plugins
 Plug 'Konfekt/FastFold'
 Plug 'Konfekt/FoldText'
 
-" Asynchronous linting engine
-Plug 'dense-analysis/ale'
-
-" Clang format plugin for vim
-Plug 'rhysd/vim-clang-format'
-
-" Goyo plugin for prose mode
-Plug 'junegunn/goyo.vim'
+" " Asynchronous linting engine
+" Plug 'dense-analysis/ale'
+"
+" " Clang format plugin for vim
+" Plug 'rhysd/vim-clang-format'
+"
+" " Goyo plugin for prose mode
+" Plug 'junegunn/goyo.vim'
 
 " Auto highlight word under cursor
 Plug 'RRethy/vim-illuminate'
@@ -290,7 +290,7 @@ set laststatus=2      " Show status line even if there is only one window
 set tw=100             " Set textwidth to 100 characters so that line breaks at that width
 set splitright        " Open new vertical split to right
 set splitbelow        " Open new horizontal split below
-set statusline=%<%f\ %{fugitive#statusline()}\ %{ObsessionStatus('[Obsession]',\ '[ObsessionPaused]')}\ %h%m%r%=%-14.(%l/%L,%c%V%)\ %P  " Status line
+" set statusline=%<%f\ %{fugitive#statusline()}\ %{ObsessionStatus('[Obsession]',\ '[ObsessionPaused]')}\ %h%m%r%=%-14.(%l/%L,%c%V%)\ %P  " Status line
 set switchbuf=usetab,newtab  " Use existing tab or open new tab when switching buffers
 
 " Set make program

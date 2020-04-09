@@ -5,9 +5,9 @@
 
 - clean: [
   '~',
-  '~/.config',
-  '~/.vim',
-  '~/.local/share/applications'
+  #  '~/.config',
+  '~/.vim'
+  # '~/.local/share/applications'
 ]
 
 # All the linux-only links
@@ -18,27 +18,27 @@
     ~/.vim:
       if: '! grep -qi microsoft /proc/version'
       path: vim/
-    ~/.tmux.conf:
-      if: '! grep -qi microsoft /proc/version'
-      path: tmux.conf
-    ~/.config/alacritty:
-      if: '! grep -qi microsoft /proc/version'
-      path: config/alacritty/
-    ~/.gdbinit:
-      if: '! grep -qi microsoft /proc/version'
-      path: gdbinit
-    ~/.local/share/applications/defaults.list:
-      if: '! grep -qi microsoft /proc/version'
-      path:  applications/defaults.list
-    ~/.local/share/applications/designer.desktop:
-      if: '! grep -qi microsoft /proc/version'
-      path:  applications/designer.desktop
-    ~/.local/share/applications/paraview.desktop:
-      if: '! grep -qi microsoft /proc/version'
-      path:  applications/paraview.desktop
-    ~/.local/share/applications/slicer.desktop:
-      if: '! grep -qi microsoft /proc/version'
-      path:  applications/slicer.desktop
+#    ~/.tmux.conf:
+#      if: '! grep -qi microsoft /proc/version'
+#      path: tmux.conf
+#    ~/.config/alacritty:
+#      if: '! grep -qi microsoft /proc/version'
+#      path: config/alacritty/
+#    ~/.gdbinit:
+#      if: '! grep -qi microsoft /proc/version'
+#      path: gdbinit
+#    ~/.local/share/applications/defaults.list:
+#      if: '! grep -qi microsoft /proc/version'
+#      path:  applications/defaults.list
+#    ~/.local/share/applications/designer.desktop:
+#      if: '! grep -qi microsoft /proc/version'
+#      path:  applications/designer.desktop
+#    ~/.local/share/applications/paraview.desktop:
+#      if: '! grep -qi microsoft /proc/version'
+#      path:  applications/paraview.desktop
+#    ~/.local/share/applications/slicer.desktop:
+#      if: '! grep -qi microsoft /proc/version'
+#      path:  applications/slicer.desktop
     ~/.profile:
       if: '! grep -qi microsoft /proc/version'
       path: profile
@@ -52,7 +52,7 @@
 # Generic links
 - link:
     ~/.git: git/
-    ~/.tmux: tmux
+    # ~/.tmux: tmux
     ~/.zlogin: zsh/prezto/runcoms/zlogin
     ~/.zlogout: zsh/zlogout
     ~/.zprofile: zsh/prezto/runcoms/zprofile
@@ -67,15 +67,15 @@
     - [git config --global include.path ~/.git/config, Global git config]
     - [git config --global user.signingkey $(git config --get user.email), GPG signing key]
 
-# TMUX plugins
-- shell:
-    - command: type tmux > /dev/null && { ~/.tmux/plugins/tpm/bin/install_plugins } || { exit 0 }
-      stderr: true
-      description: Install TMUX plugins
-
-    - command: type tmux > /dev/null && { ~/.tmux/plugins/tpm/bin/update_plugins all } || { exit 0 }
-      stderr: true
-      description: Update TMUX plugins
+## TMUX plugins
+#- shell:
+#    - command: type tmux > /dev/null && { ~/.tmux/plugins/tpm/bin/install_plugins } || { exit 0 }
+#      stderr: true
+#      description: Install TMUX plugins
+#
+#    - command: type tmux > /dev/null && { ~/.tmux/plugins/tpm/bin/update_plugins all } || { exit 0 }
+#      stderr: true
+#      description: Update TMUX plugins
 
 # Linux only
 - shell:
@@ -83,8 +83,8 @@
       stdout: true
       description: Fetch VIM plugins
 
-# Install some python packages
-    - command: pypackages/pythonpackages.zsh
-      stdout: true
-      stderr: true
-      description: Install python packages
+## Install some python packages
+#    - command: pypackages/pythonpackages.zsh
+#      stdout: true
+#      stderr: true
+#      description: Install python packages
