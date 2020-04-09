@@ -21,6 +21,6 @@ fi
 
 autoload -Uz zmv
 
-alias vim='vim --servername vim'
+# alias vim='vim --servername vim'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

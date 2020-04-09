@@ -69,13 +69,13 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-scripts/diffchanges.vim'
 
 " Youcompleteme plugin
-function! BuildYCM(info)
-  if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
-    !./install.py --clang-completer --system-libclang --js-completer
-  endif
-endfunction
-Plug 'Valloric/YouCompleteMe', { 'do' : function('BuildYCM'), 'for': 'cpp' }
-autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
+" function! BuildYCM(info)
+"   if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
+"     !./install.py --clang-completer --system-libclang --js-completer
+"   endif
+" endfunction
+" Plug 'Valloric/YouCompleteMe', { 'do' : function('BuildYCM'), 'for': 'cpp' }
+" autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 
 " Fugitive
 Plug 'tpope/vim-fugitive'
@@ -89,11 +89,11 @@ Plug 'tpope/vim-unimpaired'
 " repeat.vim
 Plug 'tpope/vim-repeat'
 
-" Tagbar
-Plug 'majutsushi/tagbar'
-
-" UltiSnips
-Plug 'SirVer/ultisnips'
+" " Tagbar
+" Plug 'majutsushi/tagbar'
+" 
+" " UltiSnips
+" Plug 'SirVer/ultisnips'
 
 " Tabular / vim-markdown
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
@@ -104,14 +104,14 @@ Plug 'JamshedVesuna/vim-markdown-preview'
 " QuickFix list handling
 Plug 'yssl/QFEnter'
 
-" Draw ASCII text drawings DrawIt
-Plug 'vim-scripts/DrawIt'
+" " Draw ASCII text drawings DrawIt
+" Plug 'vim-scripts/DrawIt'
 
 " Signify plugin
 Plug 'mhinz/vim-signify'
 
-" QML syntax highlighting and indenting
-Plug 'peterhoeg/vim-qml', { 'for': 'qml' }
+" " QML syntax highlighting and indenting
+" Plug 'peterhoeg/vim-qml', { 'for': 'qml' }
 
 " Colorschemes
 Plug 'gosukiwi/vim-atom-dark'
@@ -119,47 +119,47 @@ Plug 'gosukiwi/vim-atom-dark'
 " Vim-do plugin
 " Plug 'sankhesh/vim-do'
 
-" Vim CMake completion
-Plug 'richq/vim-cmake-completion', { 'for': 'cmake' }
-
-" Vim 8 asyncrun for asynchronous commands run
-Plug 'skywind3000/asyncrun.vim'
-
-" Vim C++ syntax highlighting
-Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
-
-" Vim Latex vimtex
-Plug 'lervag/vimtex'
-
-" Tmux.conf syntax highlighting
-Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
-
-" Obsession plugin
-Plug 'tpope/vim-obsession'
-Plug 'dhruvasagar/vim-prosession'
+" " Vim CMake completion
+" Plug 'richq/vim-cmake-completion', { 'for': 'cmake' }
+" 
+" " Vim 8 asyncrun for asynchronous commands run
+" Plug 'skywind3000/asyncrun.vim'
+" 
+" " Vim C++ syntax highlighting
+" Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
+" 
+" " Vim Latex vimtex
+" Plug 'lervag/vimtex'
+" 
+" " Tmux.conf syntax highlighting
+" Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
+" 
+" " Obsession plugin
+" Plug 'tpope/vim-obsession'
+" Plug 'dhruvasagar/vim-prosession'
 
 " FastFold and FoldText plugins
 Plug 'Konfekt/FastFold'
 Plug 'Konfekt/FoldText'
 
-" Asynchronous linting engine
-Plug 'dense-analysis/ale'
-
-" Clang format plugin for vim
-Plug 'rhysd/vim-clang-format'
-
-" Goyo plugin for prose mode
-Plug 'junegunn/goyo.vim'
+" " Asynchronous linting engine
+" Plug 'dense-analysis/ale'
+" 
+" " Clang format plugin for vim
+" Plug 'rhysd/vim-clang-format'
+" 
+" " Goyo plugin for prose mode
+" Plug 'junegunn/goyo.vim'
 
 " Auto highlight word under cursor
 " Plug 'obxhdx/vim-auto-highlight'
 Plug 'RRethy/vim-illuminate'
 
-" GLSL support
-Plug 'petrbroz/vim-glsl', { 'for': 'glsl' }
-
-" Switch between source/header files
-Plug 'ericcurtin/CurtineIncSw.vim', { 'for': ['cpp', 'c'] }
+" " GLSL support
+" Plug 'petrbroz/vim-glsl', { 'for': 'glsl' }
+" 
+" " Switch between source/header files
+" Plug 'ericcurtin/CurtineIncSw.vim', { 'for': ['cpp', 'c'] }
 
 " Matchup
 Plug 'andymass/vim-matchup'
@@ -219,7 +219,7 @@ set laststatus=2      " Show status line even if there is only one window
 set tw=100             " Set textwidth to 100 characters so that line breaks at that width
 set splitright        " Open new vertical split to right
 set splitbelow        " Open new horizontal split below
-set statusline=%<%f\ %{fugitive#statusline()}\ %{ObsessionStatus('[Obsession]',\ '[ObsessionPaused]')}\ %h%m%r%=%-14.(%l/%L,%c%V%)\ %P  " Status line
+" set statusline=%<%f\ %{fugitive#statusline()}\ %{ObsessionStatus('[Obsession]',\ '[ObsessionPaused]')}\ %h%m%r%=%-14.(%l/%L,%c%V%)\ %P  " Status line
 set switchbuf=usetab,newtab  " Use existing tab or open new tab when switching buffers
 
 " Set make program
