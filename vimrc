@@ -127,20 +127,20 @@ Plug 'tpope/vim-unimpaired'
 " repeat.vim
 Plug 'tpope/vim-repeat'
 
-" UltiSnips
-Plug 'SirVer/ultisnips'
+" " UltiSnips
+" Plug 'SirVer/ultisnips'
 
-" Tabular / vim-markdown
-Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
-
-" Markdown preview
-Plug 'iamcco/markdown-preview.nvim', {'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+" " Tabular / vim-markdown
+" Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
+" 
+" " Markdown preview
+" Plug 'iamcco/markdown-preview.nvim', {'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 " QuickFix list handling
 Plug 'yssl/QFEnter'
 
-" Draw ASCII text drawings DrawIt
-Plug 'vim-scripts/DrawIt'
+" " Draw ASCII text drawings DrawIt
+" Plug 'vim-scripts/DrawIt'
 
 " Signify plugin
 Plug 'mhinz/vim-signify'
@@ -151,55 +151,61 @@ Plug 'sheerun/vim-polyglot'
 " Colorschemes
 Plug 'tomasiser/vim-code-dark'
 
-" Vim CMake completion
-Plug 'richq/vim-cmake-completion', { 'for': 'cmake' }
+" Vim-do plugin
+" Plug 'sankhesh/vim-do'
 
-" Vim 8 asyncrun for asynchronous commands run
-Plug 'skywind3000/asyncrun.vim'
-
-" Youcompleteme plugin
-function! BuildYCM(info)
-  if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
-    if s:win_shell
-      !python install.py --clang-completer --ts-completer --cs-completer
-    else
-      !python install.py --clang-completer --system-libclang --ts-completer
-    endif
-  endif
-endfunction
-Plug 'Valloric/YouCompleteMe', { 'do' : function('BuildYCM'), 'for': ['cpp', 'cs', 'javascript', 'python', 'typescript'] }
-autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
-
-" Vista.vim (Tagbar alternative)
-Plug 'liuchengxu/vista.vim'
-
-" Tagbar
-Plug 'majutsushi/tagbar'
-
-if !s:win_shell
-  " Vim Latex vimtex
-  Plug 'lervag/vimtex', { 'for': 'tex' }
-
-  " Tmux.conf syntax highlighting
-  Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
-endif
-
-" Obsession plugin
-Plug 'tpope/vim-obsession'
-Plug 'dhruvasagar/vim-prosession'
+" " Vim CMake completion
+" Plug 'richq/vim-cmake-completion', { 'for': 'cmake' }
+" 
+" " Vim 8 asyncrun for asynchronous commands run
+" Plug 'skywind3000/asyncrun.vim'
+" 
+" " Vim C++ syntax highlighting
+" Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
+" 
+" " Youcompleteme plugin
+" function! BuildYCM(info)
+"   if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
+"     if s:win_shell
+"       !python install.py --clang-completer --ts-completer --cs-completer
+"     else
+"       !python install.py --clang-completer --system-libclang --ts-completer
+"     endif
+"   endif
+" endfunction
+" Plug 'Valloric/YouCompleteMe', { 'do' : function('BuildYCM'), 'for': ['cpp', 'cs', 'javascript', 'python', 'typescript'] }
+" autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
+" 
+" " Vista.vim (Tagbar alternative)
+" Plug 'liuchengxu/vista.vim'
+" 
+" " Tagbar
+" Plug 'majutsushi/tagbar'
+" 
+" if !s:win_shell
+"   " Vim Latex vimtex
+"   Plug 'lervag/vimtex', { 'for': 'tex' }
+" 
+"   " Tmux.conf syntax highlighting
+"   Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
+" endif
+" 
+" " Obsession plugin
+" Plug 'tpope/vim-obsession'
+" Plug 'dhruvasagar/vim-prosession'
 
 " FastFold and FoldText plugins
 Plug 'Konfekt/FastFold'
 Plug 'Konfekt/FoldText'
 
-" Asynchronous linting engine
-Plug 'dense-analysis/ale'
-
-" Clang format plugin for vim
-Plug 'rhysd/vim-clang-format'
-
-" Goyo plugin for prose mode
-Plug 'junegunn/goyo.vim'
+" " Asynchronous linting engine
+" Plug 'dense-analysis/ale'
+"
+" " Clang format plugin for vim
+" Plug 'rhysd/vim-clang-format'
+"
+" " Goyo plugin for prose mode
+" Plug 'junegunn/goyo.vim'
 
 " Auto highlight word under cursor
 " Plug 'obxhdx/vim-auto-highlight'
@@ -272,7 +278,7 @@ set laststatus=2      " Show status line even if there is only one window
 set tw=100             " Set textwidth to 100 characters so that line breaks at that width
 set splitright        " Open new vertical split to right
 set splitbelow        " Open new horizontal split below
-set statusline=%<%f\ %{NearestMethodOrFunction()}\ %{fugitive#statusline()}\ %{ObsessionStatus('[Obsession]',\ '[ObsessionPaused]')}\ %h%m%r%=%-14.(%l/%L,%c%V%)\ %P  " Status line
+" set statusline=%<%f\ %{NearestMethodOrFunction()}\ %{fugitive#statusline()}\ %{ObsessionStatus('[Obsession]',\ '[ObsessionPaused]')}\ %h%m%r%=%-14.(%l/%L,%c%V%)\ %P  " Status line
 set switchbuf=usetab,newtab  " Use existing tab or open new tab when switching buffers
 
 " Set make program
@@ -320,12 +326,12 @@ nmap <F8> :TagbarToggle<CR> <bar> :TagbarTogglePause<CR>
 let g:tagbar_show_tag_linenumbers = 2 " Show tag line numbers to the left in the tagbar window
 let g:tagbar_show_visibility = 1 " Show the visibility symbols (public/protected/private) in tagbar
 
-" Vista
-function! NearestMethodOrFunction() abort
-  return get(b:, 'vista_nearest_method_or_function', '')
-endfunction
-" Make vista run the above function automatically
-autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+" " Vista
+" function! NearestMethodOrFunction() abort
+"   return get(b:, 'vista_nearest_method_or_function', '')
+" endfunction
+" " Make vista run the above function automatically
+" autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 
 " Prosession
 let g:prosession_dir = expand(s:vimDir . '/session/') " Session cache directory
