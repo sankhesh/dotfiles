@@ -564,7 +564,7 @@ let g:clang_format#style_options = {
       \ "Standard" : "C++11"}
 
 let g:ale_cmake_cmakelint_executable = 'cmake-lint'
-let g:ale_cmake_cmakeformat_options = '-c /home/sankhesh/.cmake-format.json'
+let g:ale_cmake_cmakeformat_options = '-c $HOME/.cmake-format.json'
 
 " map to <Leader>cf in C++ code
 " Main reason why I need ClangFormat - be able to format only selected code
