@@ -121,10 +121,10 @@ dl dd {
 }
 
 blockquote, q {
-/*  border-left: 4px solid #DDD;*/
-  padding: 0 0;
-/*  color: #777;*/
-  color: #000000;
+  border-left: 1px solid #ddd;
+  padding: 5px 10px 5px 10px;
+  color: #111;
+  /*color: #000000;*/
   quotes: none;
 }
 
