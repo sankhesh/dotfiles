@@ -493,6 +493,7 @@ let g:signify_cursorhold_insert = 0 " Disable update in insert mode
 highlight SignifySignAdd    cterm=bold ctermbg=235  ctermfg=119 guifg=green
 highlight SignifySignDelete cterm=bold ctermbg=235  ctermfg=167 guifg=red
 highlight SignifySignChange cterm=bold ctermbg=235  ctermfg=227 guifg=yellow
+nnoremap ]df :SignifyHunkDiff<CR>
 
 " Gitv options
 let g:Gitv_TruncateCommitSubjects = 1 " Fit log width to split
