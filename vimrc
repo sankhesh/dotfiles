@@ -16,6 +16,19 @@ runtime! debian.vim
 "set compatible
 set nocompatible
 
+if has("multi_byte")
+  if &termencoding == ""
+    let &termencoding = &encoding
+  endif
+  set encoding=utf-8
+  scriptencoding utf-8
+  setglobal fileencoding=utf-8
+  " Uncomment to have 'bomb' on by default for new files.
+  " Note, this will not apply to the first, empty buffer created at Vim startup.
+  "setglobal bomb
+  set fileencodings=ucs-bom,utf-8,latin1
+endif
+
 " Vim5 and later versions support syntax highlighting. Uncommenting the next
 " line enables syntax highlighting by default.
 if has("syntax")
@@ -39,16 +52,36 @@ endif
 set t_Co=256
 if exists('$TMUX')
   set term=screen-256color
-else
+elseif !(has('win32') || has('win64'))
   set term=xterm-256color
 endif
 
-" Vundle
+set guifont=Cascadia_Code:h10:cANSI:qDRAFT
+
 set rtp+=~/.vim/bundle/pyclewn
+
+let s:win_shell = (has('win32') || has('win64')) && &shellcmdflag =~ '/'
+let s:vimDir = s:win_shell ? '$HOME/vimfiles' : '$HOME/.vim'
+let &runtimepath .= ',' . expand(s:vimDir . '/autoload/plug.vim')
+
+" if (win_shell)
+"   " Requires python to be in the system path
+"   echo \"Requires python\"
+"   if executable("python")
+"         echo \"Python check sycce\"
+"         let s:pythonpath = system('python
+"           \  -c "import sys; sys.stdout.write(
+"           \    str(sys.path[1])
+"           \    )"' )
+"           echo expand(s:pythonpath)
+"     let &pythonthreehome = expand(s:pythonpath)
+"     let &pythonthreedll = expand(s:pythonpath . '/python38.dll')
+"   endif
+" endif
 
 " Specify a directory for plugins
 " Avoid using standard Vim directory names like plugins
-call plug#begin('~/.vim/plugged')
+call plug#begin(expand(s:vimDir . '/plugged'))
 
 " We could also add repositories with a '.git' extension
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] }
@@ -62,7 +95,7 @@ Plug 'kshenoy/vim-signature'
 " Plug 'vim-scripts/ctrlp.vim'
 
 " File Fuzzy Finder plugin
-Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', {'dir': expand($HOME . '/.fzf/'), 'do': 'install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Diffchanges plugin
@@ -71,7 +104,11 @@ Plug 'vim-scripts/diffchanges.vim'
 " Youcompleteme plugin
 function! BuildYCM(info)
   if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
-    !./install.py --clang-completer --system-libclang --js-completer
+    if s:win_shell
+      !python install.py --clang-completer
+    elseif
+      !./install.py --clang-completer --system-libclang --js-completer
+    endif
   endif
 endfunction
 Plug 'Valloric/YouCompleteMe', { 'do' : function('BuildYCM'), 'for': 'cpp' }
@@ -260,6 +297,7 @@ nnoremap <leader>jd :YcmCompleter GoTo<CR>
 nmap <F8> :TagbarToggle<CR>
 
 " Prosession
+let g:prosession_dir = expand(s:vimDir . '/session/') " Session cache directory
 let g:prosession_tmux_title = 1 " Update TMUX window title based on vim session
 let g:procession_default_session = 1 " Create a default session if none found
 
