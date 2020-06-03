@@ -207,6 +207,9 @@ Plug 'embear/vim-localvimrc'
 " Initialize plugin system
 call plug#end()
 
+" Add the TermDebug plugin
+packadd! termdebug
+
 " Set to a dark background
 set background=dark
 
@@ -278,6 +281,10 @@ set nocp
 
 " Insert current file name
 inoremap <leader>fn <C-R>=expand("%t")<CR>
+
+" Termdebug options
+let g:termdebug_wide=163
+let g:termdebug_popup=0
 
 " YouCompleteMe
 let g:ycm_global_ycm_extra_conf = $HOME."/.vim/.ycm_extra_conf.py"
