@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Slicer
+Comment=A multi-platform, free and open source software package for visualization and medical image computing
+Exec=/home/sankhesh/Projects/Slicer/bld/Slicer-build/Slicer %U
+TryExec=/home/sankhesh/Projects/Slicer/bld/Slicer-build/Slicer
+Icon=/home/sankhesh/Projects/Slicer/Slicer/Resources/3DSlicer-DesktopIcon.png
+StartupNotify=true
+MimeType=application/xml;text/plain;
+Categories=Development;Graphics;MedicalSoftware;Science;
