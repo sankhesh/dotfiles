@@ -63,6 +63,7 @@ set rtp+=~/.vim/bundle/pyclewn
 let s:win_shell = (has('win32') || has('win64')) && &shellcmdflag =~ '/'
 let s:vimDir = s:win_shell ? '$HOME/vimfiles' : '$HOME/.vim'
 let &runtimepath .= ',' . expand(s:vimDir . '/autoload/plug.vim')
+exec "source " . expand(s:vimDir . '/vim-plug/plug.vim')
 
 " if (win_shell)
 "   " Requires python to be in the system path
