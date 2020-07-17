@@ -102,19 +102,6 @@ Plug 'junegunn/fzf.vim'
 " Diffchanges plugin
 Plug 'vim-scripts/diffchanges.vim'
 
-" Youcompleteme plugin
-function! BuildYCM(info)
-  if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
-    if s:win_shell
-      !python install.py --clang-completer
-    elseif
-      !./install.py --clang-completer --system-libclang --js-completer
-    endif
-  endif
-endfunction
-Plug 'Valloric/YouCompleteMe', { 'do' : function('BuildYCM'), 'for': 'cpp' }
-autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
-
 " Fugitive
 Plug 'tpope/vim-fugitive'
 
@@ -126,9 +113,6 @@ Plug 'tpope/vim-unimpaired'
 
 " repeat.vim
 Plug 'tpope/vim-repeat'
-
-" Tagbar
-Plug 'majutsushi/tagbar'
 
 " UltiSnips
 Plug 'SirVer/ultisnips'
@@ -166,11 +150,29 @@ Plug 'skywind3000/asyncrun.vim'
 " Vim C++ syntax highlighting
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
 
-" Vim Latex vimtex
-Plug 'lervag/vimtex'
+if !s:win_shell
+  " Youcompleteme plugin
+  function! BuildYCM(info)
+    if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
+      if s:win_shell
+        !python install.py --clang-completer
+      elseif
+        !./install.py --clang-completer --system-libclang --js-completer
+      endif
+    endif
+  endfunction
+  Plug 'Valloric/YouCompleteMe', { 'do' : function('BuildYCM'), 'for': 'cpp' }
+  autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 
-" Tmux.conf syntax highlighting
-Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
+  " Tagbar
+  Plug 'majutsushi/tagbar'
+
+  " Vim Latex vimtex
+  Plug 'lervag/vimtex'
+
+  " Tmux.conf syntax highlighting
+  Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
+endif
 
 " Obsession plugin
 Plug 'tpope/vim-obsession'
