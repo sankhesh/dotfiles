@@ -168,7 +168,7 @@ if !s:win_shell
   Plug 'majutsushi/tagbar'
 
   " Vim Latex vimtex
-  Plug 'lervag/vimtex'
+  Plug 'lervag/vimtex', { 'for': 'tex' }
 
   " Tmux.conf syntax highlighting
   Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
@@ -647,6 +647,10 @@ let vim_markdown_preview_hotkey='<leader>P'
 let vim_markdown_preview_github=1
 let vim_markdown_preview_toggle=1
 let vim_markdown_preview_use_xdg_open=1
+
+" vimtex - set tex flavor based on
+" help vim-tex-flavor
+let g:tex_flavor = 'latex'
 
 " localvimrc options
 let g:localvimrc_ask = 0 " remove prompt asking user to load lvimrc
