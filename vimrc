@@ -136,7 +136,7 @@ Plug 'mhinz/vim-signify'
 Plug 'peterhoeg/vim-qml', { 'for': 'qml' }
 
 " Colorschemes
-Plug 'gosukiwi/vim-atom-dark'
+Plug 'NLKNguyen/papercolor-theme'
 
 " Vim-do plugin
 " Plug 'sankhesh/vim-do'
@@ -217,11 +217,17 @@ packadd! termdebug
 set background=dark
 
 " Color scheme here would override all colors
+let g:PaperColor_Theme_Options = {
+\ 'theme' : {
+\   'default' : {
+\     'transparent_background' : 1
+\       }
+\   }
+\ }
+
+colorscheme PaperColor
 if has("gui_running")
-  colorscheme atom-dark
   let macvim_skip_colorscheme=1
-else
-  colorscheme atom-dark-256
 endif"
 
 " The following are commented out as they cause vim to behave a lot
