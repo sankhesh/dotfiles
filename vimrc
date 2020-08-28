@@ -277,7 +277,7 @@ set makeprg=ninja\ -C\ ../bld
 
 " Color 80th column
 set colorcolumn=100
-" highlight ColorColumn ctermbg=Blue guibg=pink
+highlight ColorColumn ctermfg=163
 
 " Set leader (vim prefix) to ','
 :let mapleader = ","
@@ -643,7 +643,8 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 nnoremap <leader>pm :Goyo<CR>
 
 " vim-illuminate options
-hi link illuminatedWord ColorColumn
+" hi link illuminatedWord ColorColumn
+hi illuminatedWord cterm=bold ctermbg=236 ctermfg=160
 
 " switch source header
 nmap ,s :call CurtineIncSw()<CR>
