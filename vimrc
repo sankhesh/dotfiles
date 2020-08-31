@@ -56,11 +56,15 @@ elseif !(has('win32') || has('win64'))
   set term=xterm-256color
 endif
 
+let s:win_shell = (has('win32') || has('win64')) && &shellcmdflag =~ '/'
+if s:win_shell
+  set renderoptions=type:directx
+endif
+
 set guifont=Cascadia_Code:h10:cANSI:qDRAFT
 
 set rtp+=~/.vim/bundle/pyclewn
 
-let s:win_shell = (has('win32') || has('win64')) && &shellcmdflag =~ '/'
 let s:vimDir = s:win_shell ? '$HOME/vimfiles' : '$HOME/.vim'
 let &runtimepath .= ',' . expand(s:vimDir . '/autoload/plug.vim')
 exec "source " . expand(s:vimDir . '/vim-plug/plug.vim')
@@ -217,18 +221,20 @@ packadd! termdebug
 set background=dark
 
 " Color scheme here would override all colors
-let g:PaperColor_Theme_Options = {
-\ 'theme' : {
-\   'default' : {
-\     'transparent_background' : 1
-\       }
-\   }
-\ }
+if !has("gui_running")
+  let g:PaperColor_Theme_Options = {
+  \ 'theme' : {
+  \   'default' : {
+  \     'transparent_background' : 1
+  \       }
+  \   }
+  \ }
+endif
 
 colorscheme PaperColor
 if has("gui_running")
   let macvim_skip_colorscheme=1
-endif"
+endif
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
