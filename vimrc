@@ -653,7 +653,7 @@ nnoremap <leader>pm :Goyo<CR>
 augroup illuminate_augroup
   autocmd!
   autocmd VimEnter * hi illuminatedWord ctermfg=236 ctermbg=37 guifg=#303030 guibg=#00afaf
-  autocmd VimEnter * hi illuminatedCurWord ctermfg=236 ctermbg=37 guifg=#dadada guibg=#00afaf
+  autocmd VimEnter * hi illuminatedCurWord ctermfg=253 ctermbg=37 guifg=#dadada guibg=#00afaf
 augroup END
 
 " switch source header
