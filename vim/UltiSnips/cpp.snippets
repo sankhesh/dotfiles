@@ -1,43 +1,56 @@
 snippet qtheader
-/*=============================================================================
-Copyright and License information
-=============================================================================*/
+/*=========================================================================
+ * @file ${1:`!p snip.rv = snip.basename`}.h
+ *
+ * @brief $2
+========================================================================*/
 
-#ifndef ${1:`!p snip.rv = snip.basename`}_h
-#define $1_h
+#pragma once
 
 // Qt includes
-#include <$2>
+#include <$3>
 
-/// $0
-class $1 : public $2
+// Forward declarations
+
+namespace $4
+{
+
+/**
+ * \class $1
+ * \brief $2 $0
+ */
+class $1 : public $3
 {
   Q_OBJECT
-  typedef $2 Superclass;
+  typedef $3 Superclass;
 
 public:
-  $1($2 * parent = 0);
+  $1($3 * parent = 0);
   ~$1();
 
 private:
   Q_DISABLE_COPY($1)
 };
 
-#endif //$1_h
+} // end namespace $4
 endsnippet
 
 snippet qtimpl
-/*=============================================================================
-Copyright and License information
-=============================================================================*/
+/*=========================================================================
+ * @file ${1:`!p snip.rv = snip.basename`}.cxx
+ *
+ * @brief $2
+========================================================================*/
 
 // $3 includes
-#include "${1:`!p snip.rv = snip.basename`}.h"
+#include "$1.h"
 
 // Qt includes
 
+namespace $5
+{
 //-------------------------------------------------------------------------------------------------
-$1::$1($2 * parent) :
+$1::$1($4 * parent) :
   Superclass(parent)
 {
 $0
@@ -47,6 +60,8 @@ $0
 $1::~$1()
 {
 }
+
+} // end namespace $5
 endsnippet
 
 snippet vtktest
@@ -216,4 +231,13 @@ snippet vtkvolumeinit
   volumeProperty->SetScalarOpacity(pf);
   volume->SetProperty(volumeProperty);
   volume->SetMapper(mapper);
+endsnippet
+
+snippet customheader
+/*=========================================================================
+ * @file ${1:`!p snip.rv = snip.fn`}
+ *
+ * @brief $2
+========================================================================*/
+$0
 endsnippet
