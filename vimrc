@@ -652,8 +652,8 @@ nnoremap <leader>pm :Goyo<CR>
 " hi link illuminatedWord ColorColumn
 augroup illuminate_augroup
   autocmd!
-  autocmd VimEnter * hi illuminatedWord ctermfg=236 ctermbg=37 guifg=#303030 guibg=#00afaf
-  autocmd VimEnter * hi illuminatedCurWord ctermfg=253 ctermbg=37 guifg=#dadada guibg=#00afaf
+  autocmd VimEnter * hi illuminatedWord ctermbg=237 guibg=#3a3a3a
+  " autocmd VimEnter * hi illuminatedCurWord ctermbg=237 guibg=#00afaf
 augroup END
 
 " switch source header
