@@ -154,20 +154,20 @@ Plug 'skywind3000/asyncrun.vim'
 " Vim C++ syntax highlighting
 Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
 
-if !s:win_shell
-  " Youcompleteme plugin
-  function! BuildYCM(info)
-    if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
-      if s:win_shell
-        !python install.py --clang-completer
-      elseif
-        !./install.py --clang-completer --system-libclang --js-completer
-      endif
+" Youcompleteme plugin
+function! BuildYCM(info)
+  if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
+    if s:win_shell
+      !python install.py --clang-completer
+    elseif
+      !./install.py --clang-completer --system-libclang --js-completer
     endif
-  endfunction
-  Plug 'Valloric/YouCompleteMe', { 'do' : function('BuildYCM'), 'for': 'cpp' }
-  autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
+  endif
+endfunction
+Plug 'Valloric/YouCompleteMe', { 'do' : function('BuildYCM'), 'for': 'cpp' }
+autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 
+if !s:win_shell
   " Tagbar
   Plug 'majutsushi/tagbar'
 
