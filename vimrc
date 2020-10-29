@@ -302,7 +302,7 @@ let g:termdebug_wide=163
 let g:termdebug_popup=0
 
 " YouCompleteMe
-let g:ycm_global_ycm_extra_conf = $HOME."/.vim/.ycm_extra_conf.py"
+let g:ycm_global_ycm_extra_conf = expand(s:vimDir . "/.ycm_extra_conf.py")
 let g:ycm_key_list_select_completion=[] " Load tab completion without pressing tab key
 let g:ycm_key_list_previous_completion=[] " Load tab completion without pressing tab key
 let g:ycm_register_as_syntastic_checker = 1
