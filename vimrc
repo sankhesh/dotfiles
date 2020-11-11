@@ -203,7 +203,7 @@ Plug 'RRethy/vim-illuminate'
 Plug 'petrbroz/vim-glsl', { 'for': 'glsl' }
 
 " Switch between source/header files
-Plug 'ericcurtin/CurtineIncSw.vim', { 'for': ['cpp', 'c'] }
+" Plug 'ericcurtin/CurtineIncSw.vim', { 'for': ['cpp', 'c'] }
 
 " Matchup
 Plug 'andymass/vim-matchup'
@@ -489,6 +489,19 @@ command! -bang -nargs=? -complete=dir Files
 nnoremap <leader>cp :call fzf#vim#files('.', {'options':'--query '.expand('<cword>')})<CR>
 nnoremap <C-P> :Files<CR>
 nnoremap <silent> <leader>ag :Ag <C-R><C-W><CR>
+function! SwitchSourceHeader()
+  let file_path = expand("%")
+  let file_name = expand("%<")
+  let extension = split(file_path, '\.')[-1] " '\.'
+  let string_to_search = ""
+  if extension =~ 'h'
+    let string_to_search = file_name . '.c'
+  else
+    let string_to_search = file_name . '.h'
+  endif
+  call fzf#vim#files('.', {'options':'--query '.string_to_search})
+endfunction
+nnoremap <silent> <leader>s :call SwitchSourceHeader()<CR>
 
 " Rename tabs to show tab number.
 " (Based on http://stackoverflow.com/questions/5927952/whats-implementation-of-vims-default-tabline-function)
@@ -555,6 +568,7 @@ highlight SignifySignAdd    cterm=bold ctermbg=235  ctermfg=119 guifg=green
 highlight SignifySignDelete cterm=bold ctermbg=235  ctermfg=167 guifg=red
 highlight SignifySignChange cterm=bold ctermbg=235  ctermfg=227 guifg=yellow
 nnoremap ]df :SignifyHunkDiff<CR>
+nnoremap ]du :SignifyHunkUndo<CR>
 
 " Gitv options
 let g:Gitv_TruncateCommitSubjects = 1 " Fit log width to split
@@ -658,7 +672,7 @@ augroup illuminate_augroup
 augroup END
 
 " switch source header
-nmap ,s :call CurtineIncSw()<CR>
+" nmap ,s :call CurtineIncSw()<CR>
 
 " markdown-preview options
 let vim_markdown_preview_hotkey='<leader>P'
