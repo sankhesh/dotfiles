@@ -490,8 +490,8 @@ nnoremap <leader>cp :call fzf#vim#files('.', {'options':'--query '.expand('<cwor
 nnoremap <C-P> :Files<CR>
 nnoremap <silent> <leader>ag :Ag <C-R><C-W><CR>
 function! SwitchSourceHeader()
-  let file_path = expand("%")
-  let file_name = expand("%<")
+  let file_path = expand("%:t")
+  let file_name = expand("%:t:r")
   let extension = split(file_path, '\.')[-1] " '\.'
   let string_to_search = ""
   if extension =~ 'h'
