@@ -594,6 +594,11 @@ let g:cpp_concepts_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 
+" clang-format executable
+if s:win_shell
+  let $PATH.="C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/Llvm/x64/bin/;"
+endif
+
 " Ale options
 " Disable ale linting for C/C++ as YCM does it for me
 let g:ale_linters = {
