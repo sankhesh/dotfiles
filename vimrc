@@ -635,7 +635,6 @@ let g:ale_c_clangformat_options = '-style="{
       \ ColumnLimit : 100,
       \ SpaceAfterTemplateKeyword: true,
       \ Standard : C++11}"'
-let g:ale_c_clangformat_executable = s:clang_format_exe
 
 " Clang format options
 let g:clang_format#style_options = {
@@ -652,7 +651,6 @@ let g:clang_format#style_options = {
       \ "ColumnLimit" : "100",
       \ "SpaceAfterTemplateKeyword": "true",
       \ "Standard" : "C++11"}
-let g:clang_format#command = s:clang_format_exe
 
 " map to <Leader>cf in C++ code
 " Main reason why I need ClangFormat - be able to format only selected code
