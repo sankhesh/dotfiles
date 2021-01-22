@@ -603,7 +603,7 @@ let g:cpp_class_decl_highlight = 1
 
 " clang-format executable
 if s:win_shell
-  let $PATH.="C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/Llvm/x64/bin/;"
+  let $PATH.=";C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/Llvm/x64/bin/;"
 endif
 
 " Ale options
