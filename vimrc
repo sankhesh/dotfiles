@@ -61,7 +61,14 @@ if s:win_shell
   set renderoptions=type:directx
 endif
 
-set guifont=Cascadia_Code:h10:cANSI:qDRAFT
+if has('gui_running')
+  set guioptions-=T " no toolbar
+  if has('gui_win32')
+    set guifont=Cascadia_Code:h10:cANSI:qDRAFT
+  else
+    set guifont=Cascadia\ Code\ 10
+  endif
+endif
 
 set rtp+=~/.vim/bundle/pyclewn
 
@@ -505,7 +512,7 @@ nnoremap <silent> <leader>s :call SwitchSourceHeader()<CR>
 
 " Rename tabs to show tab number.
 " (Based on http://stackoverflow.com/questions/5927952/whats-implementation-of-vims-default-tabline-function)
-if exists("+showtabline")
+if exists("+showtabline") && !has("gui_running")
     function! MyTabLine()
         let s = ''
         let wn = ''
