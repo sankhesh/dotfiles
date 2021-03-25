@@ -621,8 +621,6 @@ let g:ale_fixers = {
 let g:ale_c_clangformat_options = '-style="{
       \ AlignAfterOpenBracket : DontAlign,
       \ AlignOperands : false,
-      \ AllowAllParametersOfDeclarationOnNextLine: false,
-      \ AllowShortFunctionsOnASingleLine : false,
       \ AlwaysBreakAfterDefinitionReturnType : None,
       \ AlwaysBreakAfterReturnType : None,
       \ BasedOnStyle : Mozilla,
@@ -637,8 +635,6 @@ let g:ale_c_clangformat_options = '-style="{
 let g:clang_format#style_options = {
       \ "AlignAfterOpenBracket" : "DontAlign",
       \ "AlignOperands" : "false",
-      \ "AllowAllParametersOfDeclarationOnNextLine": "false",
-      \ "AllowShortFunctionsOnASingleLine" : "false",
       \ "AlwaysBreakAfterDefinitionReturnType" : "None",
       \ "AlwaysBreakAfterReturnType" : "None",
       \ "BasedOnStyle" : "Mozilla",
