@@ -49,3 +49,4 @@
     ~/.local/share/applications/paraview.desktop: applications/paraview.desktop
     ~/.local/share/applications/slicer.desktop: applications/slicer.desktop
     ~/.cmakelintrc: cmakelintrc
+    ~/.gdbinit: gdbinit
