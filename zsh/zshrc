@@ -14,13 +14,13 @@ fi
 
 # Customize to your needs...
 
+alias vim='vim --servername vim'
+
+autoload -Uz zmv
+
 # Import local configuration
 if [[ -s "${ZDOTDIR:-$HOME}/.zshrc_local" ]]; then
   source "${ZDOTDIR:-$HOME}/.zshrc_local"
 fi
-
-autoload -Uz zmv
-
-alias vim='vim --servername vim'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
