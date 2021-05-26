@@ -512,7 +512,43 @@ nnoremap <silent> <leader>s :call SwitchSourceHeader()<CR>
 
 " Rename tabs to show tab number.
 " (Based on http://stackoverflow.com/questions/5927952/whats-implementation-of-vims-default-tabline-function)
-if exists("+showtabline") && !has("gui_running")
+if exists("+showtabline")
+  if has("gui_running")
+    function! GuiTabLabel()
+      let label = ''
+      let bufnrlist = tabpagebuflist(v:lnum)
+      " Add '+' if one of the buffers in the tab page is modified
+      for bufnr in bufnrlist
+        if getbufvar(bufnr, "&modified")
+          let label = '+'
+          break
+        endif
+      endfor
+      " Append the tab number
+      let label .= v:lnum.': '
+      " Append the buffer name
+      let name = bufname(bufnrlist[tabpagewinnr(v:lnum) - 1])
+      if name == ''
+        " give a name to no-name documents
+        if &buftype=='quickfix'
+          let name = '[Quickfix List]'
+        else
+          let name = '[No Name]'
+        endif
+      else
+        " get only the file name
+        let name = fnamemodify(name,":t")
+      endif
+      let label .= name
+      " Append the number of windows in the tab page
+      let wincount = tabpagewinnr(v:lnum, '$')
+      if wincount > 1
+        let label .= '  [' . wincount . ']'
+      endif
+      return label
+    endfunction
+    set guitablabel=%{GuiTabLabel()}
+  else
     function! MyTabLine()
         let s = ''
         let wn = ''
@@ -560,6 +596,7 @@ if exists("+showtabline") && !has("gui_running")
     set tabline=%!MyTabLine()
     set showtabline=1
     highlight link TabNum Special
+  endif
 endif
 
 " vim-signature options
