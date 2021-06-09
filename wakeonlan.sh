@@ -7,21 +7,23 @@ macbook=48:d7:05:ce:a7:97
 # macbook=32:00:10:65:a0:00
 
 wol=wakeonlan
-# if [[ "$OSTYPE" == "linux-gnu" ]]; then
-#   wol="wakeonlan"
-# elif [[ "$OSTYPE" == "darwin"* ]]; then
-#   wol="wakeonlan"
-# # elif [[ "$OSTYPE" == "cygwin" ]]; then
-# #         # POSIX compatibility layer and Linux environment emulation for Windows
-# # elif [[ "$OSTYPE" == "msys" ]]; then
-# #         # Lightweight shell and GNU utilities compiled for Windows (part of MinGW)
-# # elif [[ "$OSTYPE" == "win32" ]]; then
-# #         # I'm not sure this can happen.
-# # elif [[ "$OSTYPE" == "freebsd"* ]]; then
-# #         # ...
-# # else
-#        # Unknown.
-# fi
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  if type wol > /dev/null; then
+    wol="wol"
+  fi
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  wol="wakeonlan"
+# elif [[ "$OSTYPE" == "cygwin" ]]; then
+#         # POSIX compatibility layer and Linux environment emulation for Windows
+# elif [[ "$OSTYPE" == "msys" ]]; then
+#         # Lightweight shell and GNU utilities compiled for Windows (part of MinGW)
+# elif [[ "$OSTYPE" == "win32" ]]; then
+#         # I'm not sure this can happen.
+# elif [[ "$OSTYPE" == "freebsd"* ]]; then
+#         # ...
+# else
+       # Unknown.
+fi
 
 echo "Which PC to wake?"
 echo "s) sthir"
