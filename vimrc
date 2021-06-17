@@ -583,9 +583,18 @@ if exists("+showtabline")
               let file = p2 . '/' . p1 . '/' . file
             endif
             if file == ''
+              " give a name to no-name documents
+              if &buftype=='quickfix'
+                let file = '[Quickfix List]'
+              else
                 let file = '[No Name]'
+              endif
             endif
             let s .= ' ' . file . ' '
+            " Append the number of windows in the tab page
+            if wn > 1
+              let s .= ' [' . wn . ']'
+            endif
             let i = i + 1
         endwhile
         let s .= '%T%#TabLineFill#%='
