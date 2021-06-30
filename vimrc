@@ -738,6 +738,15 @@ let vim_markdown_preview_use_xdg_open=1
 " help vim-tex-flavor
 let g:tex_flavor = 'latex'
 
+" termdebug mappings
+nmap <F5> :Continue<CR>
+nmap <leader><F5> :Run<CR>
+nmap <F10> :Over<CR>
+nmap <leader><F10> :Step<CR>
+nmap <F9> :Break<CR>
+nmap <leader><F9> :Clear<CR>
+highlight debugPC term=reverse ctermbg=67 guibg=darkblue
+
 " localvimrc options
 let g:localvimrc_ask = 0 " remove prompt asking user to load lvimrc
 
