@@ -15,7 +15,7 @@ fi
 # Customize to your needs...
 
 # Alias vim with servername if compiled with clientserver
-[[ $(vim --clean --version --noplugin | grep -Po "([-+])clientserver" | grep -Po "[-+]") == "+" ]] &&\
+[[ $(vim --clean --version --noplugin | grep -Eo "([-+])clientserver" | grep -Eo "[-+]") == "+" ]] &&\
   alias vim='vim --servername vim'
 
 autoload -Uz zmv
