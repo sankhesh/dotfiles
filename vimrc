@@ -316,11 +316,13 @@ let g:ycm_register_as_syntastic_checker = 1
 let g:ycm_collect_identifiers_from_tags_files = 1 " Load identifiers from tags files
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_always_populate_location_list = 1 " Allows to navigate to next/previous errors
+let g:ycm_auto_hover = 'CursorHold' " Show a balloon with doc for function under cursor
 if !exists("g:ycm_semantic_triggers")
   let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers.cmake=['re!\_']
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
+nmap <leader>jp <plug>(YCMHover)
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
