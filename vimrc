@@ -329,8 +329,8 @@ nmap <F8> :TagbarToggle<CR>
 
 " Prosession
 let g:prosession_dir = expand(s:vimDir . '/session/') " Session cache directory
-let g:prosession_tmux_title = 1 " Update TMUX window title based on vim session
-let g:prosession_default_session = 1 " Create a default session if none found
+let g:prosession_tmux_title = !has('gui_running') " Update TMUX window title based on vim session
+let g:prosession_default_session = 0 " Don't create a default session
 let g:prosession_on_startup = !has('gui_running')
 
 " Set omnifunc
