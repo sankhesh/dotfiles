@@ -345,7 +345,7 @@
 			<key>Background Image Location</key>
 			<string></string>
 			<key>Blend</key>
-			<real>0.30000001192092896</real>
+			<real>0.15029237166694973</real>
 			<key>Blink Allowed</key>
 			<false/>
 			<key>Blinking Cursor</key>
@@ -427,7 +427,7 @@
 			<key>Initial Text</key>
 			<string></string>
 			<key>Initial Use Transparency</key>
-			<true/>
+			<false/>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
@@ -733,7 +733,7 @@
 			<key>Normal Font</key>
 			<string>Monaco 12</string>
 			<key>Only The Default BG Color Uses Transparency</key>
-			<false/>
+			<true/>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1014,7 +1014,7 @@
 			<key>Thin Strokes</key>
 			<integer>4</integer>
 			<key>Transparency</key>
-			<real>0.12838331563823724</real>
+			<real>0.0</real>
 			<key>Triggers</key>
 			<array/>
 			<key>Unicode Normalization</key>
