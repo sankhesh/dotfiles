@@ -165,13 +165,13 @@ Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
 function! BuildYCM(info)
   if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
     if s:win_shell
-      !python install.py --clang-completer
+      !python install.py --clang-completer --ts-completer
     elseif
-      !./install.py --clang-completer --system-libclang --js-completer
+      !./install.py --clang-completer --system-libclang --ts-completer
     endif
   endif
 endfunction
-Plug 'Valloric/YouCompleteMe', { 'do' : function('BuildYCM'), 'for': ['cpp', 'python'] }
+Plug 'Valloric/YouCompleteMe', { 'do' : function('BuildYCM'), 'for': ['cpp', 'python', 'javascript', 'typescript'] }
 autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 
 if !s:win_shell
