@@ -15,10 +15,12 @@
     ~/.vimrc: vimrc
     ~/.tmux: tmux
     ~/.tmux.conf: tmux.conf
+    ~/.gitglobalignore: git/globalignore
+    ~/.gitglobalconfig: git/config
 
 - shell:
     - git submodule update --init --recursive # Installing submodules
-    - git config --global core.excludesfile ~/.vim/global_ignore # Ignore certain filetypes from git
+    - git config --global include.path ~/.gitglobalconfig
     - command: vim +PlugInstall +PlugUpdate +qall # Fetch VIM plugins
       stdout: true
       # stderr: true

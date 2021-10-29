@@ -1,0 +1,8 @@
+[diff]
+	wsErrorHighlight = all
+[core]
+	editor = vim
+	excludesfile = ~/.gitglobalignore
+[credential]
+	helper = cache
+
