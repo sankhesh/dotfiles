@@ -540,6 +540,12 @@ if exists("+showtabline")
       else
         " get only the file name
         let name = fnamemodify(name,":t")
+        if name == 'index.js'
+          let fullbufname = fnamemodify(bufname(bufnr), ':p:.')
+          let p1 = fnamemodify(fullbufname, ':h:t')
+          let p2 = fnamemodify(fullbufname, ':h:h:t')
+          let name = p2 . '/' . p1 . '/' . name
+        endif
       endif
       let label .= name
       " Append the number of windows in the tab page
