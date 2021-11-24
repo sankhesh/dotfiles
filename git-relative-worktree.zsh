@@ -13,6 +13,23 @@ function echoerr() {
   echo "ERROR: $@" 1>&2;
 }
 
+function usage() {
+  echo "Usage: $@ <primary directory> <worktree dir>";
+}
+
+argn=$#
+if [[ $argn -lt 2 ]]; then
+  if [[ $argn -lt 1 ]]; then
+    echoerr "Missing arguments"
+  elif [[ ! ${1:l} =~ "-h$|--help$" ]]; then
+    echoerr "Invalid argument: $1"
+  fi
+  usage $0
+  exit 1
+fi
+
+exit 1
+
 for x in $1 $2; do
   if [ ! -d "$x" ]; then
     echoerr "Not a valid directory: $x";
@@ -51,4 +68,3 @@ for line in "${(@f)"$(<$gitwgitdir)"}"; do
   echo "Replacing '$abs2' with '$revrelp' in '$gitwgitdir'"
   echo ${line//$abs2/$revrelp} >! "$gitwgitdir"
 done
-
