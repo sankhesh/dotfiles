@@ -117,7 +117,8 @@ Plug 'vim-scripts/diffchanges.vim'
 Plug 'tpope/vim-fugitive'
 
 " Gitv
-Plug 'gregsexton/gitv'
+" Plug 'gregsexton/gitv'
+Plug 'sankhesh/gitv'
 
 " Vim-unimpaired
 Plug 'tpope/vim-unimpaired'
