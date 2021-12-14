@@ -63,6 +63,8 @@ zstyle ':prezto:module:editor' dot-expansion 'yes'
 
 # Ignore submodules when they are 'dirty', 'untracked', 'all', or 'none'.
 # zstyle ':prezto:module:git:status:ignore' submodules 'all'
+# Set the oneline format
+zstyle ':prezto:module:git:log:oneline' format '"%C(auto) %h%d %s %C(bold blue)%an%C(reset) %C(bold)(%ar)"'
 
 #
 # GNU Utility
