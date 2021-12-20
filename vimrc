@@ -148,7 +148,7 @@ Plug 'mhinz/vim-signify'
 Plug 'peterhoeg/vim-qml', { 'for': 'qml' }
 
 " Colorschemes
-Plug 'NLKNguyen/papercolor-theme'
+Plug 'tomasiser/vim-code-dark'
 
 " Vim-do plugin
 " Plug 'sankhesh/vim-do'
@@ -239,7 +239,7 @@ if !has("gui_running")
   \ }
 endif
 
-colorscheme PaperColor
+colorscheme codedark
 if has("gui_running")
   let macvim_skip_colorscheme=1
 endif
