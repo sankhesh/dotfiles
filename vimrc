@@ -326,7 +326,9 @@ nnoremap <leader>jd :YcmCompleter GoTo<CR>
 nmap <leader>jp <plug>(YCMHover)
 
 " Tagbar
-nmap <F8> :TagbarToggle<CR>
+nmap <F8> :TagbarToggle<CR> <bar> :TagbarTogglePause<CR>
+let g:tagbar_show_tag_linenumbers = 2 " Show tag line numbers to the left in the tagbar window
+let g:tagbar_show_visibility = 1 " Show the visibility symbols (public/protected/private) in tagbar
 
 " Prosession
 let g:prosession_dir = expand(s:vimDir . '/session/') " Session cache directory
