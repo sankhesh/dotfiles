@@ -107,7 +107,7 @@ Plug 'kshenoy/vim-signature'
 " Plug 'vim-scripts/ctrlp.vim'
 
 " File Fuzzy Finder plugin
-Plug 'junegunn/fzf', {'dir': expand($HOME . '/.fzf/'), 'do': 'install --all' }
+Plug 'junegunn/fzf', {'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " Diffchanges plugin
@@ -167,8 +167,8 @@ function! BuildYCM(info)
   if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
     if s:win_shell
       !python install.py --clang-completer --ts-completer
-    elseif
-      !./install.py --clang-completer --system-libclang --ts-completer
+    else
+      !python install.py --clang-completer --system-libclang --ts-completer
     endif
   endif
 endfunction
