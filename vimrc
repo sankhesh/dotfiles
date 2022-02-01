@@ -547,12 +547,9 @@ if exists("+showtabline")
         endif
       else
         " get only the file name
-        let name = fnamemodify(name,":t")
-        if name == 'index.js'
-          let fullbufname = fnamemodify(bufname(bufnr), ':p:.')
-          let p1 = fnamemodify(fullbufname, ':h:t')
-          let p2 = fnamemodify(fullbufname, ':h:h:t')
-          let name = p2 . '/' . p1 . '/' . name
+        let tname = fnamemodify(name,":t")
+        if tname == 'index.js'
+          let name = fnamemodify(name, ':p:.:h')
         endif
       endif
       let label .= name
