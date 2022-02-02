@@ -615,6 +615,7 @@ if exists("+showtabline")
     set tabline=%!MyTabLine()
     set showtabline=1
     highlight link TabNum Special
+    highlight TabLineSel cterm=italic " Required for codedark colorscheme to differentiate current tab
   endif
 endif
 
