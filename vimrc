@@ -590,10 +590,7 @@ if exists("+showtabline")
                 let file = fnamemodify(file, ':p:t')
             endif
             if file == 'index.js'
-              let fullbufname = fnamemodify(bufname(bufnr), ':p:.')
-              let p1 = fnamemodify(fullbufname, ':h:t')
-              let p2 = fnamemodify(fullbufname, ':h:h:t')
-              let file = p2 . '/' . p1 . '/' . file
+              let file = fnamemodify(bufname(bufnr), ':p:.:h')
             endif
             if file == ''
               " give a name to no-name documents
