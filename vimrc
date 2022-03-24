@@ -133,12 +133,7 @@ Plug 'SirVer/ultisnips'
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 
 " Markdown preview
-function! InstallLivedown(info)
-  if a:info.status == 'installed' || a.info.status == 'updated' || a.info.force
-    !npm install livedown
-  endif
-endfunction
-Plug 'shime/vim-livedown', {'for': 'markdown', 'do': function('InstallLivedown') }
+Plug 'iamcco/markdown-preview.nvim', {'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 " QuickFix list handling
 Plug 'yssl/QFEnter'
@@ -740,8 +735,7 @@ augroup END
 " nmap ,s :call CurtineIncSw()<CR>
 
 " markdown-preview options
-nmap <leader>P :LivedownToggle<CR>
-let g:livedown_autorun = 0 " Don't automatically generate the preview
+nmap <leader>P <Plug>MarkdownPreviewToggle
 
 " vimtex - set tex flavor based on
 " help vim-tex-flavor
