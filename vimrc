@@ -461,6 +461,9 @@ set foldlevelstart=4                          " Start fold level
 " Show changes using DiffChanges
 nmap <leader>f :DiffChangesDiffToggle<CR>
 nmap <leader>p :DiffChangesPatchToggle<CR>
+if (has('win32') || has('win64'))
+  let g:diffchanges_patch_cmd = 'FC'
+endif
 
 " NERDTree
 nmap <leader>m :NERDTreeToggle<CR>
