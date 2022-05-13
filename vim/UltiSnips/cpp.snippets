@@ -99,10 +99,10 @@ renWin->SetMultiSamples(0);
 renWin->SetSize(301, 300); // Intentional NPOT size
 
 vtkNew<vtkRenderer> ren;
-renWin->AddRenderer(ren.GetPointer());
+renWin->AddRenderer(ren);
 
 vtkNew<vtkRenderWindowInteractor> iren;
-iren->SetRenderWindow(renWin.GetPointer());
+iren->SetRenderWindow(renWin);
 
 renWin->Render();
 endsnippet
