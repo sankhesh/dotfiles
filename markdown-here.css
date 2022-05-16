@@ -10,8 +10,10 @@
 
 /* This is the overall wrapper, it should be treated as the `body` section. */
 .markdown-here-wrapper {
-  font-family: "Lucida Sans", "Cantarell", Verdana, sans-serif;
-  color: #0B5394;
+  font-family: "Lucida Sans Unicode", "Cantarell", Verdana, sans-serif;
+  font-size: 14px;
+  line-height: 1.3em;
+  color: #353535;
 }
 
 /* To add site specific rules, you can use the `data-md-url` attribute that we
