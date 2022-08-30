@@ -41,6 +41,7 @@
     ~/.zshrc: zsh/zshrc
     ~/.zpreztorc: zsh/zpreztorc
     ~/.zprezto: zsh/prezto
+    ~/.mklink.zsh: mklink.zsh
     #    ~/.config/flake8: config/flake8
     #    ~/.local/share/applications/defaults.list: applications/defaults.list
     #    ~/.local/share/applications/designer.desktop: applications/designer.desktop

@@ -23,4 +23,5 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zshrc_local" ]]; then
   source "${ZDOTDIR:-$HOME}/.zshrc_local"
 fi
 
+alias mklink=" . ${ZDOTDIR:-$HOME}/.mklink.zsh"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
