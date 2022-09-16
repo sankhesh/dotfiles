@@ -1,8 +1,11 @@
-[diff]
-	wsErrorHighlight = all
+[commit]
+	gpgsign = true
 [core]
 	editor = vim
 	excludesfile = ~/.gitglobalignore
 [credential]
 	helper = cache
-
+[diff]
+	wsErrorHighlight = all
+[gpg]
+	format = ssh
