@@ -21,6 +21,9 @@
 - shell:
     - git submodule update --init --recursive # Installing submodules
     - git config --global include.path ~/.gitglobalconfig
+    - command: ./git/allowed_signers.zsh
+      stdout: true
+      stderr: true
     - command: vim +PlugInstall +PlugUpdate +qall # Fetch VIM plugins
       stdout: true
       # stderr: true
