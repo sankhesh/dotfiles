@@ -1,5 +1,7 @@
 [commit]
 	gpgsign = true
+[tag]
+	gpgsign = true
 [core]
 	editor = vim
 	excludesfile = ~/.gitglobalignore
@@ -7,5 +9,12 @@
 	helper = cache
 [diff]
 	wsErrorHighlight = all
-[gpg]
-	format = ssh
+#Suggested contents of ~/.gitconfig
+#[user]
+#	email =
+#	name =
+#	signingkey =
+#[gpg]
+#        program = gpg.exe
+#[include]
+#	path = /home/sankhesh/.gitglobalconfig
