@@ -58,12 +58,13 @@ endif
 
 let s:win_shell = (has('win32') || has('win64')) && &shellcmdflag =~ '/'
 if s:win_shell
-  set renderoptions=type:directx
+  set renderoptions=type:directx,gamma:1.5,contrast:0.5,geom:1,renmode:5,taamode:1,level:0.5
 endif
 
 if has('gui_running')
   set guioptions-=T " no toolbar
-  if has('gui_win32')
+  if s:win_shell
+    set guioptions=dgMRLt
     set guifont=Cascadia_Code:h10:cANSI:qDRAFT
   else
     set guifont=Cascadia\ Code\ 10
@@ -229,16 +230,8 @@ packadd! termdebug
 set background=dark
 
 " Color scheme here would override all colors
-if !has("gui_running")
-  let g:PaperColor_Theme_Options = {
-  \ 'theme' : {
-  \   'default' : {
-  \     'transparent_background' : 1
-  \       }
-  \   }
-  \ }
-endif
-
+" Activates italicized comments (make sure your terminal supports italics)
+let g:codedark_italics=1
 colorscheme codedark
 if has("gui_running")
   let macvim_skip_colorscheme=1
@@ -521,7 +514,7 @@ nnoremap <silent> <leader>s :call SwitchSourceHeader()<CR>
 " Rename tabs to show tab number.
 " (Based on http://stackoverflow.com/questions/5927952/whats-implementation-of-vims-default-tabline-function)
 if exists("+showtabline")
-  if has("gui_running")
+  if has("gui_running") && !s:win_shell
     function! GuiTabLabel()
       let label = ''
       let bufnrlist = tabpagebuflist(v:lnum)
@@ -613,7 +606,7 @@ if exists("+showtabline")
     set tabline=%!MyTabLine()
     set showtabline=1
     highlight link TabNum Special
-    highlight TabLineSel cterm=italic " Required for codedark colorscheme to differentiate current tab
+    highlight TabLineSel cterm=italic gui=italic guibg=#073655 " Required for codedark colorscheme to differentiate current tab
   endif
 endif
 
