@@ -140,6 +140,7 @@ Copyright and License information
 // VTK includes
 #include <$2.h>
 
+VTK_ABI_NAMESPACE_BEGIN
 // Forward declarations
 
 class $1 : public $2
@@ -169,6 +170,7 @@ private:
   void operator=(const $1) = delete;
 };
 
+VTK_ABI_NAMESPACE_END
 #endif //$1_h
 endsnippet
 
@@ -183,6 +185,8 @@ Copyright and License information
 // VTK includes
 #include "vtkObjectFactory.h"
 
+VTK_ABI_NAMESPACE_BEGIN
+//-------------------------------------------------------------------------------------------------
 vtkStandardNewMacro($1);
 
 //-------------------------------------------------------------------------------------------------
@@ -201,6 +205,7 @@ void $1::PrintSelf(ostream &os, vtkIndent indent)
 {
   os << indent << " = " << this-> << endl;
 }
+VTK_ABI_NAMESPACE_END
 endsnippet
 
 snippet vtkincludes
