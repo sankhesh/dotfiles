@@ -127,12 +127,12 @@ Plug 'tpope/vim-unimpaired'
 " repeat.vim
 Plug 'tpope/vim-repeat'
 
-" " UltiSnips
-" Plug 'SirVer/ultisnips'
+" UltiSnips
+Plug 'SirVer/ultisnips'
 
 " " Tabular / vim-markdown
 " Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
-" 
+"
 " " Markdown preview
 " Plug 'iamcco/markdown-preview.nvim', {'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
@@ -156,13 +156,13 @@ Plug 'tomasiser/vim-code-dark'
 
 " " Vim CMake completion
 " Plug 'richq/vim-cmake-completion', { 'for': 'cmake' }
-" 
+"
 " " Vim 8 asyncrun for asynchronous commands run
 " Plug 'skywind3000/asyncrun.vim'
-" 
+"
 " " Vim C++ syntax highlighting
 " Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
-" 
+"
 " " Youcompleteme plugin
 " function! BuildYCM(info)
 "   if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
@@ -185,14 +185,14 @@ Plug 'tomasiser/vim-code-dark'
 " if !s:win_shell
 "   " Vim Latex vimtex
 "   Plug 'lervag/vimtex', { 'for': 'tex' }
-" 
+"
 "   " Tmux.conf syntax highlighting
 "   Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
 " endif
-" 
-" " Obsession plugin
-" Plug 'tpope/vim-obsession'
-" Plug 'dhruvasagar/vim-prosession'
+
+" Obsession plugin
+Plug 'tpope/vim-obsession'
+Plug 'dhruvasagar/vim-prosession'
 
 " FastFold and FoldText plugins
 Plug 'Konfekt/FastFold'
