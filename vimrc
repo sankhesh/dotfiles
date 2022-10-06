@@ -151,15 +151,15 @@ Plug 'SirVer/ultisnips', { 'on': [] }
   endfunction
 "}}}
 
-" Tabular / vim-markdown
-Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
-
-" Markdown preview
-Plug 'iamcco/markdown-preview.nvim', {'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
-
-" Markdown toc
-Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
+" " Tabular / vim-markdown
+" Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
+" 
+" " Markdown preview
+" Plug 'iamcco/markdown-preview.nvim', {'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+" Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
+" 
+" " Markdown toc
+" Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 
 " QuickFix list handling
 Plug 'yssl/QFEnter'
@@ -179,9 +179,15 @@ Plug 'tomasiser/vim-code-dark'
 " Vim-do plugin
 " Plug 'sankhesh/vim-do'
 
+" " Vim CMake completion
+" Plug 'richq/vim-cmake-completion', { 'for': 'cmake' }
+"
 " " Vim 8 asyncrun for asynchronous commands run
 " Plug 'skywind3000/asyncrun.vim'
-" 
+"
+" " Vim C++ syntax highlighting
+" Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
+"
 " " Youcompleteme plugin
 " function! BuildYCM(info)
 "   if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
@@ -198,14 +204,14 @@ Plug 'tomasiser/vim-code-dark'
 " if !s:win_shell
 "   " Vim Latex vimtex
 "   Plug 'lervag/vimtex', { 'for': 'tex' }
-" 
+"
 "   " Tmux.conf syntax highlighting
 "   Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
 " endif
-" 
-" " Obsession plugin
-" Plug 'tpope/vim-obsession'
-" Plug 'dhruvasagar/vim-prosession'
+
+" Obsession plugin
+Plug 'tpope/vim-obsession'
+Plug 'dhruvasagar/vim-prosession'
 
 " FastFold and FoldText plugins
 Plug 'Konfekt/FastFold'
