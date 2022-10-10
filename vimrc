@@ -176,10 +176,10 @@ endfunction
 Plug 'Valloric/YouCompleteMe', { 'do' : function('BuildYCM'), 'for': ['cpp', 'python', 'javascript', 'typescript'] }
 autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 
-if !s:win_shell
-  " Tagbar
-  Plug 'majutsushi/tagbar'
+" Tagbar
+Plug 'majutsushi/tagbar'
 
+if !s:win_shell
   " Vim Latex vimtex
   Plug 'lervag/vimtex', { 'for': 'tex' }
 
