@@ -176,6 +176,9 @@ endfunction
 Plug 'Valloric/YouCompleteMe', { 'do' : function('BuildYCM'), 'for': ['cpp', 'python', 'javascript', 'typescript'] }
 autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
 
+" Vista.vim (Tagbar alternative)
+Plug 'liuchengxu/vista.vim'
+
 " Tagbar
 Plug 'majutsushi/tagbar'
 
@@ -275,7 +278,7 @@ set laststatus=2      " Show status line even if there is only one window
 set tw=100             " Set textwidth to 100 characters so that line breaks at that width
 set splitright        " Open new vertical split to right
 set splitbelow        " Open new horizontal split below
-set statusline=%<%f\ %{fugitive#statusline()}\ %{ObsessionStatus('[Obsession]',\ '[ObsessionPaused]')}\ %h%m%r%=%-14.(%l/%L,%c%V%)\ %P  " Status line
+set statusline=%<%f\ %{NearestMethodOrFunction()}\ %{fugitive#statusline()}\ %{ObsessionStatus('[Obsession]',\ '[ObsessionPaused]')}\ %h%m%r%=%-14.(%l/%L,%c%V%)\ %P  " Status line
 set switchbuf=usetab,newtab  " Use existing tab or open new tab when switching buffers
 
 " Set make program
@@ -322,6 +325,13 @@ nmap <leader>jp <plug>(YCMHover)
 nmap <F8> :TagbarToggle<CR> <bar> :TagbarTogglePause<CR>
 let g:tagbar_show_tag_linenumbers = 2 " Show tag line numbers to the left in the tagbar window
 let g:tagbar_show_visibility = 1 " Show the visibility symbols (public/protected/private) in tagbar
+
+" Vista
+function! NearestMethodOrFunction() abort
+  return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
+" Make vista run the above function automatically
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 
 " Prosession
 let g:prosession_dir = expand(s:vimDir . '/session/') " Session cache directory
