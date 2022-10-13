@@ -1,0 +1,20 @@
+snippet installdocker
+#!/usr/bin/env zsh
+
+script_dir=$(realpath $(dirname ${BASH_SOURCE[0]-\$0}))
+
+# source the env variables
+source $script_dir/../docker_config.zsh
+
+# main install for ${1:`!p snip.rv = snip.basename.replace("install_", "")`} 
+docker run -d \
+  --name=$1 \
+  --restart=unless-stopped \
+  -p $2:$2 \
+  -v "$ROOT_DIR"/$1/config:/config \
+  -v "$DOWNLOADS":/downloads \
+  -e PUID=$PUID \
+  -e PGID=$PGID \
+  -e TZ=$TZ \
+  $3 # Remote docker image repository
+endsnippet
