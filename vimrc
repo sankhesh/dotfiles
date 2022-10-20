@@ -234,6 +234,8 @@ set background=dark
 
 " Color scheme here would override all colors
 " Activates italicized comments (make sure your terminal supports italics)
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
 let g:codedark_italics=1
 colorscheme codedark
 if has("gui_running")
