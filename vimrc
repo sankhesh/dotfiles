@@ -214,6 +214,9 @@ Plug 'RRethy/vim-illuminate'
 " GLSL support
 Plug 'petrbroz/vim-glsl', { 'for': 'glsl' }
 
+" Vue support
+Plug 'posva/vim-vue'
+
 " Switch between source/header files
 " Plug 'ericcurtin/CurtineIncSw.vim', { 'for': ['cpp', 'c'] }
 
@@ -486,6 +489,29 @@ let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
+
+" Vim-Vue
+let g:vue_pre_processors = ['scss', 'typescript']
+" Support vim-vue with NERDCommenter
+let g:ft = ''
+function! NERDCommenter_before()
+  if &ft == 'vue'
+    let g:ft = 'vue'
+    let stack = synstack(line('.'), col('.'))
+    if len(stack) > 0
+      let syn = synIDattr((stack)[0], 'name')
+      if len(syn) > 0
+        exe 'setf ' . substitute(tolower(syn), '^vue_', '', '')
+      endif
+    endif
+  endif
+endfunction
+function! NERDCommenter_after()
+  if g:ft == 'vue'
+    setf vue
+    let g:ft = ''
+  endif
+endfunction
 
 " CtrlP word under cursor
 " nmap <leader>cp :CtrlP<CR><C-\>w
