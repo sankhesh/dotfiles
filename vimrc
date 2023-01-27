@@ -145,23 +145,17 @@ Plug 'vim-scripts/DrawIt'
 " Signify plugin
 Plug 'mhinz/vim-signify'
 
-" QML syntax highlighting and indenting
-Plug 'peterhoeg/vim-qml', { 'for': 'qml' }
+" Syntax highlighting
+Plug 'sheerun/vim-polyglot'
 
 " Colorschemes
 Plug 'tomasiser/vim-code-dark'
-
-" Vim-do plugin
-" Plug 'sankhesh/vim-do'
 
 " Vim CMake completion
 Plug 'richq/vim-cmake-completion', { 'for': 'cmake' }
 
 " Vim 8 asyncrun for asynchronous commands run
 Plug 'skywind3000/asyncrun.vim'
-
-" Vim C++ syntax highlighting
-Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
 
 " Youcompleteme plugin
 function! BuildYCM(info)
@@ -210,12 +204,6 @@ Plug 'junegunn/goyo.vim'
 " Auto highlight word under cursor
 " Plug 'obxhdx/vim-auto-highlight'
 Plug 'RRethy/vim-illuminate'
-
-" GLSL support
-Plug 'petrbroz/vim-glsl', { 'for': 'glsl' }
-
-" Vue support
-Plug 'posva/vim-vue'
 
 " Switch between source/header files
 " Plug 'ericcurtin/CurtineIncSw.vim', { 'for': ['cpp', 'c'] }
@@ -680,12 +668,11 @@ augroup vimrc
   autocmd User AsyncRunStart call asyncrun#quickfix_toggle(8, 1)
 augroup END
 
-" Enhanced C++ syntax highlight options
-let g:cpp_class_scope_highlight = 1
-let g:cpp_experimental_template_highlight = 1
-let g:cpp_concepts_highlight = 1
-let g:cpp_member_variable_highlight = 1
-let g:cpp_class_decl_highlight = 1
+" Modern C++ syntax highlight options
+let g:cpp_function_highlight = 1
+let g:cpp_attributes_highlight = 1
+let g:cpp_member_highlight = 1
+let g:cpp_simple_highlight = 0
 
 " clang-format executable
 if s:win_shell
