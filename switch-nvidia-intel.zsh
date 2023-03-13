@@ -22,13 +22,16 @@ function contains {
   [[ $options =~ (^|[[:space:]])$1($|[[:space:]]) ]] && echo 0 || echo 1
 }
 
+CURRENT_DIR=$(realpath $(dirname $0))
+echo $CURRENT_DIR
+
 function switch {
   case $1 in
     0)
-      mv /etc/X11/xorg.conf.d/nvidia_conf /etc/X11/xorg.conf.d/nvidia.conf
+      ln -sf $CURRENT_DIR/nvidia_conf /etc/X11/xorg.conf.d/nvidia.conf
     ;;
     1)
-      mv /etc/X11/xorg.conf.d/nvidia.conf /etc/X11/xorg.conf.d/nvidia_conf
+      rm -f /etc/X11/xorg.conf.d/nvidia.conf
     ;;
     *)
       echo -e "\nERROR: Invalid option" "$opt\n"
