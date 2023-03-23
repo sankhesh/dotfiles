@@ -450,7 +450,9 @@ set ssop-=folds                               " Do not store folds in a session
 " zC, zO, zA - All levels folding within a function
 " zr, zm     - 1 level folding throughout
 " zR, zM     - All levels folding throughout
-set foldmethod=syntax                         " Folds according to syntax
+set foldmethod=indent                         " Folds according to indent
+autocmd FileType c,cpp,objc
+      \ setlocal foldmethod=syntax            " Folds according to syntax
 set foldlevelstart=4                          " Start fold level
 
 " Show diff between current buffer and saved file
