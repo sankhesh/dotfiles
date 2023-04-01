@@ -38,7 +38,7 @@
     ~/.zlogin: zsh/prezto/runcoms/zlogin
     ~/.zlogout: zsh/zlogout
     ~/.zprofile: zsh/prezto/runcoms/zprofile
-    ~/.zshenv: zsh/prezto/runcoms/zshenv
+    ~/.zshenv: zsh/zshenv
     ~/.zshrc: zsh/zshrc
     ~/.zpreztorc: zsh/zpreztorc
     ~/.zprezto: zsh/prezto

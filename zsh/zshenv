@@ -1,0 +1,32 @@
+#
+# Defines environment variables.
+#
+
+export TERM=xterm-256color
+export EDITOR=vim
+export VISUAL=vim
+export GPG_TTY=$(tty)
+
+if [ "$TMUX" ]; then
+  autoload -Uz add-zsh-hook
+  function _tmux_env_refresh {
+    sshauth=$(tmux show-environment | grep "^SSH_AUTH_SOCK")
+    if [ $sshauth ]; then
+      export $sshauth
+    fi
+    sshcon=$(tmux show-environment | grep "^SSH_CONNECTION")
+    if [ $sshcon ]; then
+      export $sshcon
+    fi
+    display=$(tmux show-environment | grep "^DISPLAY")
+    if [ $display ]; then
+      export $display
+    fi
+  }
+  add-zsh-hook precmd _tmux_env_refresh
+fi
+
+# Ensure that a non-login, non-interactive shell has a defined environment.
+if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprofile"
+fi
