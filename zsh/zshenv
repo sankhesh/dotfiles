@@ -7,6 +7,9 @@ export EDITOR=vim
 export VISUAL=vim
 export GPG_TTY=$(tty)
 
+# Ensure that git processes can find custom executable scripts
+export GIT_EXEC_PATH=~/.git
+
 if [ "$TMUX" ]; then
   autoload -Uz add-zsh-hook
   function _tmux_env_refresh {

@@ -4,7 +4,7 @@
 	gpgsign = true
 [core]
 	editor = vim
-	excludesfile = ~/.gitglobalignore
+	excludesfile = ~/.git/globalignore
 [credential]
 	helper = cache
 [diff]
@@ -14,7 +14,7 @@
 #	email =
 #	name =
 #	signingkey =
-#[gpg]
-#        program = gpg.exe
+[gpg]
+	program = gpg2-display-aware.zsh
 #[include]
 #	path = /home/sankhesh/.gitglobalconfig
