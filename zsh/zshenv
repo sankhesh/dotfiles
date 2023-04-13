@@ -8,7 +8,10 @@ export VISUAL=vim
 export GPG_TTY=$(tty)
 
 # Ensure that git processes can find custom executable scripts
-export GIT_EXEC_PATH=~/.git
+case ":$PATH:" in
+  *:$HOME/.git:*) : ;;
+  *) export PATH=$HOME/.git:$PATH ;;
+esac
 
 if [ "$TMUX" ]; then
   autoload -Uz add-zsh-hook
