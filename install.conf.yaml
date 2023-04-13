@@ -5,35 +5,35 @@
 
 - clean: [
   '~',
-  '~/.config',
-  '~/.vim',
-  '~/.local/share/applications'
+  #  '~/.config',
+  #  '~/.vim'
+  # '~/.local/share/applications'
 ]
 
 - link:
-    ~/.vim: vim/
-    ~/.vimrc: vimrc
-    ~/.tmux: tmux
-    ~/.tmux.conf: tmux.conf
+#    ~/.vim: vim/
+#    ~/.vimrc: vimrc
+#    ~/.tmux: tmux
+#    ~/.tmux.conf: tmux.conf
     ~/.git: git/
 
 - shell:
     - git submodule update --init --recursive # Installing submodules
     - git config --global include.path ~/.git/config
     - git config --global user.signingkey $(git config --get user.email)
-    - command: vim +PlugInstall +PlugUpdate +qall # Fetch VIM plugins
-      stdout: true
-      # stderr: true
-    - command: type tmux && { ~/.tmux/plugins/tpm/bin/install_plugins } || { exit 0 } # Install TMUX plugins
-      stderr: true
-    - command: type tmux && { ~/.tmux/plugins/tpm/bin/update_plugins all } || { exit 0 } # Update TMUX plugins
-      stderr: true
+      #    - command: vim +PlugInstall +PlugUpdate +qall # Fetch VIM plugins
+      #      stdout: true
+      #      # stderr: true
+      #    - command: type tmux && { ~/.tmux/plugins/tpm/bin/install_plugins } || { exit 0 } # Install TMUX plugins
+      #      stderr: true
+      #    - command: type tmux && { ~/.tmux/plugins/tpm/bin/update_plugins all } || { exit 0 } # Update TMUX plugins
+      #      stderr: true
 
 - link:
-    ~/.bash_profile: bash_profile
-    ~/.bash_prompt: bash_prompt
-    ~/.config/terminator:
-      path: config/terminator/
+        #    ~/.bash_profile: bash_profile
+        #    ~/.bash_prompt: bash_prompt
+        #    ~/.config/terminator:
+        #      path: config/terminator/
     ~/.zlogin: zsh/prezto/runcoms/zlogin
     ~/.zlogout: zsh/zlogout
     ~/.zprofile: zsh/prezto/runcoms/zprofile
@@ -41,10 +41,10 @@
     ~/.zshrc: zsh/zshrc
     ~/.zpreztorc: zsh/zpreztorc
     ~/.zprezto: zsh/prezto
-    ~/.config/flake8: config/flake8
-    ~/.local/share/applications/defaults.list: applications/defaults.list
-    # ~/.local/share/applications/designer.desktop: applications/designer.desktop
-    ~/.local/share/applications/paraview.desktop: applications/paraview.desktop
-    ~/.local/share/applications/slicer.desktop: applications/slicer.desktop
-    ~/.cmakelintrc: cmakelintrc
-    ~/.gdbinit: gdbinit
+    #    ~/.config/flake8: config/flake8
+    #    ~/.local/share/applications/defaults.list: applications/defaults.list
+    #    ~/.local/share/applications/designer.desktop: applications/designer.desktop
+    #    ~/.local/share/applications/paraview.desktop: applications/paraview.desktop
+    #    ~/.local/share/applications/slicer.desktop: applications/slicer.desktop
+    #    ~/.cmakelintrc: cmakelintrc
+    #    ~/.gdbinit: gdbinit
