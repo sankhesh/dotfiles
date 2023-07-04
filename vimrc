@@ -228,6 +228,7 @@ set background=dark
 let &t_ZH="\e[3m"
 let &t_ZR="\e[23m"
 let g:codedark_italics=1
+let g:codedark_modern=1
 colorscheme codedark
 if has("gui_running")
   let macvim_skip_colorscheme=1
@@ -597,7 +598,7 @@ if exists("+showtabline")
             let s .= '%#TabNum#'
             let s .= i
             " let s .= '%*'
-            let s .= (i == t ? '%#TabLineSel#' : '%#TabLine#')
+            let s .= (i == t ? '%#TabLineSelect#' : '%#TabLine#')
             let bufnr = buflist[winnr - 1]
             let file = bufname(bufnr)
             let buftype = getbufvar(bufnr, 'buftype')
@@ -634,7 +635,7 @@ if exists("+showtabline")
     set tabline=%!MyTabLine()
     set showtabline=1
     highlight link TabNum Special
-    highlight TabLineSel cterm=italic gui=italic guibg=#073655 " Required for codedark colorscheme to differentiate current tab
+    highlight link TabLineSelect SpecialComment
   endif
 endif
 
