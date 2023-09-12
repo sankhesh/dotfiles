@@ -179,10 +179,19 @@ def Settings( **kwargs ):
     }
 
   if language == 'python':
-    return {
-      'interpreter_path': PathToPythonUsedDuringBuild()
-    }
-
+    client_data = kwargs['client_data']
+    interp_path = client_data['g:ycm_python_interpreter_path']
+    try:
+      if len(interp_path) > 0:
+        return {
+          'interpreter_path': interp_path
+        }
+      else:
+        raise TypeError
+    except TypeError:
+        return {
+          'interpreter_path': PathToPythonUsedDuringBuild()
+        }
   return {}
 
 

@@ -314,6 +314,7 @@ endif
 let g:ycm_semantic_triggers.cmake=['re!\_']
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 nmap <leader>jp <plug>(YCMHover)
+let g:ycm_extra_conf_vim_data = ['g:ycm_python_interpreter_path']
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR> <bar> :TagbarTogglePause<CR>
