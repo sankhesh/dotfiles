@@ -211,7 +211,7 @@ Plug 'RRethy/vim-illuminate'
 " Matchup
 Plug 'andymass/vim-matchup'
 
-" Uncrustify
+" .lvimrc support
 Plug 'embear/vim-localvimrc'
 
 " Initialize plugin system
@@ -314,6 +314,7 @@ endif
 let g:ycm_semantic_triggers.cmake=['re!\_']
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 nmap <leader>jp <plug>(YCMHover)
+let g:ycm_python_interpreter_path=""
 let g:ycm_extra_conf_vim_data = ['g:ycm_python_interpreter_path']
 
 " Tagbar
@@ -692,7 +693,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
       \ 'cpp': ['clang-format'],
       \ 'javascript': ['prettier', 'eslint'],
-      \ 'python': ['autopep8'],
+      \ 'python': ['autopep8', 'autoflake'],
       \}
 " let g:ale_c_build_dir = '../bld'
 let g:ale_c_clangformat_options = '-style="{
@@ -721,6 +722,7 @@ let g:clang_format#style_options = {
       \ "ColumnLimit" : "100",
       \ "SpaceAfterTemplateKeyword": "true",
       \ "Standard" : "C++11"}
+let g:ale_python_autopep8_options = '--max-line-length=100'
 
 " map to <Leader>cf in C++ code
 " Main reason why I need ClangFormat - be able to format only selected code
