@@ -65,28 +65,17 @@ $1::~$1()
 endsnippet
 
 snippet vtktest
-/*=========================================================================
+// SPDX-FileCopyrightText: Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
+// SPDX-License-Identifier: BSD-3-Clause
 
-  Program:   Visualization Toolkit
-  Module:    ${1:`!p snip.rv = snip.basename`}.cxx
-
-  Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
-  All rights reserved.
-  See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
-
-  This software is distributed WITHOUT ANY WARRANTY; without even
-  the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
-  PURPOSE.  See the above copyright notice for more information.
-
-=========================================================================*/
-
-// Description
-// $2
+/**Description
+ * $2
+ */
 
 #include "vtkTestUtilities.h"
 #include "vtkTesting.h"
 
-int $1(int argc, char *argv[])
+int ${1:`!p snip.rv = snip.basename`}(int argc, char *argv[])
 {
   cout << "CTEST_FULL_OUTPUT (Avoid ctest truncation of output)" << endl;
   $0
@@ -108,20 +97,8 @@ renWin->Render();
 endsnippet
 
 snippet vtkcopyright
-/*=========================================================================
-
-  Program:   Visualization Toolkit
-  Module:    ${1:`!p snip.rv = snip.fn`}
-
-  Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
-  All rights reserved.
-  See Copyright.txt or http://www.kitware.com/Copyright.htm for details.
-
-  This software is distributed WITHOUT ANY WARRANTY; without even
-  the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
-  PURPOSE.  See the above copyright notice for more information.
-
-=========================================================================*/
+// SPDX-FileCopyrightText: Copyright (c) Ken Martin, Will Schroeder, Bill Lorensen
+// SPDX-License-Identifier: BSD-3-Clause
 endsnippet
 
 snippet vtkheader
