@@ -16,7 +16,5 @@
 #	signingkey =
 [gpg]
 	program = gpg2-display-aware.zsh
-#[include]
-#	path = /home/sankhesh/.gitglobalconfig
 [init]
 	defaultBranch = main
