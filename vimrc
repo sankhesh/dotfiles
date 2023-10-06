@@ -202,7 +202,6 @@ Plug 'rhysd/vim-clang-format'
 Plug 'junegunn/goyo.vim'
 
 " Auto highlight word under cursor
-" Plug 'obxhdx/vim-auto-highlight'
 Plug 'RRethy/vim-illuminate'
 
 " Switch between source/header files
@@ -526,7 +525,11 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 command! -bang -nargs=? -complete=dir Files
  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 nnoremap <leader>cp :call fzf#vim#files('.', {'options':'--query '.expand('<cword>')})<CR>
-nnoremap <C-P> :Files<CR>
+if s:win_shell
+  nnoremap <C-P> :FZF<CR>
+else
+  nnoremap <C-P> :Files<CR>
+endif
 nnoremap <silent> <leader>ag :Ag <C-R><C-W><CR>
 function! SwitchSourceHeader()
   let file_path = expand("%:t")
@@ -681,7 +684,7 @@ let g:cpp_simple_highlight = 0
 
 " clang-format executable
 if s:win_shell
-  let $PATH.=";C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/Llvm/x64/bin/;"
+  let $PATH.=";C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/Llvm/x64/bin/;C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/Llvm/x64/bin;"
 endif
 
 " Ale options
@@ -708,6 +711,7 @@ let g:ale_c_clangformat_options = '-style="{
       \ ColumnLimit : 100,
       \ SpaceAfterTemplateKeyword: true,
       \ Standard : C++11}"'
+let g:ale_python_autopep8_options = '--max-line-length=100'
 
 " Clang format options
 let g:clang_format#style_options = {
@@ -722,7 +726,6 @@ let g:clang_format#style_options = {
       \ "ColumnLimit" : "100",
       \ "SpaceAfterTemplateKeyword": "true",
       \ "Standard" : "C++11"}
-let g:ale_python_autopep8_options = '--max-line-length=100'
 
 " map to <Leader>cf in C++ code
 " Main reason why I need ClangFormat - be able to format only selected code
