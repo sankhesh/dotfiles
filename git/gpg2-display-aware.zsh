@@ -10,7 +10,7 @@
 # Source: https://ertt.ca/blog/2022/01-10-git-gpg-ssh/
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  if [[ -n "$DISPLAY" && -n "$SSH_CONNECTION" ]]; then
+  if [[ -n "$DISPLAY" && -z "$SSH_CONNECTION" ]]; then
     exec gpg "$@"
   else
     exec gpg --pinentry-mode loopback "$@"
