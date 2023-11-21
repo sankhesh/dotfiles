@@ -9,7 +9,9 @@
 #
 # Source: https://ertt.ca/blog/2022/01-10-git-gpg-ssh/
 
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+if grep -qi microsoft /proc/version; then
+  exec gpg.exe $@
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
   if [[ -n "$DISPLAY" && -z "$SSH_CONNECTION" ]]; then
     exec gpg "$@"
   else
