@@ -9,14 +9,19 @@
 #
 # Source: https://ertt.ca/blog/2022/01-10-git-gpg-ssh/
 
-if grep -qi microsoft /proc/version; then
-  exec gpg.exe $@
-elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  if [[ -n "$DISPLAY" && -z "$SSH_CONNECTION" ]]; then
-    exec gpg "$@"
-  else
-    exec gpg --pinentry-mode loopback "$@"
-  fi
-elif [[ "$OSTYPE" == "win32" ]]; then
-  exec gpg.exe $@
+# By default, invoke gpg
+GPG_EXE=gpg
+if grep -qi microsoft /proc/version || "$OSTYPE" == "win32"; then
+  # For WSL, use gpg.exe
+  GPG_EXE=gpg.exe
+  # Set a display variable
+  DISPLAY=1
+fi
+
+# For WSL to test SSH_CONNECTION, set the environment variable WSLENV
+# i.e. WSLENV=SSH_CONNECTION
+if [[ -n "$DISPLAY" && -z "$SSH_CONNECTION" ]]; then
+  exec $GPG_EXE "$@"
+else
+  exec $GPG_EXE --pinentry-mode loopback "$@"
 fi
