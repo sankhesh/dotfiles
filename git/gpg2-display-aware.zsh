@@ -9,6 +9,21 @@
 #
 # Source: https://ertt.ca/blog/2022/01-10-git-gpg-ssh/
 
+# To test gpg
+#
+# ```
+# echo "hello" | ~/.git/gpg2-display-aware.zsh --clearsign
+# ```
+
+# To list keys and add the signing key
+# Source: https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key
+#
+# 1. gpg --list-secret-keys --keyid-format=long
+# 2. Copy the key ID.
+# 3. git config --global user.signingkey <key ID>
+# 4. git config --global commit.gpgsign true
+
+
 # By default, invoke gpg
 GPG_EXE=gpg
 if grep -qi microsoft /proc/version || "$OSTYPE" == "win32"; then
