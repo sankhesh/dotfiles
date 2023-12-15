@@ -26,7 +26,7 @@
 
 # By default, invoke gpg
 GPG_EXE=gpg
-if grep -qi microsoft /proc/version || "$OSTYPE" == "win32"; then
+if grep -qi microsoft /proc/version || [[ "$OSTYPE" == "win32" ]]; then
   # For WSL, use gpg.exe
   GPG_EXE=gpg.exe
   # Set a display variable
