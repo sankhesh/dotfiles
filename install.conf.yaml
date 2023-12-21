@@ -32,8 +32,8 @@
 - link:
     ~/.bash_profile: bash_profile
     ~/.bash_prompt: bash_prompt
-    ~/.config/terminator:
-      path: config/terminator/
+    ~/.config/alacritty:
+      path: config/alacritty/
     ~/.zlogin: zsh/prezto/runcoms/zlogin
     ~/.zlogout: zsh/zlogout
     ~/.zprofile: zsh/prezto/runcoms/zprofile
