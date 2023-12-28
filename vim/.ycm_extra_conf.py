@@ -106,10 +106,13 @@ if platform.system() != 'Windows':
 # 'flags' list of compilation flags. Notice that YCM itself uses that approach.
 compilation_database_folder = '../bld'
 
+cmake_commands = None
+database = None
 if p.exists( compilation_database_folder ):
-  database = ycm_core.CompilationDatabase( compilation_database_folder )
-else:
-  database = None
+  try:
+    database = ycm_core.CompilationDatabase( compilation_database_folder )
+  except:
+    cmake_commands = p.join( compilation_database_folder, 'compile_commands.json')
 
 
 def IsHeaderFile( filename ):
@@ -150,11 +153,18 @@ def Settings( **kwargs ):
     filename = FindCorrespondingSourceFile( kwargs[ 'filename' ] )
 
     if not database:
-      return {
-        'flags': flags,
-        'include_paths_relative_to_dir': DIR_OF_THIS_SCRIPT,
-        'override_filename': filename
-      }
+      if p.exists( cmake_commands ):
+        return {
+          'ls': {
+            'compilationDatabasePath': p.dirname( cmake_commands )
+          }
+        }
+      else:
+        return {
+          'flags': flags,
+          'include_paths_relative_to_dir': DIR_OF_THIS_SCRIPT,
+          'override_filename': filename
+        }
 
     compilation_info = database.GetCompilationInfoForFile( filename )
     if not compilation_info.compiler_flags_:
