@@ -682,7 +682,7 @@ let g:cpp_simple_highlight = 0
 
 " clang-format executable
 if s:win_shell
-  let $PATH.=";C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/Llvm/x64/bin/;"
+  let $PATH.=";C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/Llvm/x64/bin/;C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/Llvm/x64/bin;"
 endif
 
 " Ale options
@@ -709,6 +709,7 @@ let g:ale_c_clangformat_options = '-style="{
       \ ColumnLimit : 100,
       \ SpaceAfterTemplateKeyword: true,
       \ Standard : C++11}"'
+let g:ale_python_autopep8_options = '--max-line-length=100'
 
 " Clang format options
 let g:clang_format#style_options = {
@@ -723,7 +724,6 @@ let g:clang_format#style_options = {
       \ "ColumnLimit" : "100",
       \ "SpaceAfterTemplateKeyword": "true",
       \ "Standard" : "C++11"}
-let g:ale_python_autopep8_options = '--max-line-length=100'
 
 " map to <Leader>cf in C++ code
 " Main reason why I need ClangFormat - be able to format only selected code
