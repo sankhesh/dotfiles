@@ -161,9 +161,9 @@ Plug 'skywind3000/asyncrun.vim'
 function! BuildYCM(info)
   if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
     if s:win_shell
-      !python install.py --preview-msvc --clang-completer --ts-completer --cs-completer
+      !python install.py --preview-msvc --clangd-completer --ts-completer --cs-completer
     else
-      !python install.py --clang-completer --system-libclang --ts-completer
+      !python install.py --clangd-completer --ts-completer
     endif
   endif
 endfunction
@@ -202,7 +202,6 @@ Plug 'rhysd/vim-clang-format'
 Plug 'junegunn/goyo.vim'
 
 " Auto highlight word under cursor
-" Plug 'obxhdx/vim-auto-highlight'
 Plug 'RRethy/vim-illuminate'
 
 " Switch between source/header files
@@ -312,6 +311,8 @@ if !exists("g:ycm_semantic_triggers")
   let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers.cmake=['re!\_']
+let g:ycm_enable_semantic_highlighting = 1 " Ycm's semantic highlighting
+let g:ycm_enable_inlay_hints = 1 " inlay hints
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 nmap <leader>jp <plug>(YCMHover)
 let g:ycm_python_interpreter_path=""
