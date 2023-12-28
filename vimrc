@@ -161,7 +161,7 @@ Plug 'skywind3000/asyncrun.vim'
 function! BuildYCM(info)
   if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
     if s:win_shell
-      !python install.py --clang-completer --ts-completer --cs-completer
+      !python install.py --preview-msvc --clang-completer --ts-completer --cs-completer
     else
       !python install.py --clang-completer --system-libclang --ts-completer
     endif
