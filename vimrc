@@ -117,6 +117,9 @@ Plug 'vim-scripts/diffchanges.vim'
 " Fugitive
 Plug 'tpope/vim-fugitive'
 
+" Fugitivev blame helper
+Plug 'tommcdo/vim-fugitive-blame-ext'
+
 " Gitv
 " Plug 'gregsexton/gitv'
 Plug 'sankhesh/gitv'
