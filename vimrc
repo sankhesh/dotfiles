@@ -317,6 +317,7 @@ let g:ycm_semantic_triggers.cmake=['re!\_']
 let g:ycm_enable_semantic_highlighting = 1 " Ycm's semantic highlighting
 let g:ycm_enable_inlay_hints = 1 " inlay hints
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
+nnoremap <leader>jf :YcmCompleter FixIt<CR>
 nmap <leader>jp <plug>(YCMHover)
 let g:ycm_python_interpreter_path=""
 let g:ycm_extra_conf_vim_data = ['g:ycm_python_interpreter_path']
