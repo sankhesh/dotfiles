@@ -131,7 +131,25 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 
 " UltiSnips
-Plug 'SirVer/ultisnips'
+Plug 'sirver/ultisnips', { 'on': [] }
+"{{{ UltiSnips
+  let g:UltiSnipsSnippetsDir = expand(s:vimDir . '/UltiSnips')
+  let g:UltiSnipsExpandTrigger="<c-j>"
+  let g:UltiSnipsJumpForwardTrigger="<c-j>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+  let g:UltiSnipsListSnippets="<c-l>"
+
+  inoremap <silent> <C-j> <C-r>=LoadUltiSnips()<cr>
+
+  " This function only runs when UltiSnips is not loaded
+  function! LoadUltiSnips()
+    let l:curpos = getcurpos()
+    execute plug#load('ultisnips')
+    call cursor(l:curpos[1], l:curpos[2])
+    call UltiSnips#ExpandSnippet()
+    return ""
+  endfunction
+"}}}
 
 " Tabular / vim-markdown
 Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
