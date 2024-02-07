@@ -332,7 +332,10 @@ let g:ycm_auto_hover = 'CursorHold' " Show a balloon with doc for function under
 if !exists("g:ycm_semantic_triggers")
   let g:ycm_semantic_triggers = {}
 endif
-let g:ycm_semantic_triggers.cmake=['re!\_']
+let g:ycm_semantic_triggers = {
+  \ 'cmake': [ 're!\_' ],
+  \ 'c,cpp,objc': [ 're!\w{3}', '_' ],
+  \ }
 let g:ycm_enable_semantic_highlighting = 1 " Ycm's semantic highlighting
 let g:ycm_enable_inlay_hints = 1 " inlay hints
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
