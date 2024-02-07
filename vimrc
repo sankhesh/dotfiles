@@ -555,6 +555,7 @@ command! -bang -nargs=? -complete=dir Files
 nnoremap <leader>cp :call fzf#vim#files('.', {'options':'--query '.expand('<cword>')})<CR>
 nnoremap <C-P> :Files<CR>
 nnoremap <silent> <leader>ag :Ag <C-R><C-W><CR>
+nnoremap <silent> <leader>rg :Rg <C-R><C-W><CR>
 function! SwitchSourceHeader()
   let file_path = expand("%:t")
   let file_name = expand("%:t:r")
