@@ -28,8 +28,6 @@ if [[ $argn -lt 2 ]]; then
   exit 1
 fi
 
-exit 1
-
 for x in $1 $2; do
   if [ ! -d "$x" ]; then
     echoerr "Not a valid directory: $x";
