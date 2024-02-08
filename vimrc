@@ -131,7 +131,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 
 " UltiSnips
-Plug 'sirver/ultisnips', { 'on': [] }
+Plug 'SirVer/ultisnips', { 'on': [] }
 "{{{ UltiSnips
   let g:UltiSnipsSnippetsDir = expand(s:vimDir . '/UltiSnips')
   let g:UltiSnipsExpandTrigger="<c-j>"
