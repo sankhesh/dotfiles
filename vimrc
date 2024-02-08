@@ -334,9 +334,11 @@ let g:ycm_semantic_triggers = {
   \ }
 let g:ycm_enable_semantic_highlighting = 1 " Ycm's semantic highlighting
 let g:ycm_enable_inlay_hints = 1 " inlay hints
-nnoremap <leader>jd :YcmCompleter GoTo<CR>
-nnoremap <leader>jf :YcmCompleter FixIt<CR>
-nmap <leader>jp <plug>(YCMHover)
+nmap <leader>ys <Plug>(YCMFindSymbolInWorkspace)
+nmap <leader>yd <Plug>(YCMFindSymbolInDocument)
+nmap <leader>yp <Plug>(YCMHover)
+nnoremap <leader>yf :YcmCompleter FixIt<CR>
+nnoremap <leader>yo :YcmCompleter GoToDocumentOutline<CR>
 let g:ycm_python_interpreter_path=""
 let g:ycm_extra_conf_vim_data = ['g:ycm_python_interpreter_path']
 
