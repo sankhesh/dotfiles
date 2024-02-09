@@ -10,30 +10,46 @@
   '~/.local/share/applications'
 ]
 
+# All the linux-only links
 - link:
-    ~/.vim: vim/
-    ~/.vimrc: vimrc
-    ~/.tmux: tmux
-    ~/.tmux.conf: tmux.conf
-    ~/.git: git/
-
-- shell:
-    - git submodule update --init --recursive # Installing submodules
-    - git config --global include.path ~/.git/config
-    - git config --global user.signingkey $(git config --get user.email)
-    - command: vim +PlugInstall +PlugUpdate +qall # Fetch VIM plugins
-      stdout: true
-      # stderr: true
-    - command: type tmux && { ~/.tmux/plugins/tpm/bin/install_plugins } || { exit 0 } # Install TMUX plugins
-      stderr: true
-    - command: type tmux && { ~/.tmux/plugins/tpm/bin/update_plugins all } || { exit 0 } # Update TMUX plugins
-      stderr: true
-
-- link:
-    ~/.bash_profile: bash_profile
-    ~/.bash_prompt: bash_prompt
+    ~/.vimrc:
+      if: '! grep -qi microsoft /proc/version'
+      path: vimrc
+    ~/.vim:
+      if: '! grep -qi microsoft /proc/version'
+      path: vim/
+    ~/.tmux.conf:
+      if: '! grep -qi microsoft /proc/version'
+      path: tmux.conf
     ~/.config/alacritty:
+      if: '! grep -qi microsoft /proc/version'
       path: config/alacritty/
+    ~/.gdbinit:
+      if: '! grep -qi microsoft /proc/version'
+      path: gdbinit
+    ~/.local/share/applications/defaults.list:
+      if: '! grep -qi microsoft /proc/version'
+      path:  applications/defaults.list
+    ~/.local/share/applications/designer.desktop:
+      if: '! grep -qi microsoft /proc/version'
+      path:  applications/designer.desktop
+    ~/.local/share/applications/paraview.desktop:
+      if: '! grep -qi microsoft /proc/version'
+      path:  applications/paraview.desktop
+    ~/.local/share/applications/slicer.desktop:
+      if: '! grep -qi microsoft /proc/version'
+      path:  applications/slicer.desktop
+
+# All the windows-only links
+- link:
+    ~/.mklink.zsh:
+      if: 'grep -qi microsoft /proc/version'
+      path: mklink.zsh
+
+# Generic links
+- link:
+    ~/.git: git/
+    ~/.tmux: tmux
     ~/.zlogin: zsh/prezto/runcoms/zlogin
     ~/.zlogout: zsh/zlogout
     ~/.zprofile: zsh/prezto/runcoms/zprofile
@@ -41,10 +57,26 @@
     ~/.zshrc: zsh/zshrc
     ~/.zpreztorc: zsh/zpreztorc
     ~/.zprezto: zsh/prezto
-    ~/.config/flake8: config/flake8
-    ~/.local/share/applications/defaults.list: applications/defaults.list
-    # ~/.local/share/applications/designer.desktop: applications/designer.desktop
-    ~/.local/share/applications/paraview.desktop: applications/paraview.desktop
-    ~/.local/share/applications/slicer.desktop: applications/slicer.desktop
-    ~/.cmakelintrc: cmakelintrc
-    ~/.gdbinit: gdbinit
+
+# Shell commands
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
+    - [git config --global include.path ~/.git/config, Global git config]
+    - [git config --global user.signingkey $(git config --get user.email), GPG signing key]
+
+# TMUX plugins
+- shell:
+    - command: type tmux > /dev/null && { ~/.tmux/plugins/tpm/bin/install_plugins } || { exit 0 }
+      stderr: true
+      description: Install TMUX plugins
+
+    - command: type tmux > /dev/null && { ~/.tmux/plugins/tpm/bin/update_plugins all } || { exit 0 }
+      stderr: true
+      description: Update TMUX plugins
+
+# Linux only
+- shell:
+    - command: if ! grep -qi microsoft /proc/version; then vim +PlugInstall +PlugUpdate +qall; fi
+      stdout: true
+      stderr: true
+      description: Fetch VIM plugins

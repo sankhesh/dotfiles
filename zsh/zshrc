@@ -23,4 +23,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zshrc_local" ]]; then
   source "${ZDOTDIR:-$HOME}/.zshrc_local"
 fi
 
+# Add an alias for mklink if the zsh symlink exists which will only exist on windows systems
+type ${ZDOTDIR:-$HOME}/.mklink.zsh > /dev/null && alias mklink=" . ${ZDOTDIR:-$HOME}/.mklink.zsh"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
