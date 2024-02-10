@@ -80,3 +80,9 @@
       stdout: true
       stderr: true
       description: Fetch VIM plugins
+
+# Install some python packages
+    - command: pypackages/pythonpackages.zsh
+      stdout: true
+      stderr: true
+      description: Install python packages

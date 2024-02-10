@@ -536,7 +536,11 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 command! -bang -nargs=? -complete=dir Files
  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 nnoremap <leader>cp :call fzf#vim#files('.', {'options':'--query '.expand('<cword>')})<CR>
-nnoremap <C-P> :Files<CR>
+if s:win_shell
+  nnoremap <C-P> :FZF<CR>
+else
+  nnoremap <C-P> :Files<CR>
+endif
 nnoremap <silent> <leader>ag :Ag <C-R><C-W><CR>
 nnoremap <silent> <leader>rg :Rg <C-R><C-W><CR>
 function! SwitchSourceHeader()
@@ -720,6 +724,8 @@ let g:ale_c_clangformat_options = '-style="{
       \ SpaceAfterTemplateKeyword: true,
       \ Standard : C++11}"'
 let g:ale_python_autopep8_options = '--max-line-length=100'
+let g:ale_python_flake8_options = '--max-line-length=100'
+let g:ale_cmake_cmake_lint_options = '--filter=-whitespace/extra'
 
 " Clang format options
 let g:clang_format#style_options = {

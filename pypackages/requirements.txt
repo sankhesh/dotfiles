@@ -1,0 +1,3 @@
+# Packages without version requirements
+flake8
+cmakelint
