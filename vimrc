@@ -295,7 +295,7 @@ set makeprg=ninja\ -C\ ../bld
 
 " Color 80th column
 set colorcolumn=100
-highlight ColorColumn ctermfg=163
+highlight ColorColumn term=reverse ctermbg=236 guibg=#333333
 
 " Set leader (vim prefix) to ','
 :let mapleader = ","
@@ -435,7 +435,7 @@ autocmd FileType c,cpp,java,python,qml
 
 " Highlight current line
 set cursorline
-":hi CursorLine cterm=NONE ctermbg=16 ctermfg=white guibg=darkgray
+:hi CursorLine term=underline cterm=NONE ctermbg=236 guibg=#333333
 
 " Highlight for showmarks
 " :hi ShowMarksHLl ctermfg=white ctermbg=darkblue guifg=darkblue guibg=white
