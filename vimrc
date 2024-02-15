@@ -336,6 +336,7 @@ nmap <leader>yd <Plug>(YCMFindSymbolInDocument)
 nmap <leader>yp <Plug>(YCMHover)
 nnoremap <leader>yf :YcmCompleter FixIt<CR>
 nnoremap <leader>yo :YcmCompleter GoToDocumentOutline<CR>
+nnoremap <leader>yg :YcmCompleter GoTo<CR>
 let g:ycm_python_interpreter_path=""
 let g:ycm_extra_conf_vim_data = ['g:ycm_python_interpreter_path']
 
