@@ -727,7 +727,7 @@ let g:ale_c_clangformat_options = '-style="{
       \ Standard : C++11}"'
 let g:ale_python_autopep8_options = '--max-line-length=100'
 let g:ale_python_flake8_options = '--max-line-length=100'
-let g:ale_cmake_cmakelint_options = '--filter=-whitespace/extra'
+let g:ale_cmake_cmakelint_options = '--filter=-whitespace/extra,-whitespace/indent'
 
 " Clang format options
 let g:clang_format#style_options = {
