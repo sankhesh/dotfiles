@@ -728,6 +728,8 @@ let g:ale_c_clangformat_options = '-style="{
 let g:ale_python_autopep8_options = '--max-line-length=100'
 let g:ale_python_flake8_options = '--max-line-length=100'
 let g:ale_cmake_cmakelint_options = '--filter=-whitespace/extra,-whitespace/indent'
+let g:ale_cmake_cmakeformat_options = '--dangle-align=child --dangle-parens=true
+  \ --enable-sort=true --max-subgroups-hwrap=2 --line-width=80'
 
 " Clang format options
 let g:clang_format#style_options = {
