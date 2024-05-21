@@ -708,8 +708,10 @@ let g:ale_linters = {
       \ 'c': [],
       \}
 let g:ale_fixers = {
+      \ '*': ['remove_trailing_lines', 'trim_whitespace'],
       \ 'cpp': ['clang-format'],
-      \ 'javascript': ['prettier', 'eslint'],
+      \ 'javascript, ': ['prettier', 'eslint'],
+      \ 'javascriptreact, ': ['prettier', 'eslint'],
       \ 'python': ['autopep8', 'autoflake'],
       \ 'cmake': ['cmakeformat'],
       \}
