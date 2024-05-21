@@ -339,6 +339,7 @@ nnoremap <leader>yo :YcmCompleter GoToDocumentOutline<CR>
 nnoremap <leader>yg :YcmCompleter GoTo<CR>
 let g:ycm_python_interpreter_path=""
 let g:ycm_extra_conf_vim_data = ['g:ycm_python_interpreter_path']
+let g:ycm_goto_buffer_command = 'split-or-existing-window'
 
 " Prosession
 let g:prosession_dir = expand(s:vimDir . '/session/') " Session cache directory
