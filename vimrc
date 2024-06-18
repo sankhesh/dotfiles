@@ -735,12 +735,12 @@ let g:ale_cmake_cmakeformat_options = '--dangle-align=child --dangle-parens=true
   \ --enable-sort=true --max-subgroups-hwrap=2 --line-width=80'
 
 " Clang format options
+let g:clang_format#code_style = 'mozilla'
 let g:clang_format#style_options = {
       \ "AlignAfterOpenBracket" : "DontAlign",
       \ "AlignOperands" : "false",
       \ "AlwaysBreakAfterDefinitionReturnType" : "None",
       \ "AlwaysBreakAfterReturnType" : "None",
-      \ "BasedOnStyle" : "Mozilla",
       \ "BinPackArguments" : "true",
       \ "BinPackParameters" : "true",
       \ "BreakBeforeBraces" : "Allman",
