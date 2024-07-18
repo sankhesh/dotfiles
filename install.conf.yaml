@@ -39,6 +39,9 @@
     ~/.local/share/applications/slicer.desktop:
       if: '! grep -qi microsoft /proc/version'
       path:  applications/slicer.desktop
+    ~/.profile:
+      if: '! grep -qi microsoft /proc/version'
+      path: profile
 
 # All the windows-only links
 - link:
