@@ -156,6 +156,7 @@ Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 
 " Markdown preview
 Plug 'iamcco/markdown-preview.nvim', {'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 
 " QuickFix list handling
 Plug 'yssl/QFEnter'
