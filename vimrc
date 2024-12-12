@@ -711,6 +711,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
       \ 'cpp': ['clang-format'],
+      \ 'cs': ['clang-format'],
       \ 'javascript, ': ['prettier', 'eslint'],
       \ 'javascriptreact, ': ['prettier', 'eslint'],
       \ 'python': ['autopep8', 'autoflake'],
@@ -729,6 +730,7 @@ let g:ale_c_clangformat_options = '-style="{
       \ ColumnLimit : 100,
       \ SpaceAfterTemplateKeyword: true,
       \ Standard : C++11}"'
+let g:ale_cs_clangformat_options = g:ale_c_clangformat_options
 let g:ale_python_autopep8_options = '--max-line-length=100'
 let g:ale_python_flake8_options = '--max-line-length=100'
 let g:ale_cmake_cmakelint_options = '--filter=-whitespace/extra,-whitespace/indent'
@@ -751,8 +753,8 @@ let g:clang_format#style_options = {
 
 " map to <Leader>cf in C++ code
 " Main reason why I need ClangFormat - be able to format only selected code
-autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
-autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+autocmd FileType c,cpp,objc,cs nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc,cs vnoremap <buffer><Leader>cf :ClangFormat<CR>
 
 " Key mappings
 nmap ]w :ALENextWrap<CR>
