@@ -158,6 +158,9 @@ Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', {'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 
+" Markdown toc
+Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
+
 " QuickFix list handling
 Plug 'yssl/QFEnter'
 
@@ -717,6 +720,7 @@ let g:ale_fixers = {
       \ 'python': ['autopep8', 'autoflake'],
       \ 'cmake': ['cmakeformat'],
       \}
+let g:ale_writegood_options = 'passive=false'
 " let g:ale_c_build_dir = '../bld'
 let g:ale_c_clangformat_options = '-style="{
       \ AlignAfterOpenBracket : DontAlign,
