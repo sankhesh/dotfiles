@@ -18,6 +18,8 @@ fi
 
 autoload -Uz zmv
 
+alias pacclean='sudo paccache -vrk2 && sudo paccache -vruk0 && pacaur -Sac --noconfirm'
+
 # Import local configuration
 if [[ -s "${ZDOTDIR:-$HOME}/.zshrc_local" ]]; then
   source "${ZDOTDIR:-$HOME}/.zshrc_local"
