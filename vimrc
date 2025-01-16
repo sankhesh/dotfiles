@@ -314,8 +314,8 @@ set nocp
 inoremap <leader>fn <C-R>=expand("%t")<CR>
 
 " Termdebug options
-let g:termdebug_wide=163
-let g:termdebug_popup=0
+let g:termdebug_config = {}
+let g:termdebug_config['wide'] = 163
 
 " YouCompleteMe
 let g:ycm_global_ycm_extra_conf = expand(s:vimDir . "/.ycm_extra_conf.py")
