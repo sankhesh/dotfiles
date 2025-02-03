@@ -338,9 +338,12 @@ let g:ycm_enable_inlay_hints = 1 " inlay hints
 nmap <leader>ys <Plug>(YCMFindSymbolInWorkspace)
 nmap <leader>yd <Plug>(YCMFindSymbolInDocument)
 nmap <leader>yp <Plug>(YCMHover)
+nmap <leader>yt <Plug>(YCMTypeHierarchy)
+nmap <leader>yc <Plug>(YCMCallHierarchy)
 nnoremap <leader>yf :YcmCompleter FixIt<CR>
 nnoremap <leader>yo :YcmCompleter GoToDocumentOutline<CR>
 nnoremap <leader>yg :YcmCompleter GoTo<CR>
+nnoremap <leader>yr :YcmCompleter GoToReferences<CR>
 let g:ycm_python_interpreter_path=""
 let g:ycm_extra_conf_vim_data = ['g:ycm_python_interpreter_path']
 let g:ycm_goto_buffer_command = 'split-or-existing-window'
