@@ -24,6 +24,9 @@
     ~/.config/alacritty:
       if: '! grep -qi microsoft /proc/version'
       path: config/alacritty/
+    ~/.config/clangd:
+      if: '! grep -qi microsoft /proc/version'
+      path: config/clangd/
     ~/.gdbinit:
       if: '! grep -qi microsoft /proc/version'
       path: gdbinit
