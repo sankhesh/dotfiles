@@ -27,6 +27,8 @@
     ~/.config/clangd:
       if: '! grep -qi microsoft /proc/version'
       path: config/clangd/
+      # Windows:
+      # mklink %LOCALAPPDATA%\clangd\config.yaml <dotfiles>\config\clangd\config.yaml
     ~/.gdbinit:
       if: '! grep -qi microsoft /proc/version'
       path: gdbinit
