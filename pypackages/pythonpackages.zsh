@@ -15,11 +15,9 @@ relpath()
     $PYTHON_EXE -c "from pathlib import Path,PurePosixPath; print(PurePosixPath(Path('$1').relative_to(Path('${2:-${PWD:A}}'), walk_up=True)), end='');"
   }
 REQPATH=$(relpath ${0:A:h}/requirements.txt ${PWD:A})
-ERROROUT="$( $PYTHON_EXE -m pip install -r ${REQPATH%\\r} )" #  2>&1 > /dev/null )"
-if [[ "$ERROROUT" =~ externally-managed-environment ]];
+ERROROUT="$( $PYTHON_EXE -m pip install -r ${REQPATH%\\r} 2>&1 > /dev/null )"
+if [[ "$ERROROUT" =~ "error: externally-managed-environment" ]];
 then
   echo "Breaking system packages."
-  $PYTHON_EXE -m pip install --break-system-packages -r $REQPATH
-else
-  echo $ERROROUT
+  $PYTHON_EXE -m pip install --break-system-packages -r ${REQPATH%\\r}
 fi
