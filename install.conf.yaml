@@ -13,45 +13,45 @@
 # All the linux-only links
 - link:
     ~/.vimrc:
-      if: '[ `uname` = Darwin || ! grep -ri microsoft /proc/version ]'
+      if: '[[ `uname` = Darwin ]] || ! grep -ri microsoft /proc/version'
       path: vimrc
     ~/.vim:
-      if: '[ `uname` = Darwin || ! grep -ri microsoft /proc/version ]'
+      if: '[[ `uname` = Darwin ]] || ! grep -ri microsoft /proc/version'
       path: vim/
     ~/.tmux.conf:
-      if: '[ `uname` = Darwin || ! grep -ri microsoft /proc/version ]'
+      if: '[[ `uname` = Darwin ]] || ! grep -ri microsoft /proc/version'
       path: tmux.conf
     ~/.config/alacritty:
-      if: '[ `uname` = Darwin || ! grep -ri microsoft /proc/version ]'
+      if: '[[ `uname` = Darwin ]] || ! grep -ri microsoft /proc/version'
       path: config/alacritty/
     ~/.config/clangd:
-      if: '[ `uname` = Darwin || ! grep -ri microsoft /proc/version ]'
+      if: '[[ `uname` = Darwin ]] || ! grep -ri microsoft /proc/version'
       path: config/clangd/
       # Windows:
       # mklink %LOCALAPPDATA%\clangd\config.yaml <dotfiles>\config\clangd\config.yaml
     ~/.gdbinit:
-      if: '[ `uname` = Darwin || ! grep -ri microsoft /proc/version ]'
+      if: '[[ `uname` = Darwin ]] || ! grep -ri microsoft /proc/version'
       path: gdbinit
     ~/.local/share/applications/defaults.list:
-      if: '[ `uname` = Darwin || ! grep -ri microsoft /proc/version ]'
+      if: '[[ `uname` = Darwin ]] || ! grep -ri microsoft /proc/version'
       path:  applications/defaults.list
     ~/.local/share/applications/designer.desktop:
-      if: '[ `uname` = Darwin || ! grep -ri microsoft /proc/version ]'
+      if: '[[ `uname` = Darwin ]] || ! grep -ri microsoft /proc/version'
       path:  applications/designer.desktop
     ~/.local/share/applications/paraview.desktop:
-      if: '[ `uname` = Darwin || ! grep -ri microsoft /proc/version ]'
+      if: '[[ `uname` = Darwin ]] || ! grep -ri microsoft /proc/version'
       path:  applications/paraview.desktop
     ~/.local/share/applications/slicer.desktop:
-      if: '[ `uname` = Darwin || ! grep -ri microsoft /proc/version ]'
+      if: '[[ `uname` = Darwin ]] || ! grep -ri microsoft /proc/version'
       path:  applications/slicer.desktop
     ~/.profile:
-      if: '[ `uname` = Darwin || ! grep -ri microsoft /proc/version ]'
+      if: '[[ `uname` = Darwin ]] || ! grep -ri microsoft /proc/version'
       path: profile
 
 # All the windows-only links
 - link:
     ~/.mklink.zsh:
-      if: '[ `uname` != Darwin && grep -ri microsoft /proc/version ]'
+      if: '[[ `uname` != Darwin ]] && grep -ri microsoft /proc/version'
       path: mklink.zsh
 
 # Generic links
