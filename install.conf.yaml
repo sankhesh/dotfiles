@@ -13,45 +13,45 @@
 # All the linux-only links
 - link:
     ~/.vimrc:
-      if: '! grep -qi microsoft /proc/version'
+      if: '[ `uname` = Darwin || ! grep -ri microsoft /proc/version ]'
       path: vimrc
     ~/.vim:
-      if: '! grep -qi microsoft /proc/version'
+      if: '[ `uname` = Darwin || ! grep -ri microsoft /proc/version ]'
       path: vim/
     ~/.tmux.conf:
-      if: '! grep -qi microsoft /proc/version'
+      if: '[ `uname` = Darwin || ! grep -ri microsoft /proc/version ]'
       path: tmux.conf
     ~/.config/alacritty:
-      if: '! grep -qi microsoft /proc/version'
+      if: '[ `uname` = Darwin || ! grep -ri microsoft /proc/version ]'
       path: config/alacritty/
     ~/.config/clangd:
-      if: '! grep -qi microsoft /proc/version'
+      if: '[ `uname` = Darwin || ! grep -ri microsoft /proc/version ]'
       path: config/clangd/
       # Windows:
       # mklink %LOCALAPPDATA%\clangd\config.yaml <dotfiles>\config\clangd\config.yaml
     ~/.gdbinit:
-      if: '! grep -qi microsoft /proc/version'
+      if: '[ `uname` = Darwin || ! grep -ri microsoft /proc/version ]'
       path: gdbinit
     ~/.local/share/applications/defaults.list:
-      if: '! grep -qi microsoft /proc/version'
+      if: '[ `uname` = Darwin || ! grep -ri microsoft /proc/version ]'
       path:  applications/defaults.list
     ~/.local/share/applications/designer.desktop:
-      if: '! grep -qi microsoft /proc/version'
+      if: '[ `uname` = Darwin || ! grep -ri microsoft /proc/version ]'
       path:  applications/designer.desktop
     ~/.local/share/applications/paraview.desktop:
-      if: '! grep -qi microsoft /proc/version'
+      if: '[ `uname` = Darwin || ! grep -ri microsoft /proc/version ]'
       path:  applications/paraview.desktop
     ~/.local/share/applications/slicer.desktop:
-      if: '! grep -qi microsoft /proc/version'
+      if: '[ `uname` = Darwin || ! grep -ri microsoft /proc/version ]'
       path:  applications/slicer.desktop
     ~/.profile:
-      if: '! grep -qi microsoft /proc/version'
+      if: '[ `uname` = Darwin || ! grep -ri microsoft /proc/version ]'
       path: profile
 
 # All the windows-only links
 - link:
     ~/.mklink.zsh:
-      if: 'grep -qi microsoft /proc/version'
+      if: '[ `uname` != Darwin && grep -ri microsoft /proc/version ]'
       path: mklink.zsh
 
 # Generic links
@@ -84,7 +84,7 @@
 
 # Linux only
 - shell:
-    - command: if ! grep -qi microsoft /proc/version; then vim +PlugInstall +PlugUpdate +qall; fi
+    - command: if [[ $(uname -s) != "Darwin" ]] || ! grep -qi microsoft /proc/version; then vim +PlugInstall +PlugUpdate +qall; fi
       stdout: true
       description: Fetch VIM plugins
 
