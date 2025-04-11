@@ -10,7 +10,7 @@
 
 /* This is the overall wrapper, it should be treated as the `body` section. */
 .markdown-here-wrapper {
-  font-family: "Lucida Sans Unicode", "Cantarell", Verdana, sans-serif;
+  font-family: Verdana, sans-serif;
   font-size: 14px;
   line-height: 1.3em;
   color: #353535;
