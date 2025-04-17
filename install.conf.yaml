@@ -25,10 +25,11 @@
       if: '[[ `uname` = Darwin ]] || ! grep -ri microsoft /proc/version'
       path: config/alacritty/
     ~/.config/clangd:
-      if: '[[ `uname` = Darwin ]] || ! grep -ri microsoft /proc/version'
+      if: '[[ `uname` != Darwin ]] || ! grep -ri microsoft /proc/version'
       path: config/clangd/
-      # Windows:
-      # mklink %LOCALAPPDATA%\clangd\config.yaml <dotfiles>\config\clangd\config.yaml
+    ~/Library/Preferences/clangd:
+      if: '[[ `uname` = Darwin ]]'
+      path: config/clangd/
     ~/.gdbinit:
       if: '[[ `uname` = Darwin ]] || ! grep -ri microsoft /proc/version'
       path: gdbinit
