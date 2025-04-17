@@ -347,6 +347,7 @@ nnoremap <leader>yr :YcmCompleter GoToReferences<CR>
 let g:ycm_python_interpreter_path=""
 let g:ycm_extra_conf_vim_data = ['g:ycm_python_interpreter_path']
 let g:ycm_goto_buffer_command = 'split-or-existing-window'
+let g:ycm_add_preview_to_completeopt = "popup"
 
 " Prosession
 let g:prosession_dir = expand(s:vimDir . '/session/') " Session cache directory
