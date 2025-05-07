@@ -39,21 +39,21 @@ for x, y, scale, transform, primary, linked_monitors_info, props in logical_moni
 for updated_logical_monitor in updated_logical_monitors:
     print(updated_logical_monitor)
 
-if linked_monitor_connector == "DP-4":
-    print("Switching to DP-0")
-    updated_logical_monitors = [
-        dbus.Struct((dbus.Int32(0), dbus.Int32(0), dbus.Double(1.0), dbus.UInt32(0),
-                     dbus.Boolean(True), [dbus.Struct((dbus.String('DP-0'),
-                                                       dbus.String('3840x2160@29.970'), {}),
-                                                      signature=None)]), signature=None)
-    ]
-elif linked_monitor_connector == "DP-0":
+if linked_monitor_connector == "DP-0":
     print("Switching to DP-4")
     updated_logical_monitors = [
         dbus.Struct((dbus.Int32(0), dbus.Int32(0), dbus.Double(1.0), dbus.UInt32(0),
                      dbus.Boolean(True), [dbus.Struct((dbus.String('DP-4'),
+                                                       dbus.String('3840x2160@29.970'), {}),
+                                                      signature=dbus.Signature('sv'))]), signature=None)
+    ]
+elif linked_monitor_connector == "DP-4":
+    print("Switching to DP-0")
+    updated_logical_monitors = [
+        dbus.Struct((dbus.Int32(0), dbus.Int32(0), dbus.Double(1.0), dbus.UInt32(0),
+                     dbus.Boolean(True), [dbus.Struct((dbus.String('DP-0'),
                                                        dbus.String('3440x1440@49.987'), {}),
-                                                      signature=None)]), signature=None)
+                                                      signature=dbus.Signature('sv'))]), signature=None)
     ]
 
 
