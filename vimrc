@@ -76,6 +76,8 @@ set rtp+=~/.vim/bundle/pyclewn
 let s:vimDir = s:win_shell ? '$HOME/vimfiles' : '$HOME/.vim'
 let &runtimepath .= ',' . expand(s:vimDir . '/autoload/plug.vim')
 exec "source " . expand(s:vimDir . '/vim-plug/plug.vim')
+" set swap file location
+exec "set directory^=" . expand(s:vimDir . '/swap//')
 
 " if (win_shell)
 "   " Requires python to be in the system path
