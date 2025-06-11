@@ -1,5 +1,7 @@
 .vs/*
 CMakeSettings.json
+CMakeUserPresets.json
+cpresets
 *.pyc
 *.ycm_extra_conf.py
 *.swp
