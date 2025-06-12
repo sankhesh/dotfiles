@@ -8,7 +8,7 @@ size = 10.0
 style = "Bold"
 
 [font.normal]
-family = "Cascadia Code PL"
+family = "CaskaydiaCove Nerd Font"
 style = "Regular"
 
 [scrolling]
