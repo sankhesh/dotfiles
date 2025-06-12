@@ -3,3 +3,4 @@ vim/colors
 vim/session/*
 tmux/resurrect/*
 tmux/plugins/*
+nvim/sessions/*

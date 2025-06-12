@@ -1,6 +1,9 @@
 -- lua/plugins/completion.lua
 
 return {
+  -- Add Codeium plugin
+  { 'Exafunction/windsurf.vim', event = "BufEnter" },
+
   -- Autocompletion & LSP (Manual Setup)
   {
     'williamboman/mason.nvim',
@@ -41,7 +44,6 @@ return {
         keymap("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
       end
 
-      -- Setup servers based on what is installed by mason-lspconfig
       local servers = require('mason-lspconfig').get_installed_servers()
       for _, server_name in ipairs(servers) do
         lspconfig[server_name].setup({

@@ -1,0 +1,21 @@
+# .stylua.toml
+
+# Set the indentation type to spaces instead of tabs.
+# Options: "Spaces", "Tabs"
+indent_type = "Spaces"
+
+# Set the number of spaces to use for indentation.
+indent_width = 2
+
+# Set the maximum line length.
+# This is a good practice to keep lines readable.
+column_width = 100
+
+# Set the line endings to be used.
+# Options: "Unix" (LF), "Windows" (CRLF)
+line_endings = "Unix"
+
+# Set the preferred quote style for strings.
+# Options: "AutoPreferSingle", "AutoPreferDouble", "ForceSingle", "ForceDouble"
+quote_style = "AutoPreferSingle"
+
