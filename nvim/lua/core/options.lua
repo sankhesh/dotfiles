@@ -32,3 +32,8 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.tabstop = 2
+
+if vim.g.neovide then
+  -- neovide specific options here
+  vim.opt.guifont = "CaskaydiaCove Nerd Font:h10"
+end
