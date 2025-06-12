@@ -183,6 +183,9 @@ Plug 'richq/vim-cmake-completion', { 'for': 'cmake' }
 " Vim 8 asyncrun for asynchronous commands run
 Plug 'skywind3000/asyncrun.vim'
 
+" windsurf
+Plug 'Exafunction/windsurf.vim'
+
 " Youcompleteme plugin
 function! BuildYCM(info)
   if a:info.status == 'installed' || a:info.status == 'updated' || a:info.force
@@ -291,7 +294,7 @@ set laststatus=2      " Show status line even if there is only one window
 set tw=100             " Set textwidth to 100 characters so that line breaks at that width
 set splitright        " Open new vertical split to right
 set splitbelow        " Open new horizontal split below
-set statusline=%<%f\ %{fugitive#statusline()}\ %{ObsessionStatus('[Obsession]',\ '[ObsessionPaused]')}\ %h%m%r%=%-14.(%l/%L,%c%V%)\ %P  " Status line
+set statusline=%<%f\ %{fugitive#statusline()}\ %{ObsessionStatus('[Obsession]',\ '[ObsessionPaused]')}\ %{codeium#GetStatusString()}\ %h%m%r%=%-14.(%l/%L,%c%V%)\ %P  " Status line
 set switchbuf=usetab,newtab  " Use existing tab or open new tab when switching buffers
 
 " Set make program
