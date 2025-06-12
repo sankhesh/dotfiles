@@ -18,6 +18,9 @@
     ~/.vim:
       if: '[[ `uname` = Darwin ]] || ! grep -ri microsoft /proc/version'
       path: vim/
+    ~/.config/nvim:
+      if: '[[ `uname` = Darwin ]] || ! grep -ri microsoft /proc/version'
+      path: nvim/
     ~/.tmux.conf:
       if: '[[ `uname` = Darwin ]] || ! grep -ri microsoft /proc/version'
       path: tmux.conf
