@@ -25,6 +25,12 @@ return {
       local cmp_lsp = require('cmp_nvim_lsp')
       local capabilities = cmp_lsp.default_capabilities()
 
+      -- Globally override the hover handler to make the window non-focusable
+      vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+        border = 'rounded',
+        focusable = false,
+      })
+
       local on_attach = function(client, bufnr)
         local keymap = vim.keymap.set
         local opts = { buffer = bufnr, remap = false }
@@ -80,9 +86,13 @@ return {
         vim.api.nvim_create_autocmd('CursorHold', {
           buffer = bufnr,
           callback = function()
-            -- Check if we are in normal mode
             if vim.api.nvim_get_mode().mode == 'n' then
-              vim.lsp.buf.hover()
+              local diagnostics = vim.diagnostic.get(bufnr, { lnum = vim.fn.line('.') - 1 })
+              if #diagnostics > 0 then
+                vim.diagnostic.open_float(nil, { scope = 'line', focusable = false })
+              else
+                vim.lsp.buf.hover()
+              end
             end
           end,
         })
