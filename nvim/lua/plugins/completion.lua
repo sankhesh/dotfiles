@@ -1,8 +1,6 @@
 -- lua/plugins/completion.lua
 
 return {
-  -- Add Codeium plugin
-  { 'Exafunction/windsurf.vim', event = 'BufEnter' },
   -- Autocompletion & LSP (Manual Setup)
   {
     'williamboman/mason.nvim',
@@ -15,7 +13,7 @@ return {
     dependencies = { 'williamboman/mason.nvim', 'neovim/nvim-lspconfig' },
     config = function()
       require('mason-lspconfig').setup({
-        ensure_installed = { 'clangd', 'pyright', 'tsserver', 'cmake' },
+        ensure_installed = { 'clangd', 'pyright', 'cmake' },
       })
     end,
   },
@@ -67,6 +65,27 @@ return {
         keymap('i', '<C-h>', function()
           vim.lsp.buf.signature_help()
         end, opts)
+
+        -- Adding the inlay hints keymap
+        keymap('n', '<leader>ih', function()
+          vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+        end, { desc = 'Toggle Inlay Hints' })
+
+        -- Enable inlay hints on attach if the server supports it
+        if client.supports_method('textDocument/inlayHint') then
+          vim.lsp.inlay_hint.enable(true)
+        end
+
+        -- Add autocommand for automatic hover documentation
+        vim.api.nvim_create_autocmd('CursorHold', {
+          buffer = bufnr,
+          callback = function()
+            -- Check if we are in normal mode
+            if vim.api.nvim_get_mode().mode == 'n' then
+              vim.lsp.buf.hover()
+            end
+          end,
+        })
       end
 
       -- Setup servers based on what is installed by mason-lspconfig

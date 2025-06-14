@@ -1,4 +1,3 @@
--- lua/core/keymaps.lu
 -- lua/core/keymaps.lua
 
 local keymap = vim.keymap.set
@@ -75,3 +74,6 @@ keymap('n', '<S-h>', ':BufferLineCyclePrev<CR>', { desc = 'Previous buffer' })
 
 -- Switch between header and source
 keymap('n', '<leader>s', switch_header_source, { desc = 'Switch Header/Source' })
+
+-- Select Session
+keymap('n', '<leader>ps', ':SessionSelect<CR>', { desc = 'Select Session' })

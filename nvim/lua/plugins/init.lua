@@ -10,6 +10,9 @@ return {
   'tpope/vim-repeat',
   'junegunn/goyo.vim',
 
+  -- WindSurf
+  { 'Exafunction/windsurf.vim', event = 'BufEnter' },
+
   -- Commenting
   {
     'numToStr/Comment.nvim',
@@ -21,31 +24,47 @@ return {
   -- Formatting and Linting
   {
     'stevearc/conform.nvim',
-    opts = {
-      formatters_by_ft = {
-        lua = { 'stylua' },
-        c = { 'clang_format' },
-        cpp = { 'clang_format' },
-        python = { 'isort', 'black' },
-        javascript = { { 'prettierd', 'prettier' } },
+    formatters_by_ft = {
+      lua = { 'stylua' },
+      c = { 'clang_format' },
+      cpp = { 'clang_format' },
+      python = { 'isort', 'black' },
+      javascript = { { 'prettierd', 'prettier' } },
+      cmake = {
+        'cmake-format',
+        opts = {
+          args = {
+            '--dangle-align=child',
+            '--dangle-parens=true',
+            '--enable-sort=true',
+            '--max-subgroups-hwrap=2',
+            '--line-width=80',
+          },
+        },
       },
-      format_on_save = {
-        timeout_ms = 500,
-        lsp_fallback = true,
-      },
+    },
+    format_on_save = {
+      timeout_ms = 500,
+      lsp_fallback = true,
     },
   },
   {
     'mfussenegger/nvim-lint',
     config = function()
-        require('lint').linters_by_ft = {
-            python = {'flake8'}
-        }
-        vim.api.nvim_create_autocmd({"BufWritePost", "BufEnter", "InsertLeave"}, {
-            callback = function()
-                require("lint").try_lint()
-            end
-        })
-    end
+      local lint = require('lint')
+      require('lint').linters_by_ft = {
+        python = { 'flake8' },
+        cmake = { 'cmakelint' },
+      }
+      -- Add custom arguments for linters
+      lint.linters.cmakelint.args = {
+        '--filter=-whitespace/extra,-whitespace/indent',
+      }
+      vim.api.nvim_create_autocmd({ 'BufWritePost', 'BufEnter', 'InsertLeave' }, {
+        callback = function()
+          require('lint').try_lint()
+        end,
+      })
+    end,
   },
 }
