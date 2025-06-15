@@ -24,6 +24,7 @@ return {
 
       -- Add a command to select a session and change directory
       vim.api.nvim_create_user_command('SessionSelect', function()
+
         local session_paths = persisted.list()
         if #session_paths == 0 then
           vim.notify('No sessions available.')
@@ -70,6 +71,12 @@ return {
             -- On Linux/macOS, just replace '%' with '/'
             reconstructed_path = encoded_path:gsub('%%', '/')
           end
+
+          -- First, stop the current session
+          vim.api.nvim_command('SessionStop')
+
+          -- Wipe all existing buffers before loading the new session
+          vim.cmd('bufdo bdelete')
 
           -- Change directory to the reconstructed path
           vim.cmd.cd(vim.fn.fnameescape(reconstructed_path))
