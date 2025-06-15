@@ -77,3 +77,9 @@ keymap('n', '<leader>s', switch_header_source, { desc = 'Switch Header/Source' }
 
 -- Select Session
 keymap('n', '<leader>ps', ':SessionSelect<CR>', { desc = 'Select Session' })
+
+if vim.g.neovide == true then
+  vim.api.nvim_set_keymap("n", "<C-_>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.05<CR>", { silent = true })
+  vim.api.nvim_set_keymap("n", "<C-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.05<CR>", { silent = true })
+  vim.api.nvim_set_keymap("n", "<C-0>", ":lua vim.g.neovide_scale_factor = 1<CR>", { silent = true })
+end
