@@ -21,7 +21,7 @@ local function switch_header_source()
     for _, ext in ipairs(source_exts) do
       local alternate = basename .. '.' .. ext
       if vim.fn.filereadable(alternate) == 1 then
-        vim.cmd.vsplit(alternate) -- Changed 'edit' to 'vsplit'
+        vim.cmd.vsplit(alternate)
         alternate_file_found = true
         break
       end
@@ -30,7 +30,7 @@ local function switch_header_source()
     for _, ext in ipairs(header_exts) do
       local alternate = basename .. '.' .. ext
       if vim.fn.filereadable(alternate) == 1 then
-        vim.cmd.vsplit(alternate) -- Changed 'edit' to 'vsplit'
+        vim.cmd.vsplit(alternate)
         alternate_file_found = true
         break
       end
@@ -83,3 +83,6 @@ if vim.g.neovide == true then
   vim.api.nvim_set_keymap("n", "<C-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.05<CR>", { silent = true })
   vim.api.nvim_set_keymap("n", "<C-0>", ":lua vim.g.neovide_scale_factor = 1<CR>", { silent = true })
 end
+
+-- Editor Toggles
+keymap('n', '<leader>l', ':set list!<CR>', { desc = 'Toggle list chars' })

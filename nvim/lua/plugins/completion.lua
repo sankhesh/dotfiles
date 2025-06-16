@@ -25,6 +25,31 @@ return {
       local cmp_lsp = require('cmp_nvim_lsp')
       local capabilities = cmp_lsp.default_capabilities()
 
+      -- Configure diagnostic popups globally to be non-focusable
+      vim.diagnostic.config({
+        float = {
+          focusable = false,
+          style = "minimal",
+          border = "rounded",
+          source = "always",
+          header = "",
+          prefix = "",
+        },
+      })
+
+      -- Globally override the hover handler to make the window non-focusable
+      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+        vim.lsp.handlers.hover,
+        {
+          border = "rounded",
+          focusable = false,
+        }
+      )
+
+      -- Add highlight groups for gray floating windows
+      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#3c3836" }) -- Using a gray background
+      vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#3c3836" }) -- Using a gray background
+
       local on_attach = function(client, bufnr)
         local keymap = vim.keymap.set
         local opts = { buffer = bufnr, remap = false }
@@ -42,8 +67,6 @@ return {
         keymap('n', '<leader>rf', function() vim.lsp.buf.references() end, opts)
         keymap('n', '<leader>rn', function() vim.lsp.buf.rename() end, opts)
         keymap('i', '<C-h>', function() vim.lsp.buf.signature_help() end, opts)
-
-        -- Inlay hints keymap
         keymap('n', '<leader>ih', function()
           vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
         end, { desc = 'Toggle Inlay Hints' })
@@ -52,30 +75,32 @@ return {
           vim.lsp.inlay_hint.enable(true)
         end
 
-        -- Automatic hover
+        -- Add autocommand for automatic hover documentation
         vim.api.nvim_create_autocmd("CursorHold", {
           buffer = bufnr,
           callback = function()
             if vim.api.nvim_get_mode().mode == 'n' then
               local diagnostics = vim.diagnostic.get(bufnr, { lnum = vim.fn.line('.') - 1 })
               if #diagnostics > 0 then
-                vim.diagnostic.open_float(nil, { scope = "line", focusable = false })
+                vim.diagnostic.open_float(nil, { scope = "line" })
               else
-                vim.lsp.buf.hover()
+                -- Check if a floating window is already open before showing hover
+                local has_float_open = false
+                for _, win in ipairs(vim.api.nvim_list_wins()) do
+                  if vim.api.nvim_win_get_config(win).relative ~= "" then
+                    has_float_open = true
+                    break
+                  end
+                end
+
+                if not has_float_open then
+                  vim.lsp.buf.hover()
+                end
               end
             end
           end,
         })
       end
-
-      -- Globally override hover handler to be non-focusable
-      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-        vim.lsp.handlers.hover,
-        {
-          border = "rounded",
-          focusable = false,
-        }
-      )
 
       -- Setup servers based on what is installed by mason-lspconfig
       local servers = require('mason-lspconfig').get_installed_servers()
