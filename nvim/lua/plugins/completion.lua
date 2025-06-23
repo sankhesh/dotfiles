@@ -29,44 +29,71 @@ return {
       vim.diagnostic.config({
         float = {
           focusable = false,
-          style = "minimal",
-          border = "rounded",
-          source = "always",
-          header = "",
-          prefix = "",
+          style = 'minimal',
+          border = 'rounded',
+          source = 'always',
+          header = '',
+          prefix = '',
         },
       })
 
       -- Globally override the hover handler to make the window non-focusable
-      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-        vim.lsp.handlers.hover,
-        {
-          border = "rounded",
-          focusable = false,
-        }
-      )
+      vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+        border = 'rounded',
+        focusable = false,
+        focus = false, -- Explicitly ensure it never gets focus
+      })
 
       -- Add highlight groups for gray floating windows
-      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#3c3836" }) -- Using a gray background
-      vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#3c3836" }) -- Using a gray background
+      vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#3c3836' }) -- Using a gray background
+      vim.api.nvim_set_hl(0, 'FloatBorder', { bg = '#3c3836' }) -- Using a gray background
+
+      -- Flag to prevent CursorHold after explicit 'K' press
+      vim.g.lsp_hover_k_pressed = false
 
       local on_attach = function(client, bufnr)
         local keymap = vim.keymap.set
         local opts = { buffer = bufnr, remap = false }
 
         -- Your custom keymaps
-        keymap('n', 'gd', function() vim.lsp.buf.definition() end, opts)
-        keymap('n', 'gD', function() vim.lsp.buf.declaration() end, opts)
-        keymap('n', 'gi', function() vim.lsp.buf.implementation() end, opts)
-        keymap('n', 'K', function() vim.lsp.buf.hover() end, opts)
-        keymap('n', '<leader>ws', function() vim.lsp.buf.workspace_symbol() end, opts)
-        keymap('n', '<leader>vd', function() vim.diagnostic.open_float() end, opts)
-        keymap('n', ']d', function() vim.diagnostic.goto_next() end, opts)
-        keymap('n', '[d', function() vim.diagnostic.goto_prev() end, opts)
-        keymap('n', '<leader>ca', function() vim.lsp.buf.code_action() end, opts)
-        keymap('n', '<leader>rf', function() vim.lsp.buf.references() end, opts)
-        keymap('n', '<leader>rn', function() vim.lsp.buf.rename() end, opts)
-        keymap('i', '<C-h>', function() vim.lsp.buf.signature_help() end, opts)
+        keymap('n', 'gd', function()
+          vim.lsp.buf.definition()
+        end, opts)
+        keymap('n', 'gD', function()
+          vim.lsp.buf.declaration()
+        end, opts)
+        keymap('n', 'gi', function()
+          vim.lsp.buf.implementation()
+        end, opts)
+        -- Modified K keymap to set the flag
+        keymap('n', 'K', function()
+          vim.g.lsp_hover_k_pressed = true -- Set flag when K is pressed
+          vim.lsp.buf.hover()
+        end, opts)
+        keymap('n', '<leader>ws', function()
+          vim.lsp.buf.workspace_symbol()
+        end, opts)
+        keymap('n', '<leader>vd', function()
+          vim.diagnostic.open_float()
+        end, opts)
+        keymap('n', ']d', function()
+          vim.diagnostic.goto_next()
+        end, opts)
+        keymap('n', '[d', function()
+          vim.diagnostic.goto_prev()
+        end, opts)
+        keymap('n', '<leader>ca', function()
+          vim.lsp.buf.code_action()
+        end, opts)
+        keymap('n', '<leader>rf', function()
+          vim.lsp.buf.references()
+        end, opts)
+        keymap('n', '<leader>rn', function()
+          vim.lsp.buf.rename()
+        end, opts)
+        keymap('i', '<C-h>', function()
+          vim.lsp.buf.signature_help()
+        end, opts)
         keymap('n', '<leader>ih', function()
           vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
         end, { desc = 'Toggle Inlay Hints' })
@@ -75,27 +102,30 @@ return {
           vim.lsp.inlay_hint.enable(true)
         end
 
-        -- Add autocommand for automatic hover documentation
-        vim.api.nvim_create_autocmd("CursorHold", {
+        -- Autocommand to reset flag on cursor move
+        vim.api.nvim_create_autocmd('CursorMoved', {
+          buffer = bufnr,
+          callback = function()
+            vim.g.lsp_hover_k_pressed = false -- Reset flag when cursor moves
+          end,
+        })
+
+        -- Autocommand for automatic hover documentation
+        vim.api.nvim_create_autocmd('CursorHold', {
           buffer = bufnr,
           callback = function()
             if vim.api.nvim_get_mode().mode == 'n' then
+              -- Only trigger CursorHold hover if K was not just pressed
+              if vim.g.lsp_hover_k_pressed then
+                vim.g.lsp_hover_k_pressed = false -- Consume the flag
+                return -- Skip this CursorHold event
+              end
+
               local diagnostics = vim.diagnostic.get(bufnr, { lnum = vim.fn.line('.') - 1 })
               if #diagnostics > 0 then
-                vim.diagnostic.open_float(nil, { scope = "line" })
+                vim.diagnostic.open_float(nil, { scope = 'line' })
               else
-                -- Check if a floating window is already open before showing hover
-                local has_float_open = false
-                for _, win in ipairs(vim.api.nvim_list_wins()) do
-                  if vim.api.nvim_win_get_config(win).relative ~= "" then
-                    has_float_open = true
-                    break
-                  end
-                end
-
-                if not has_float_open then
-                  vim.lsp.buf.hover()
-                end
+                vim.lsp.buf.hover()
               end
             end
           end,
@@ -112,24 +142,18 @@ return {
 
         -- Add custom logic for clangd to handle project-specific configs
         if server_name == 'clangd' then
-          -- Try to find the project root (e.g., the git repository root)
           local root_dir = require('lspconfig.util').find_git_ancestor(vim.api.nvim_buf_get_name(0))
           if root_dir then
-            -- Check if a .clangd file exists in the project root
             local clangd_config_exists = vim.loop.fs_stat(root_dir .. '/.clangd')
 
-            -- If a .clangd file does NOT exist, apply the global default settings.
             if not clangd_config_exists then
               server_opts.cmd = {
                 'clangd',
-                '--compile-commands-dir=../bld', -- Your global default build directory
+                '--compile-commands-dir=../bld',
               }
             end
-            -- If a .clangd file DOES exist, we don't add any 'cmd' options,
-            -- allowing clangd to find and use it automatically.
           end
         end
-
         lspconfig[server_name].setup(server_opts)
       end
     end,

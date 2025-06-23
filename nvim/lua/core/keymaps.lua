@@ -60,6 +60,10 @@ keymap('n', '<leader>dv', ':DiffviewOpen<CR>', { desc = 'Open Diffview' })
 keymap('n', '<leader>dc', ':DiffviewClose<CR>', { desc = 'Close Diffview' })
 keymap('n', '<leader>dh', ':DiffviewFileHistory<CR>', { desc = 'Diffview file history' })
 
+-- Diffchanges
+keymap('n', '<leader>p', ':DiffChangesPatchToggle<CR>', { desc = 'Diff changes patch' })
+keymap('n', '<leader>f', ':DiffChangesDiffToggle<CR>', { desc = 'Diff changes diff' })
+
 -- Formatting
 keymap({ 'n', 'v' }, '<leader>cf', function()
   require('conform').format({ async = true, lsp_fallback = true })
@@ -79,9 +83,24 @@ keymap('n', '<leader>s', switch_header_source, { desc = 'Switch Header/Source' }
 keymap('n', '<leader>ps', ':SessionSelect<CR>', { desc = 'Select Session' })
 
 if vim.g.neovide == true then
-  vim.api.nvim_set_keymap("n", "<C-_>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.05<CR>", { silent = true })
-  vim.api.nvim_set_keymap("n", "<C-->", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.05<CR>", { silent = true })
-  vim.api.nvim_set_keymap("n", "<C-0>", ":lua vim.g.neovide_scale_factor = 1<CR>", { silent = true })
+  vim.api.nvim_set_keymap(
+    'n',
+    '<C-_>',
+    ':lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.05<CR>',
+    { silent = true }
+  )
+  vim.api.nvim_set_keymap(
+    'n',
+    '<C-->',
+    ':lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.05<CR>',
+    { silent = true }
+  )
+  vim.api.nvim_set_keymap(
+    'n',
+    '<C-0>',
+    ':lua vim.g.neovide_scale_factor = 1<CR>',
+    { silent = true }
+  )
 end
 
 -- Editor Toggles

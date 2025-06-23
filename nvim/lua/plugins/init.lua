@@ -9,9 +9,17 @@ return {
   'tpope/vim-unimpaired',
   'tpope/vim-repeat',
   'junegunn/goyo.vim',
+  'Exafunction/windsurf.vim',
 
-  -- WindSurf
-  { 'Exafunction/windsurf.vim', event = 'BufEnter' },
+  -- Diffchanges plugin from original vimrc
+  {
+    'vim-scripts/diffchanges.vim',
+    config = function()
+      if vim.fn.has('win32') == 1 or vim.fn.has('win64') == 1 then
+        vim.g.diffchanges_patch_cmd = 'FC'
+      end
+    end,
+  },
 
   -- Commenting
   {
@@ -24,15 +32,10 @@ return {
   -- Formatting and Linting
   {
     'stevearc/conform.nvim',
-    formatters_by_ft = {
-      lua = { 'stylua' },
-      c = { 'clang_format' },
-      cpp = { 'clang_format' },
-      python = { 'isort', 'black' },
-      javascript = { { 'prettierd', 'prettier' } },
-      cmake = {
-        'cmake-format',
-        opts = {
+    opts = {
+      -- Add custom options for specific formatters
+      formatters = {
+        ['cmake-format'] = {
           args = {
             '--dangle-align=child',
             '--dangle-parens=true',
@@ -42,27 +45,37 @@ return {
           },
         },
       },
-    },
-    format_on_save = {
-      timeout_ms = 500,
-      lsp_fallback = true,
+      formatters_by_ft = {
+        lua = { 'stylua' },
+        c = { 'clang_format' },
+        cpp = { 'clang_format' },
+        python = { 'isort', 'black' },
+        javascript = { { 'prettierd', 'prettier' } },
+        cmake = { 'cmake-format' },
+        ['*'] = { 'remove_trailing_lines', 'trim_whitespace' }, -- Apply to all file types
+      },
+      format_on_save = {
+        timeout_ms = 500,
+        lsp_fallback = true,
+      },
     },
   },
   {
     'mfussenegger/nvim-lint',
     config = function()
       local lint = require('lint')
-      require('lint').linters_by_ft = {
+      lint.linters_by_ft = {
         python = { 'flake8' },
         cmake = { 'cmakelint' },
       }
-      -- Add custom arguments for linters
+
       lint.linters.cmakelint.args = {
         '--filter=-whitespace/extra,-whitespace/indent',
       }
+
       vim.api.nvim_create_autocmd({ 'BufWritePost', 'BufEnter', 'InsertLeave' }, {
         callback = function()
-          require('lint').try_lint()
+          lint.try_lint()
         end,
       })
     end,
