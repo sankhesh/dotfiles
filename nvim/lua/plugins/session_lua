@@ -19,11 +19,20 @@ return {
         save_dir = vim.fn.stdpath('config') .. '/sessions/', -- Change save directory
         on_load = function()
           print('Session loaded!')
+          -- Load scope.nvim session when persisted session loads
+          vim.cmd('ScopeLoad')
+        end,
+        on_save = function()
+          print('Session saved!')
+          -- Save scope.nvim session when persisted session saves
+          vim.cmd('ScopeSave')
         end,
       })
 
       -- Add a command to select a session and change directory
       vim.api.nvim_create_user_command('SessionSelect', function()
+        -- First, stop the current session to save it
+        vim.api.nvim_command('SessionStop')
 
         local session_paths = persisted.list()
         if #session_paths == 0 then
@@ -45,6 +54,11 @@ return {
             return
           end
 
+          -- IMPORTANT: Ensure a truly clean slate before loading the new session.
+          -- This sequence deletes all buffers and closes all windows/tabs,
+          -- leaving a single new, empty buffer.
+          vim.cmd('silent! %bdelete! | new | only')
+
           -- Get the full path of the selected session file
           local selected_session_file = session_paths[index]
           -- Get just the filename from the full path
@@ -61,7 +75,7 @@ return {
           local reconstructed_path
           -- Check if we are on Windows
           if vim.fn.has('win32') == 1 then
-            -- On Windows, the path is encoded like D%Projects%...
+            -- On Windows, the path is encoded like D%Projects%...\
             local parts = vim.split(encoded_path, '%%')
             -- The first part is the drive letter, so we append ":"
             parts[1] = parts[1] .. ':'
@@ -72,17 +86,11 @@ return {
             reconstructed_path = encoded_path:gsub('%%', '/')
           end
 
-          -- First, stop the current session
-          vim.api.nvim_command('SessionStop')
-
-          -- Wipe all existing buffers before loading the new session
-          vim.cmd('bufdo bdelete')
-
           -- Change directory to the reconstructed path
           vim.cmd.cd(vim.fn.fnameescape(reconstructed_path))
           vim.notify('Changed directory to: ' .. reconstructed_path)
 
-          -- Finally, load the session
+          -- Finally, load the session (it will load into the current clean environment)
           vim.api.nvim_command('SessionLoad')
         end)
       end, {})

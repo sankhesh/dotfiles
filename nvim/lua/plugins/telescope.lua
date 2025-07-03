@@ -6,11 +6,11 @@ return {
     branch = 'master',
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
-        require('telescope').setup({
-            defaults = {
-                path_display = { "truncate" },
-            }
-        })
-    end
+      require('telescope').setup({
+        defaults = {
+          path_display = { 'truncate' },
+        },
+      })
+    end,
   },
 }

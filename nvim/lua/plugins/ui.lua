@@ -51,4 +51,10 @@ return {
     version = '*',
     opts = {},
   },
+  {
+    'tiagovla/scope.nvim',
+    config = function()
+      require('scope').setup()
+    end,
+  },
 }
