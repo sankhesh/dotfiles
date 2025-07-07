@@ -6,6 +6,7 @@ return {
     'lewis6991/gitsigns.nvim',
     config = function()
       require('gitsigns').setup({
+        current_line_blame = true,
         on_attach = function(bufnr)
           local gitsigns = require('gitsigns')
 
@@ -33,7 +34,7 @@ return {
           end)
 
           -- Actions
-          map('n', '<leader>ht', gitsigns.stage_hunk)
+          map('n', '<leader>hs', gitsigns.stage_hunk)
           map('n', '<leader>hr', gitsigns.reset_hunk)
 
           map('v', '<leader>hs', function()
@@ -44,7 +45,7 @@ return {
             gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
           end)
 
-          map('n', '<leader>hT', gitsigns.stage_buffer)
+          map('n', '<leader>hS', gitsigns.stage_buffer)
           map('n', '<leader>hR', gitsigns.reset_buffer)
           map('n', '<leader>hp', gitsigns.preview_hunk)
           map('n', '<leader>hi', gitsigns.preview_hunk_inline)
