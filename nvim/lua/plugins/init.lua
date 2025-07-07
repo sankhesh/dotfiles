@@ -50,7 +50,7 @@ return {
         c = { 'clang_format' },
         cpp = { 'clang_format' },
         python = { 'isort', 'black' },
-        javascript = { { 'prettierd', 'prettier' } },
+        javascript = { 'prettierd', 'prettier' },
         cmake = { 'cmake-format' },
         ['*'] = { 'remove_trailing_lines', 'trim_whitespace' }, -- Apply to all file types
       },
