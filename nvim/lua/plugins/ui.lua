@@ -49,6 +49,28 @@ return {
     'akinsho/bufferline.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     version = '*',
-    opts = {},
+    opts = {
+      options = {
+        mode = 'tabs',
+        separator_style = 'thin',
+        show_buffer_close_icons = false,
+        show_close_icon = true,
+        color_icons = true,
+        numbers = 'buffer_id | ordinal',
+        diagnostics = 'nvim_lsp',
+        diagnostics_indicator = function(count, level, diagnostics_dict, context)
+          if context.buffer:current() then
+            return ''
+          end
+          local icon = level:match('error') and ' ' or ' '
+          return ' ' .. icon .. count
+        end,
+        hover = {
+          enabled = true,
+          delay = 200,
+          reveal = { 'close' },
+        },
+      },
+    },
   },
 }
