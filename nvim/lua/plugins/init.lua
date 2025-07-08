@@ -51,11 +51,11 @@ return {
         cpp = { 'clang_format' },
         python = { 'isort', 'black' },
         javascript = { 'prettierd', 'prettier' },
-        cmake = { 'cmake-format' },
-        ['*'] = { 'remove_trailing_lines', 'trim_whitespace' }, -- Apply to all file types
+        cmake = { 'cmake_format' },
+        ['*'] = { 'trim_whitespace' }, -- Apply to all file types
       },
       format_on_save = {
-        timeout_ms = 500,
+        timeout_ms = 1000, -- Increased timeout from 500 to 1000ms (1 second)
         lsp_fallback = true,
       },
     },
