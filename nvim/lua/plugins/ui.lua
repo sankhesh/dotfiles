@@ -73,4 +73,49 @@ return {
       },
     },
   },
+  { 'tiagovla/scope.nvim', config = true },
+  {
+    'folke/noice.nvim',
+    event = 'VeryLazy', -- Load late to ensure other plugins are ready
+    dependencies = {
+      { 'rcarriga/nvim-notify' },
+    },
+    config = function()
+      require('noice').setup({
+        cmdline = {
+          enabled = true, -- enables the Noice cmdline UI
+          view = 'cmdline_popup', -- view for cmdline UI
+          opts = {}, -- options for the cmdline UI
+        },
+        messages = {
+          enabled = true, -- enables the Noice messages UI
+          view = 'notify', -- view for messages
+          opts = {}, -- options for view
+        },
+        popupmenu = {
+          enabled = true, -- enables the Noice popupmenu UI
+          view = 'cmp_menu', -- Changed to 'cmp_menu' to integrate with nvim-cmp for tab completion
+          opts = {}, -- options for view
+        },
+        routes = {
+          {
+            filter = {
+              event = 'msg_show',
+              kind = '',
+              find = 'No information available',
+            },
+            opts = { skip = true },
+          },
+        },
+        presets = {
+          bottom_search = true, -- use a classic bottom cmdline for search
+          command_palette = true, -- position the cmdline and popupmenu together
+          long_message_to_split = true, -- long messages will be sent to a split
+          inc_rename = false, -- noice can be used for inc-rename. search for help on `:help noice.inc_rename`
+          lsp_doc_border = false, -- add a border to hover docs and signature help
+        },
+        silent = true, -- Set to true to suppress messages from being printed to the cmdline
+      })
+    end,
+  },
 }

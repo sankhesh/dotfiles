@@ -29,6 +29,7 @@ return {
       vim.diagnostic.config({
         float = {
           focusable = false,
+          focus = false, -- Explicitly ensure it never gets focus
           style = 'minimal',
           border = 'rounded',
           source = 'always',
