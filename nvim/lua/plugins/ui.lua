@@ -100,7 +100,7 @@ return {
         routes = {
           {
             filter = {
-              event = 'msg_show',
+              event = 'notify',
               kind = '',
               find = 'No information available',
             },
