@@ -101,7 +101,6 @@ return {
           {
             filter = {
               event = 'notify',
-              kind = '',
               find = 'No information available',
             },
             opts = { skip = true },
