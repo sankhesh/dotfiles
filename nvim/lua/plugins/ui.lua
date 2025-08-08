@@ -56,7 +56,7 @@ return {
         show_buffer_close_icons = false,
         show_close_icon = true,
         color_icons = true,
-        numbers = 'buffer_id | ordinal',
+        numbers = 'ordinal',
         diagnostics = 'nvim_lsp',
         diagnostics_indicator = function(count, level, diagnostics_dict, context)
           if context.buffer:current() then
