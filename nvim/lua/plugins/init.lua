@@ -29,37 +29,7 @@ return {
     end,
   },
 
-  -- Formatting and Linting
-  {
-    'stevearc/conform.nvim',
-    opts = {
-      -- Add custom options for specific formatters
-      formatters = {
-        ['cmake-format'] = {
-          args = {
-            '--dangle-align=child',
-            '--dangle-parens=true',
-            '--enable-sort=true',
-            '--max-subgroups-hwrap=2',
-            '--line-width=80',
-          },
-        },
-      },
-      formatters_by_ft = {
-        lua = { 'stylua' },
-        c = { 'clang_format' },
-        cpp = { 'clang_format' },
-        python = { 'isort', 'black' },
-        javascript = { 'prettierd', 'prettier' },
-        cmake = { 'cmake_format' },
-        ['*'] = { 'trim_whitespace' }, -- Apply to all file types
-      },
-      format_on_save = {
-        timeout_ms = 1000, -- Increased timeout from 500 to 1000ms (1 second)
-        lsp_fallback = true,
-      },
-    },
-  },
+  -- Linting
   {
     'mfussenegger/nvim-lint',
     config = function()

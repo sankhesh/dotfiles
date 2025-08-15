@@ -64,11 +64,6 @@ keymap('n', '<leader>dh', ':DiffviewFileHistory<CR>', { desc = 'Diffview file hi
 keymap('n', '<leader>p', ':DiffChangesPatchToggle<CR>', { desc = 'Diff changes patch' })
 keymap('n', '<leader>f', ':DiffChangesDiffToggle<CR>', { desc = 'Diff changes diff' })
 
--- Formatting
-keymap({ 'n', 'v' }, '<leader>cf', function()
-  require('conform').format({ async = true, lsp_fallback = true })
-end, { desc = 'Format code' })
-
 -- Goyo
 keymap('n', '<leader>gy', ':Goyo<CR>', { desc = 'Toggle Goyo (distraction-free)' })
 
