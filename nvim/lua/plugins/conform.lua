@@ -8,10 +8,11 @@ return {
       formatters = {
         ['cmake-format'] = {
           args = {
-            '--dangle-align=child',
+            '--dangle-align=prefix',
             '--dangle-parens=true',
             '--enable-sort=true',
-            '--max-subgroups-hwrap=2',
+            '--max-subgroups-hwrap=1',
+            '--max-pargs-hwrap=1',
             '--line-width=80',
           },
         },
