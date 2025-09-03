@@ -4,16 +4,17 @@ return {
     'stevearc/conform.nvim',
     event = { "LspAttach", "BufReadPost", "BufNewFile" },
     opts = {
+      log_level = vim.log.levels.DEBUG,
       -- Add custom options for specific formatters
       formatters = {
-        ['cmake-format'] = {
-          args = {
-            '--dangle-align=prefix',
-            '--dangle-parens=true',
-            '--enable-sort=true',
-            '--max-subgroups-hwrap=1',
-            '--max-pargs-hwrap=1',
-            '--line-width=80',
+        cmake_format = {
+          prepend_args = {
+            "--dangle-align=prefix",
+            "--dangle-parens=true",
+            "--enable-sort=true",
+            "--max-subgroups-hwrap=1",
+            "--max-pargs-hwrap=1",
+            "--line-width=80",
           },
         },
       },
