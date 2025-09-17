@@ -18,16 +18,24 @@ return {
           lualine_c = {
             'filename',
             {
-              -- Add the Codeium status component
+              -- Add the Autoformat status component
               function()
                 -- Check if the function exists before calling it
-                if vim.fn.exists('*codeium#GetStatusString') == 1 then
-                  return vim.fn['codeium#GetStatusString']()
+                if vim.g.disable_autoformat == true then
+                  return 'AutoFormat: Off'
                 else
-                  return ''
+                  return 'AutoFormat: On'
                 end
               end,
-              color = { fg = '#98c379' }, -- Optional: set a color for the status
+              -- { fg = '#98a379' }, -- Optional: set a color for the status
+              color = function()
+                -- Check if the function exists before calling it
+                if vim.g.disable_autoformat == true then
+                  return { fg = '#e06c75' } -- Red color for Off
+                else
+                  return { fg = '#98c379' } -- Green color for On
+                end
+              end,
             },
           },
           lualine_x = { 'diagnostics', 'encoding', 'fileformat', 'filetype' },
