@@ -9,7 +9,6 @@ return {
   'tpope/vim-unimpaired',
   'tpope/vim-repeat',
   'junegunn/goyo.vim',
-  'Exafunction/windsurf.vim',
 
   -- Diffchanges plugin from original vimrc
   {
