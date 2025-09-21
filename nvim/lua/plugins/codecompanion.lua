@@ -15,14 +15,14 @@ return {
         chat = {
           -- adapter = 'copilot',
           -- model = 'gpt-4.1',
-          adapter = 'gemini_cli',
+          adapter = 'gemini',
           model = 'gemini-2.5-pro',
         },
       },
       inline = {
         -- adapter = 'copilot',
         -- model = 'gpt-4.1',
-        adapter = 'gemini_cli',
+        adapter = 'gemini',
         model = 'gemini-2.5-pro',
       },
     })
