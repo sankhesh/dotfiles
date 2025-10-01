@@ -194,10 +194,11 @@ return {
       )
 
       -- DAP UI function
+      local dapui = require('dapui')
       vim.keymap.set(
         'n',
         '<Leader>du',
-        require('dapui').toggle,
+        dapui.toggle,
         vim.tbl_extend('force', opts, { desc = 'DAP UI: Toggle UI' })
       ) -- Use require('dapui').toggle here
 
