@@ -62,9 +62,13 @@ return {
   -- DAP UI Plugin (Handles layout and display)
   {
     'rcarriga/nvim-dap-ui',
+    dependencies = {
+      'mfussenegger/nvim-dap',
+    },
     -- This configures the UI layout.
     config = function()
-      require('dapui').setup({
+      local dapui = require('dapui')
+      dapui.setup({
         icons = {
           expanded = '',
           collapsed = '',
@@ -98,6 +102,9 @@ return {
           elements = { 'scopes', 'breakpoints', 'stacks', 'watches', 'repl', 'expressions' },
         },
       })
+
+      -- DAP UI function
+      vim.keymap.set('n', '<Leader>du', dapui.toggle, { desc = 'DAP UI: Toggle UI' })
     end,
   },
 
@@ -192,15 +199,6 @@ return {
         dap.run_last,
         vim.tbl_extend('force', opts, { desc = 'DAP: Run Last Config' })
       )
-
-      -- DAP UI function
-      local dapui = require('dapui')
-      vim.keymap.set(
-        'n',
-        '<Leader>du',
-        dapui.toggle,
-        vim.tbl_extend('force', opts, { desc = 'DAP UI: Toggle UI' })
-      ) -- Use require('dapui').toggle here
 
       -- Run/Launch configuration list
       vim.keymap.set('n', '<Leader>dl', function()
