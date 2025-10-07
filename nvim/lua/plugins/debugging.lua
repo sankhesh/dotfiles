@@ -77,12 +77,12 @@ return {
         layouts = {
           {
             elements = {
-              { id = 'scopes', size = 0.25 },
-              { id = 'breakpoints', size = 0.25 },
-              { id = 'stacks', size = 0.25 },
-              { id = 'watches', size = 0.25 },
+              { id = 'scopes', size = 0.45 },
+              { id = 'breakpoints', size = 0.45 },
+              { id = 'stacks', size = 0.45 },
+              { id = 'watches', size = 0.45 },
             },
-            size = 40,
+            size = 50,
             position = 'left',
           },
           {
@@ -90,7 +90,7 @@ return {
               { id = 'repl', size = 0.5 },
               { id = 'expressions', size = 0.5 },
             },
-            size = 10,
+            size = 15,
             position = 'bottom',
           },
         },
@@ -99,11 +99,36 @@ return {
           max_width = 0.9,
         },
         windows = {
-          elements = { 'scopes', 'breakpoints', 'stacks', 'watches', 'repl', 'expressions' },
+          elements = {
+            'scopes',
+            'breakpoints',
+            'stacks',
+            'watches',
+            'repl',
+            'expressions',
+            'console',
+          },
+        },
+        console_type = 'integrated', -- This will direct stdout/stderr to the dapui console window
+        render = {
+          expand_lines = true, -- Expand elements to fill height
+          max_value_lines = 10, -- Show up to 10 lines for complex values
+          max_name_len = 40, -- Truncate variable names longer than 40 characters
+          sort_variables = 'alphabetical', -- Sort variables alphabetically
+        },
+        controls = {
+          enabled = true, -- Show debug controls
+          element = 'scopes', -- Attach controls to the scopes window
+        },
+        element_mappings = {
+          scopes = {
+            expand_all = false, -- Don't automatically expand all scopes
+          },
+          stacks = {
+            show_arguments = true, -- Show function arguments in stack frames
+          },
         },
       })
-
-      -- DAP UI function
       vim.keymap.set('n', '<Leader>du', dapui.toggle, { desc = 'DAP UI: Toggle UI' })
     end,
   },
@@ -134,7 +159,7 @@ return {
       -- --- Language-Specific Configurations (Defined AFTER Mason setup runs) ---
       dap.configurations.c = {
         {
-          name = 'Launch',
+          name = 'launch',
           type = 'codelldb', -- This is now guaranteed to be registered
           request = 'launch',
           program = function()
@@ -153,31 +178,38 @@ return {
       -- Debugging functions (using <Leader>d as the prefix)
       vim.keymap.set(
         'n',
-        '<Leader>dt',
+        '<F9>',
         dap.toggle_breakpoint,
         vim.tbl_extend('force', opts, { desc = 'DAP: Toggle Breakpoint' })
       )
+      vim.keymap.set('n', '<F5>', function()
+        -- (Re-)reads launch.json if present
+        if vim.fn.filereadable('.vscode/launch.json') == 1 then
+          require('dap.ext.vscode').load_launchjs(nil, { cpptools = { 'c', 'cpp' } })
+        end
+        dap.continue()
+      end, vim.tbl_extend('force', opts, { desc = 'DAP: Continue' }))
       vim.keymap.set(
         'n',
-        '<Leader>dc',
-        dap.continue,
-        vim.tbl_extend('force', opts, { desc = 'DAP: Continue' })
+        '<S-F5>',
+        dap.terminate,
+        vim.tbl_extend('force', opts, { desc = 'DAP: Terminate' })
       )
       vim.keymap.set(
         'n',
-        '<Leader>dn',
+        '<F10>',
         dap.step_over,
         vim.tbl_extend('force', opts, { desc = 'DAP: Step Over' })
       )
       vim.keymap.set(
         'n',
-        '<Leader>di',
+        '<F11>',
         dap.step_into,
         vim.tbl_extend('force', opts, { desc = 'DAP: Step Into' })
       )
       vim.keymap.set(
         'n',
-        '<Leader>do',
+        '<F12>',
         dap.step_out,
         vim.tbl_extend('force', opts, { desc = 'DAP: Step Out' })
       )
@@ -199,11 +231,6 @@ return {
         dap.run_last,
         vim.tbl_extend('force', opts, { desc = 'DAP: Run Last Config' })
       )
-
-      -- Run/Launch configuration list
-      vim.keymap.set('n', '<Leader>dl', function()
-        dap.list_configs()
-      end, vim.tbl_extend('force', opts, { desc = 'DAP: List Configurations' }))
 
       -- --- Diagnostic ---
       if dap.adapters.codelldb then
