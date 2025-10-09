@@ -81,7 +81,6 @@ return {
       },
     },
   },
-  { 'tiagovla/scope.nvim', config = true },
   {
     'folke/noice.nvim',
     event = 'VeryLazy', -- Load late to ensure other plugins are ready
