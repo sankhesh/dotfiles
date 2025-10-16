@@ -167,6 +167,7 @@ return {
       'hrsh7th/cmp-path',
       'L3MON4D3/LuaSnip',
       'saadparwaiz1/cmp_luasnip',
+      'milanglacier/minuet-ai.nvim',
     },
     config = function()
       local cmp = require('cmp')
@@ -190,11 +191,50 @@ return {
           ['<CR>'] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
+          { name = 'minuet' },
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'buffer' },
           { name = 'path' },
         }),
+        performance = {
+          -- It is recommended to increase the timeout duration due to
+          -- the typically slower response speed of LLMs compared to
+          -- other completion sources. This is not needed when you only
+          -- need manual completion.
+          fetching_timeout = 2000,
+        },
+      })
+    end,
+  },
+  {
+    'milanglacier/minuet-ai.nvim',
+    config = function()
+      local minuet = require('minuet')
+      minuet.setup({
+        provider = 'gemini',
+        provider_options = {
+          gemini = {
+            model = 'gemini-2.5-flash',
+          },
+        },
+        virtualtext = {
+          auto_trigger_ft = { 'lua', 'python', 'cpp', 'c', 'cmake' },
+          keymap = {
+            -- accept whole completion
+            accept = '<A-a>',
+            -- accept one line
+            accept_line = '<A-l>',
+            -- accept n lines (prompts for number)
+            -- e.g. "A-z 2 CR" will accept 2 lines
+            accept_n_lines = '<A-z>',
+            -- Cycle to prev completion item, or manually invoke completion
+            prev = '<A-[>',
+            -- Cycle to next completion item, or manually invoke completion
+            next = '<A-]>',
+            dismiss = '<A-e>',
+          },
+        },
       })
     end,
   },
