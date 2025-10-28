@@ -114,7 +114,6 @@ return {
           expand_lines = true, -- Expand elements to fill height
           max_value_lines = 10, -- Show up to 10 lines for complex values
           max_name_len = 40, -- Truncate variable names longer than 40 characters
-          sort_variables = 'alphabetical', -- Sort variables alphabetically
         },
         controls = {
           enabled = true, -- Show debug controls
