@@ -141,6 +141,7 @@ return {
     -- This configures the automatic detection and setup of debug adapters.
     config = function()
       local dap = require('dap')
+      local dapui = require('dapui')
 
       require('mason-nvim-dap').setup({
         ensure_installed = {
@@ -188,12 +189,15 @@ return {
         end
         dap.continue()
       end, vim.tbl_extend('force', opts, { desc = 'DAP: Continue' }))
-      vim.keymap.set(
-        'n',
-        '<S-F5>',
-        dap.terminate,
-        vim.tbl_extend('force', opts, { desc = 'DAP: Terminate' })
-      )
+      -- Map Shift+F5 to terminate the Session
+      -- Use <F17> which is Shift+F5 in Neovim keymap notation to avoid conflicts
+      -- with other plugins or terminal mappings.
+      -- https://github.com/mfussenegger/nvim-dap/issues/1113
+      vim.keymap.set('n', '<F17>', function()
+        dap.disconnect({ terminateDebuggee = true })
+        dap.terminate()
+        dapui.close()
+      end, vim.tbl_extend('force', opts, { desc = 'DAP: Terminate' }))
       vim.keymap.set(
         'n',
         '<F10>',
