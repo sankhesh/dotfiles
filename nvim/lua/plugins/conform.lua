@@ -26,6 +26,7 @@ return {
       javascript = { 'prettierd', 'prettier', 'eslint' },
       typescript = { 'eslint' },
       typescriptreact = { 'eslint' },
+      json = { 'prettierd', 'prettier' },
       cmake = { 'cmake_format' },
       ['*'] = { 'trim_whitespace' }, -- Apply to all file types
     },
