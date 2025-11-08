@@ -88,9 +88,9 @@
 
 # Linux only
 - shell:
-    - command: if [[ $(uname -s) != "Darwin" ]] || ! grep -qi microsoft /proc/version; then vim +PlugInstall +PlugUpdate +qall; fi
-      stdout: true
-      description: Fetch VIM plugins
+    # - command: if [[ $(uname -s) != "Darwin" ]] || ! grep -qi microsoft /proc/version; then vim +PlugInstall +PlugUpdate +qall; fi
+    #   stdout: true
+    #   description: Fetch VIM plugins
 
 # Install some python packages
     - command: pypackages/pythonpackages.zsh
