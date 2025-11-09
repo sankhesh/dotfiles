@@ -124,4 +124,32 @@ return {
       })
     end,
   },
+  {
+    'hedyhli/outline.nvim',
+    lazy = true,
+    cmd = { "Outline", "OutlineOpen" }, -- Lazy load on command
+    keys = {
+      -- Add a keymap to toggle the outline
+      { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle Outline" },
+    },
+    config = function()
+      require('outline').setup({
+        -- Configuration for the outline window
+        outline_window = {
+          position = "right",
+          width = 25,
+          -- Use rounded borders for the floating window
+          border = "rounded",
+        },
+        symbol_folding = {
+          autofold_depth = 1,
+          auto_close = true,
+        },
+        keymaps = {
+          goto_location = "<CR>",
+          toggle_node = "o",
+        }
+      })
+    end,
+  },
 }
