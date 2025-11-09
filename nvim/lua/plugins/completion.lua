@@ -21,7 +21,6 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = { 'hrsh7th/cmp-nvim-lsp' },
     config = function()
-      local lspconfig = require('lspconfig')
       local cmp_lsp = require('cmp_nvim_lsp')
       local capabilities = cmp_lsp.default_capabilities()
 
@@ -131,31 +130,6 @@ return {
             end
           end,
         })
-      end
-
-      -- Setup servers based on what is installed by mason-lspconfig
-      local servers = require('mason-lspconfig').get_installed_servers()
-      for _, server_name in ipairs(servers) do
-        local server_opts = {
-          on_attach = on_attach,
-          capabilities = capabilities,
-        }
-
-        -- Add custom logic for clangd to handle project-specific configs
-        if server_name == 'clangd' then
-          local root_dir = require('lspconfig.util').find_git_ancestor(vim.api.nvim_buf_get_name(0))
-          if root_dir then
-            local clangd_config_exists = vim.loop.fs_stat(root_dir .. '/.clangd')
-
-            if not clangd_config_exists then
-              server_opts.cmd = {
-                'clangd',
-                '--compile-commands-dir=../bld',
-              }
-            end
-          end
-        end
-        lspconfig[server_name].setup(server_opts)
       end
     end,
   },
