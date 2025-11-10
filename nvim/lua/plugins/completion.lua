@@ -139,11 +139,11 @@ return {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
-      'milanglacier/minuet-ai.nvim',
+      -- 'milanglacier/minuet-ai.nvim',
     },
     config = function()
       local cmp = require('cmp')
-      local minuet = require('minuet')
+      -- local minuet = require('minuet')
 
       cmp.setup({
         mapping = cmp.mapping.preset.insert({
@@ -153,14 +153,14 @@ return {
           ['<C-f>'] = cmp.mapping.scroll_docs(4),
           ['<C-Space>'] = cmp.mapping.complete(),
           ['<C-e>'] = cmp.mapping.abort(),
-          ['<A-y>'] = minuet.make_cmp_map(),
+          -- ['<A-y>'] = minuet.make_cmp_map(),
           ['<CR>'] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
-          { name = 'minuet' },
           { name = 'nvim_lsp' },
           { name = 'buffer' },
           { name = 'path' },
+          -- { name = 'minuet' },
         }),
         performance = {
           -- It is recommended to increase the timeout duration due to
@@ -172,36 +172,36 @@ return {
       })
     end,
   },
-  {
-    'milanglacier/minuet-ai.nvim',
-    config = function()
-      local minuet = require('minuet')
-      minuet.setup({
-        provider = 'gemini',
-        provider_options = {
-          gemini = {
-            model = 'gemini-2.5-flash',
-          },
-        },
-        virtualtext = {
-          auto_trigger_ft = {},
-          -- Manual keymap for minuet-ai: <A-Space>
-          keymap = {
-            -- accept whole completion
-            accept = '<A-a>',
-            -- accept one line
-            accept_line = '<A-l>',
-            -- accept n lines (prompts for number)
-            -- e.g. "A-z 2 CR" will accept 2 lines
-            accept_n_lines = '<A-z>',
-            -- Cycle to prev completion item, or manually invoke completion
-            prev = '<A-[>',
-            -- Cycle to next completion item, or manually invoke completion
-            next = '<A-]>',
-            dismiss = '<A-e>',
-          },
-        },
-      })
-    end,
-  },
+  -- {
+  --   'milanglacier/minuet-ai.nvim',
+  --   config = function()
+  --     local minuet = require('minuet')
+  --     minuet.setup({
+  --       provider = 'gemini',
+  --       provider_options = {
+  --         gemini = {
+  --           model = 'gemini-2.5-flash',
+  --         },
+  --       },
+  --       virtualtext = {
+  --         auto_trigger_ft = {},
+  --         -- Manual keymap for minuet-ai: <A-Space>
+  --         keymap = {
+  --           -- accept whole completion
+  --           accept = '<A-a>',
+  --           -- accept one line
+  --           accept_line = '<A-l>',
+  --           -- accept n lines (prompts for number)
+  --           -- e.g. "A-z 2 CR" will accept 2 lines
+  --           accept_n_lines = '<A-z>',
+  --           -- Cycle to prev completion item, or manually invoke completion
+  --           prev = '<A-[>',
+  --           -- Cycle to next completion item, or manually invoke completion
+  --           next = '<A-]>',
+  --           dismiss = '<A-e>',
+  --         },
+  --       },
+  --     })
+  --   end,
+  -- },
 }
