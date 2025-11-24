@@ -177,6 +177,7 @@ return {
       end, vim.tbl_extend('force', opts, { desc = 'DAP: Continue' }))
       -- Map Shift+F5 to terminate the Session
       -- Use <F17> which is Shift+F5 in Neovim keymap notation to avoid conflicts
+      -- For key mapping, always use Ctrl+V and then press the desired key combination in insert mode.
       -- with other plugins or terminal mappings.
       -- https://github.com/mfussenegger/nvim-dap/issues/1113
       vim.keymap.set('n', '<F17>', function()
@@ -201,6 +202,12 @@ return {
         '<F12>',
         dap.step_out,
         vim.tbl_extend('force', opts, { desc = 'DAP: Step Out' })
+      )
+      vim.keymap.set(
+        'n',
+        '<F34>',
+        dap.run_to_cursor,
+        vim.tbl_extend('force', opts, { desc = 'DAP: Run To Cursor' })
       )
       vim.keymap.set(
         'n',
