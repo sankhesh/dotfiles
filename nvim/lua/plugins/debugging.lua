@@ -74,26 +74,6 @@ return {
           collapsed = '',
           failed = '',
         },
-        layouts = {
-          {
-            elements = {
-              { id = 'scopes', size = 0.45 },
-              { id = 'breakpoints', size = 0.45 },
-              { id = 'stacks', size = 0.45 },
-              { id = 'watches', size = 0.45 },
-            },
-            size = 50,
-            position = 'left',
-          },
-          {
-            elements = {
-              { id = 'repl', size = 0.5 },
-              { id = 'expressions', size = 0.5 },
-            },
-            size = 15,
-            position = 'bottom',
-          },
-        },
         floating = {
           max_height = 0.9,
           max_width = 0.9,
