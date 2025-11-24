@@ -136,6 +136,12 @@ return {
         },
       })
 
+      dap.adapters.gdb = {
+        type = 'executable',
+        command = 'gdb',
+        name = 'gdb',
+        args = { '--quiet', '--interpreter=dap' },
+      }
       -- --- Language-Specific Configurations (Defined AFTER Mason setup runs) ---
       dap.configurations.c = {
         {
