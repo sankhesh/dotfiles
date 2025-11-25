@@ -51,6 +51,8 @@ keymap('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', { desc = 'Live grep' }
 keymap('n', '<leader>fb', '<cmd>Telescope buffers<cr>', { desc = 'Find buffers' })
 keymap('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', { desc = 'Help tags' })
 keymap('n', '<leader>fr', '<cmd>Telescope resume<cr>', { desc = 'Resume previous find' })
+keymap('n', 'gd', '<cmd>Telescope lsp_definitions<cr>', { desc = 'Go to definition' })
+keymap('n', 'grr', '<cmd>Telescope lsp_references<cr>', { desc = 'List references' })
 
 -- Git
 keymap('n', '<leader>gg', ':Neogit<CR>', { desc = 'Open Neogit' })
