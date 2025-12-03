@@ -77,8 +77,8 @@ for x, y, scale, transform, primary, linked_monitors_info, props in logical_moni
 for updated_logical_monitor in updated_logical_monitors:
     print(updated_logical_monitor)
 
-if linked_monitor_connector == "DP-4":
-    print("Switching to DP-2. LG Ultrawide 3440x1440@49.987Hz")
+if linked_monitor_connector == "DP-3":
+    print("Switching to DP-1. LG Ultrawide 3440x1440@49.987Hz")
     updated_logical_monitors = [
         dbus.Struct(
             (
@@ -89,7 +89,7 @@ if linked_monitor_connector == "DP-4":
                 dbus.Boolean(True),
                 [
                     dbus.Struct(
-                        (dbus.String("DP-2"), dbus.String("3440x1440@49.987"), {}),
+                        (dbus.String("DP-1"), dbus.String("3440x1440@49.987"), {}),
                         signature=dbus.Signature("sv"),
                     )
                 ],
@@ -97,8 +97,8 @@ if linked_monitor_connector == "DP-4":
             signature=None,
         )
     ]
-elif linked_monitor_connector == "DP-2":
-    print("Switching to DP-4. Samsung 3840x2160@29.970Hz")
+elif linked_monitor_connector == "DP-1":
+    print("Switching to DP-3. Samsung 3840x2160@29.970Hz")
     updated_logical_monitors = [
         dbus.Struct(
             (
@@ -109,7 +109,7 @@ elif linked_monitor_connector == "DP-2":
                 dbus.Boolean(True),
                 [
                     dbus.Struct(
-                        (dbus.String("DP-4"), dbus.String("3840x2160@29.970"), {}),
+                        (dbus.String("DP-3"), dbus.String("3840x2160@29.970"), {}),
                         signature=dbus.Signature("sv"),
                     )
                 ],
