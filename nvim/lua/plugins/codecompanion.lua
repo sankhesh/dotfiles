@@ -13,17 +13,17 @@ return {
     require('codecompanion').setup({
       strategies = {
         chat = {
-          -- adapter = 'copilot',
+          adapter = 'copilot',
           -- model = 'gpt-4.1',
-          adapter = 'gemini',
-          model = 'gemini-2.5-pro',
+          -- adapter = 'gemini',
+          -- model = 'gemini-2.5-pro',
         },
       },
       inline = {
-        -- adapter = 'copilot',
+        adapter = 'copilot',
         -- model = 'gpt-4.1',
-        adapter = 'gemini',
-        model = 'gemini-2.5-pro',
+        -- adapter = 'gemini',
+        -- model = 'gemini-2.5-pro',
       },
     })
 
