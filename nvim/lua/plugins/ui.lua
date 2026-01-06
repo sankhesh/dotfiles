@@ -45,14 +45,41 @@ return {
       })
     end,
   },
+  -- File explorer
   {
-    'ms-jpq/chadtree',
-    build = 'python3 -m chadtree deps',
+    'nvim-tree/nvim-tree.lua',
+    version = false, -- always use latest git commit
+    lazy = false, -- load on demand
+    cmd = { 'NvimTreeToggle', 'NvimTreeFocus' },
+    dependencies = {
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    },
     config = function()
-      -- Optional chadtree configuration can go here
+      require('nvim-tree').setup({
+        -- add your custom setup here
+        view = {
+          width = 30,
+          side = 'left',
+        },
+        renderer = {
+          icons = {
+            show = {
+              file = true,
+              folder = true,
+              folder_arrow = true,
+              git = true,
+            },
+          },
+        },
+        filters = {
+          dotfiles = false,
+        },
+      })
     end,
   },
+  -- Enhanced matchparen
   { 'andymass/vim-matchup' },
+  -- Buffer line
   {
     'akinsho/bufferline.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -127,28 +154,28 @@ return {
   {
     'hedyhli/outline.nvim',
     lazy = true,
-    cmd = { "Outline", "OutlineOpen" }, -- Lazy load on command
+    cmd = { 'Outline', 'OutlineOpen' }, -- Lazy load on command
     keys = {
       -- Add a keymap to toggle the outline
-      { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle Outline" },
+      { '<leader>o', '<cmd>Outline<CR>', desc = 'Toggle Outline' },
     },
     config = function()
       require('outline').setup({
         -- Configuration for the outline window
         outline_window = {
-          position = "right",
+          position = 'right',
           width = 25,
           -- Use rounded borders for the floating window
-          border = "rounded",
+          border = 'rounded',
         },
         symbol_folding = {
           autofold_depth = 1,
           auto_close = true,
         },
         keymaps = {
-          goto_location = "<CR>",
-          toggle_node = "o",
-        }
+          goto_location = '<CR>',
+          toggle_node = 'o',
+        },
       })
     end,
   },

@@ -43,7 +43,12 @@ local function switch_header_source()
 end
 
 -- File explorer
-keymap('n', '<leader>e', ':CHADopen<CR>', { desc = 'Toggle file explorer (CHADTree)' })
+keymap(
+  'n',
+  '<leader>e',
+  ':NvimTreeFindFileToggle<CR>',
+  { desc = 'Toggle file explorer (Nvim-Tree)' }
+)
 
 -- Telescope (fuzzy finding)
 keymap('n', '<leader>ff', '<cmd>Telescope find_files<cr>', { desc = 'Find files' })
