@@ -76,21 +76,33 @@ return {
     end,
   },
   {
-    'NeogitOrg/neogit',
+    'rbong/vim-flog',
+    event = { 'BufReadPre', 'BufNewFile' },
     dependencies = {
-      'nvim-lua/plenary.nvim',
-      'sindrets/diffview.nvim', -- Keep this dependency
-      'nvim-telescope/telescope.nvim',
+      'tpope/vim-fugitive', -- vim-flog requires fugitive
     },
     config = function()
-      require('neogit').setup({
-        -- Configure neogit to use diffview for diffs
-        integrations = {
-          diffview = true,
-        },
-      })
+      -- Example keymap to open Flog
+      vim.keymap.set('n', '<leader>gl', ':Flog<CR>', { desc = 'Open Flog (git log)' })
+      -- Optional: more configuration or keymaps
     end,
   },
+  -- {
+  --   'NeogitOrg/neogit',
+  --   dependencies = {
+  --     'nvim-lua/plenary.nvim',
+  --     'sindrets/diffview.nvim', -- Keep this dependency
+  --     'nvim-telescope/telescope.nvim',
+  --   },
+  --   config = function()
+  --     require('neogit').setup({
+  --       -- Configure neogit to use diffview for diffs
+  --       integrations = {
+  --         diffview = true,
+  --       },
+  --     })
+  --   end,
+  -- },
   -- Add the diffview plugin configuration
   {
     'sindrets/diffview.nvim',
