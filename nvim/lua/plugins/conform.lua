@@ -22,6 +22,7 @@ return {
       lua = { 'stylua' },
       c = { 'clang_format' },
       cpp = { 'clang_format' },
+      objcpp = { 'clang_format' },
       python = { 'isort', 'black', 'autopep8', 'autoflake' },
       javascript = { 'prettierd', 'prettier', 'eslint' },
       typescript = { 'eslint' },
