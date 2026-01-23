@@ -83,7 +83,7 @@ keymap('n', '<S-h>', ':BufferLineCyclePrev<CR>', { desc = 'Previous buffer' })
 keymap('n', '<leader>s', switch_header_source, { desc = 'Switch Header/Source' })
 
 -- Select Session
-keymap('n', '<leader>ps', ':SessionSelect<CR>', { desc = 'Select Session' })
+keymap('n', '<leader>ps', ':Persisted select<CR>', { desc = 'Select Session' })
 
 if vim.g.neovide == true then
   vim.api.nvim_set_keymap(

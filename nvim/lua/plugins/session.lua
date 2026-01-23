@@ -23,8 +23,7 @@ return {
       })
 
       -- Add a command to select a session and change directory
-      vim.api.nvim_create_user_command('SessionSelect', function()
-
+      vim.api.nvim_create_user_command('Persisted select', function()
         local session_paths = persisted.list()
         if #session_paths == 0 then
           vim.notify('No sessions available.')
@@ -73,7 +72,7 @@ return {
           end
 
           -- First, stop the current session
-          vim.api.nvim_command('SessionStop')
+          vim.api.nvim_command('Persisted stop')
 
           -- Wipe all existing buffers before loading the new session
           vim.cmd('bufdo bdelete')
@@ -83,7 +82,7 @@ return {
           vim.notify('Changed directory to: ' .. reconstructed_path)
 
           -- Finally, load the session
-          vim.api.nvim_command('SessionLoad')
+          vim.api.nvim_command('Persisted load')
         end)
       end, {})
     end,
