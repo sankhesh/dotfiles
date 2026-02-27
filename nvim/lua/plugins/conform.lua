@@ -17,6 +17,12 @@ return {
           '--line-width=80',
         },
       },
+      -- clang_format = {
+      --   -- Use the default clang-format configuration file if it exists
+      --   config_file = vim.fn.findfile('.clang-format', '.;') or nil,
+      --   -- Fallback to a specific style if no config file is found
+      --   fallback_style = 'mozilla',
+      -- },
     },
     formatters_by_ft = {
       lua = { 'stylua' },
