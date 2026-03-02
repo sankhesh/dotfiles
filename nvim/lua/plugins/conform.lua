@@ -10,11 +10,12 @@ return {
       cmake_format = {
         prepend_args = {
           '--dangle-align=prefix',
-          '--dangle-parens=true',
+          '--dangle-parens=false',
           '--enable-sort=true',
-          '--max-subgroups-hwrap=1',
-          '--max-pargs-hwrap=1',
-          '--line-width=80',
+          '--max-subgroups-hwrap=3',
+          '--max-pargs-hwrap=3',
+          '--line-width=100',
+          '--tab-size=2',
         },
       },
       -- clang_format = {
