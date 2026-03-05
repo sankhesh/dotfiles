@@ -33,9 +33,11 @@ if grep -qi microsoft /proc/version || [[ "$OSTYPE" == "win32" ]]; then
   DISPLAY=1
 fi
 
+if [[ "$OSTYPE" == darwin* ]]; then
+  exec $GPG_EXE "$@"
 # For WSL to test SSH_CONNECTION, set the environment variable WSLENV
 # i.e. WSLENV=SSH_CONNECTION
-if [[ -n "$DISPLAY" && -z "$SSH_CONNECTION" ]]; then
+elif [[ -n "$DISPLAY" && -z "$SSH_CONNECTION" ]]; then
   exec $GPG_EXE "$@"
 else
   exec $GPG_EXE --pinentry-mode loopback "$@"
