@@ -4,7 +4,7 @@ return {
   'stevearc/conform.nvim',
   event = { 'LspAttach', 'BufReadPost', 'BufNewFile' },
   opts = {
-    log_level = vim.log.levels.DEBUG,
+    log_level = vim.log.levels.WARN,
     -- Add custom options for specific formatters
     formatters = {
       cmake_format = {

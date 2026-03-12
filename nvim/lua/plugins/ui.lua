@@ -48,11 +48,9 @@ return {
   -- File explorer
   {
     'nvim-tree/nvim-tree.lua',
-    version = false, -- always use latest git commit
-    lazy = false, -- load on demand
-    cmd = { 'NvimTreeToggle', 'NvimTreeFocus' },
+    cmd = { 'NvimTreeToggle', 'NvimTreeFocus', 'NvimTreeFindFileToggle' },
     dependencies = {
-      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+      'nvim-tree/nvim-web-devicons',
     },
     config = function()
       require('nvim-tree').setup({

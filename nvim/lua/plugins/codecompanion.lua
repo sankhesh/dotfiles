@@ -6,9 +6,6 @@ return {
     'nvim-lua/plenary.nvim',
     'nvim-treesitter/nvim-treesitter',
   },
-  opts = {
-    log_level = 'DEBUG',
-  },
   config = function()
     require('codecompanion').setup({
       strategies = {

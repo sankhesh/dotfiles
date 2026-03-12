@@ -10,16 +10,7 @@ return {
   },
   {
     'williamboman/mason-lspconfig.nvim',
-    dependencies = { 'williamboman/mason.nvim', 'neovim/nvim-lspconfig' },
-    config = function()
-      require('mason-lspconfig').setup({
-        ensure_installed = { 'clangd', 'pyright', 'ts_ls', 'cmake' },
-      })
-    end,
-  },
-  {
-    'neovim/nvim-lspconfig',
-    dependencies = { 'hrsh7th/cmp-nvim-lsp' },
+    dependencies = { 'williamboman/mason.nvim', 'neovim/nvim-lspconfig', 'hrsh7th/cmp-nvim-lsp' },
     config = function()
       local cmp_lsp = require('cmp_nvim_lsp')
       local capabilities = cmp_lsp.default_capabilities()
@@ -55,7 +46,7 @@ return {
         local keymap = vim.keymap.set
         local opts = { buffer = bufnr, remap = false }
 
-        -- Your custom keymaps
+        -- LSP keymaps
         keymap('n', 'gd', function()
           vim.lsp.buf.definition()
         end, opts)
@@ -131,7 +122,23 @@ return {
           end,
         })
       end
+
+      require('mason-lspconfig').setup({
+        ensure_installed = { 'clangd', 'pyright', 'ts_ls', 'cmake' },
+        handlers = {
+          -- Default handler: applies on_attach and capabilities to all servers
+          function(server_name)
+            require('lspconfig')[server_name].setup({
+              on_attach = on_attach,
+              capabilities = capabilities,
+            })
+          end,
+        },
+      })
     end,
+  },
+  {
+    'neovim/nvim-lspconfig',
   },
   {
     'hrsh7th/nvim-cmp',
