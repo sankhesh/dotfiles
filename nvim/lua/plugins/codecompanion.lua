@@ -13,8 +13,8 @@ return {
     require('codecompanion').setup({
       strategies = {
         chat = {
-          adapter = 'copilot',
-          -- model = 'gpt-4.1',
+          adapter = 'claude_code',
+          model = 'opus',
           -- adapter = 'gemini',
           -- model = 'gemini-2.5-pro',
         },
@@ -24,6 +24,17 @@ return {
         -- model = 'gpt-4.1',
         -- adapter = 'gemini',
         -- model = 'gemini-2.5-pro',
+      },
+      adapters = {
+        acp = {
+          claude_code = function()
+            return require('codecompanion.adapters').extend('claude_code', {
+              env = {
+                CLAUDE_CODE_OAUTH_TOKEN = 'cmd:cat $HOME/.claude_code_apitoken',
+              },
+            })
+          end,
+        },
       },
     })
 
