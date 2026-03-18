@@ -35,7 +35,10 @@ keymap('n', '<S-l>', ':BufferLineCycleNext<CR>', { desc = 'Next buffer' })
 keymap('n', '<S-h>', ':BufferLineCyclePrev<CR>', { desc = 'Previous buffer' })
 
 -- Switch between header and source (uses clangd)
-keymap('n', '<leader>s', '<cmd>ClangdSwitchSourceHeader<cr>', { desc = 'Switch Header/Source' })
+keymap('n', '<leader>s', function()
+  vim.cmd('vsplit')
+  vim.cmd('ClangdSwitchSourceHeader')
+end, { desc = 'Switch Header/Source (vertical split)' })
 
 -- Select Session
 keymap('n', '<leader>ps', ':Persisted select<CR>', { desc = 'Select Session' })
