@@ -41,7 +41,7 @@ return {
       ['*'] = { 'trim_whitespace' }, -- Apply to all file types
     },
     format_on_save = function(bufnr)
-      if vim.g.disable_autoformat then
+      if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
         return
       end
       return {
@@ -76,5 +76,14 @@ return {
       ':lua vim.g.disable_autoformat = not vim.g.disable_autoformat<CR>',
       { desc = 'Toggle autoformat' }
     )
+
+    -- Disable autoformat for CMake files by default
+    vim.api.nvim_create_autocmd('FileType', {
+      pattern = 'cmake',
+      callback = function()
+        vim.b.disable_autoformat = true
+      end,
+      desc = 'Disable autoformat for CMake files',
+    })
   end,
 }
