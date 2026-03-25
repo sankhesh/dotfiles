@@ -48,6 +48,9 @@
     ~/.local/share/applications/slicer.desktop:
       if: '[[ `uname` = Darwin ]] || ! grep -ri microsoft /proc/version'
       path:  applications/slicer.desktop
+    ~/.local/share/applications/brave-browser.desktop:
+      if: '[[ `uname` = Darwin ]] || ! grep -ri microsoft /proc/version'
+      path:  applications/brave-browser.desktop
     ~/.profile:
       if: '[[ `uname` = Darwin ]] || ! grep -ri microsoft /proc/version'
       path: profile
