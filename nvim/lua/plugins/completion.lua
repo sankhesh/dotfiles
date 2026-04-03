@@ -95,6 +95,7 @@ return {
 
         -- Autocommand to reset flag on cursor move
         vim.api.nvim_create_autocmd('CursorMoved', {
+          group = vim.api.nvim_create_augroup('lsp_hover_flag_' .. bufnr, { clear = true }),
           buffer = bufnr,
           callback = function()
             vim.g.lsp_hover_k_pressed = false -- Reset flag when cursor moves
@@ -103,6 +104,7 @@ return {
 
         -- Autocommand for automatic hover documentation
         vim.api.nvim_create_autocmd('CursorHold', {
+          group = vim.api.nvim_create_augroup('lsp_cursorhold_' .. bufnr, { clear = true }),
           buffer = bufnr,
           callback = function()
             if vim.api.nvim_get_mode().mode == 'n' then

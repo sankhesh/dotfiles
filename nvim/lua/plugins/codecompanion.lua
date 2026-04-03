@@ -5,6 +5,7 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-treesitter/nvim-treesitter',
+    'folke/snacks.nvim',
   },
   config = function()
     require('codecompanion').setup({
