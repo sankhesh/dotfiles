@@ -15,12 +15,10 @@ return {
           -- adapter = 'gemini',
           -- model = 'gemini-2.5-pro',
         },
-      },
-      inline = {
-        adapter = 'copilot',
-        -- model = 'gpt-4.1',
-        -- adapter = 'gemini',
-        -- model = 'gemini-2.5-pro',
+        inline = {
+          adapter = 'copilot',
+          model = 'gemini-3.1-pro',
+        },
       },
       adapters = {
         acp = {
