@@ -24,6 +24,7 @@ return {
           'json',
           'yaml',
           'cmake',
+          'regex',
         },
         sync_install = false,
         auto_install = true,

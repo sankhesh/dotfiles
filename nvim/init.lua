@@ -3,6 +3,12 @@
 -- Set leader key
 vim.g.mapleader = ','
 
+-- Disable unused providers
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_node_provider = 0
+
 -- Load core configuration
 require('core.options')
 require('core.keymaps')
@@ -22,10 +28,8 @@ if not vim.uv.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Load plugin specifications and enable LuaRocks support
 require('lazy').setup('plugins', {
   rocks = {
-    -- Enable lazy.nvim to manage LuaRocks dependencies for plugins
-    enabled = true,
+    enabled = false,
   },
 })

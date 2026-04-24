@@ -28,13 +28,6 @@ return {
         },
       })
 
-      -- Globally override the hover handler to make the window non-focusable
-      vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
-        border = 'rounded',
-        focusable = false,
-        focus = false, -- Explicitly ensure it never gets focus
-      })
-
       -- Add highlight groups for gray floating windows
       vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#3c3836' }) -- Using a gray background
       vim.api.nvim_set_hl(0, 'FloatBorder', { bg = '#3c3836' }) -- Using a gray background
@@ -58,8 +51,8 @@ return {
         end, opts)
         -- Modified K keymap to set the flag
         keymap('n', 'K', function()
-          vim.g.lsp_hover_k_pressed = true -- Set flag when K is pressed
-          vim.lsp.buf.hover()
+          vim.g.lsp_hover_k_pressed = true
+          vim.lsp.buf.hover({ border = 'rounded', focusable = false })
         end, opts)
         keymap('n', '<leader>ws', function()
           vim.lsp.buf.workspace_symbol()
@@ -118,7 +111,7 @@ return {
               if #diagnostics > 0 then
                 vim.diagnostic.open_float(nil, { scope = 'line' })
               else
-                vim.lsp.buf.hover()
+                vim.lsp.buf.hover({ border = 'rounded', focusable = false })
               end
             end
           end,
