@@ -70,12 +70,9 @@ return {
       })
     end, { desc = 'Format file or range (in visual mode)' })
 
-    vim.keymap.set(
-      { 'n' },
-      '<leader>af',
-      ':lua vim.g.disable_autoformat = not vim.g.disable_autoformat<CR>',
-      { desc = 'Toggle autoformat' }
-    )
+    vim.keymap.set({ 'n' }, '<leader>af', function()
+      vim.g.disable_autoformat = not vim.g.disable_autoformat
+    end, { desc = 'Toggle autoformat' })
 
     -- Disable autoformat for CMake files by default
     vim.api.nvim_create_autocmd('FileType', {
