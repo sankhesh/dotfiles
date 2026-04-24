@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-# Script to switch between two monitors connected to DP-0 and DP-4. 
+# Script to switch between two monitors connected to DP-0 and DP-4.
 # Current version has the numbers hard-coded but can be customized
 # if the setup changes in the future.
 #
@@ -60,8 +60,8 @@ echo "Detected displays $dsp"
 ct=$t[2]
 if [[ $ct == 0 ]]; then
   echo "Switching to DP-0"
-  xrandr --output DP-0 --mode 3840x2160 --primary --auto --output DP-4 --off
+  xrandr --output DP-0 --mode 3440x1440 --primary --auto --output DP-4 --off
 else
   echo "Switching to DP-4"
-  xrandr --output DP-4 --mode 3440x1440 --primary --auto --output DP-0 --off
+  xrandr --output DP-4 --mode 3840x2160 --primary --auto --output DP-0 --off
 fi
