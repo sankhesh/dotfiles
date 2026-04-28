@@ -20,12 +20,24 @@ return {
           '--command-case=lower',
         },
       },
-      -- clang_format = {
-      --   -- Use the default clang-format configuration file if it exists
-      --   config_file = vim.fn.findfile('.clang-format', '.;') or nil,
-      --   -- Fallback to a specific style if no config file is found
-      --   fallback_style = 'mozilla',
-      -- },
+      clang_format = {
+        args = function(self, ctx)
+          -- Project-specific .clang-format (including ~/.clang-format) takes
+          -- precedence via clang-format's normal auto-discovery.
+          if vim.fn.findfile('.clang-format', ctx.dirname .. ';') ~= '' then
+            return { '--assume-filename', '$FILENAME' }
+          end
+          -- No config found anywhere in the hierarchy: apply VTK-derived style.
+          -- StatementMacros are omitted here; add them to ~/.clang-format instead.
+          local vtk_style = '{BasedOnStyle: Mozilla, AlignAfterOpenBracket: DontAlign,'
+            .. ' AlignOperands: false, AlwaysBreakAfterReturnType: None,'
+            .. ' AlwaysBreakAfterDefinitionReturnType: None,'
+            .. ' BreakBeforeBraces: Allman, BinPackArguments: true,'
+            .. ' BinPackParameters: true, ColumnLimit: 100,'
+            .. ' SpaceAfterTemplateKeyword: true, Standard: c++17}'
+          return { '--style=' .. vtk_style, '--assume-filename', '$FILENAME' }
+        end,
+      },
     },
     formatters_by_ft = {
       lua = { 'stylua' },
