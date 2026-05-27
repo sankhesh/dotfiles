@@ -80,6 +80,13 @@
     - [git config --global user.signingkey $(git config --get user.email), GPG signing key]
     - ["[[ -f ~/.git/gitcookies ]] && git config --global http.cookiefile ~/.git/gitcookies || exit 0", Configure git http.cookiefile if present]
 
+# Neovim plugins
+- shell:
+    - command: type nvim > /dev/null && nvim --headless '+Lazy restore' '+TSUpdate' '+qall' || exit 0
+      stdout: true
+      stderr: true
+      description: Restore Neovim plugins with lazy and treesitter
+
 # TMUX plugins
 - shell:
     - command: type tmux > /dev/null && { ~/.tmux/plugins/tpm/bin/install_plugins } || { exit 0 }
@@ -89,12 +96,6 @@
     - command: type tmux > /dev/null && { ~/.tmux/plugins/tpm/bin/update_plugins all } || { exit 0 }
       stderr: true
       description: Update TMUX plugins
-
-# Linux only
-- shell:
-    # - command: if [[ $(uname -s) != "Darwin" ]] || ! grep -qi microsoft /proc/version; then vim +PlugInstall +PlugUpdate +qall; fi
-    #   stdout: true
-    #   description: Fetch VIM plugins
 
 # Install some python packages
     - command: pypackages/pythonpackages.zsh
