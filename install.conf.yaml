@@ -78,6 +78,7 @@
     - [git submodule update --init --recursive, Installing submodules]
     - [git config --global include.path ~/.git/config, Global git config]
     - [git config --global user.signingkey $(git config --get user.email), GPG signing key]
+    - ["[[ -f ~/.git/gitcookies ]] && git config --global http.cookiefile ~/.git/gitcookies || exit 0", Configure git http.cookiefile if present]
 
 # TMUX plugins
 - shell:
