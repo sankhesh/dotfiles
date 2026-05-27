@@ -9,7 +9,7 @@ style = "Bold"
 
 [font.normal]
 family = "CaskaydiaCove Nerd Font"
-style = "Regular"
+style = "SemiBold"
 
 [scrolling]
 history = 100000
