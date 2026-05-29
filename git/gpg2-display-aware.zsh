@@ -26,7 +26,8 @@
 
 # By default, invoke gpg
 GPG_EXE=gpg
-if grep -qi microsoft /proc/version || [[ "$OSTYPE" == "win32" ]]; then
+# Only check /proc/version if the file exists (avoid errors on macOS)
+if { [[ -f /proc/version ]] && grep -qi microsoft /proc/version; } || [[ "$OSTYPE" == "win32" ]]; then
   # For WSL, use gpg.exe
   GPG_EXE=gpg.exe
   # Set a display variable
