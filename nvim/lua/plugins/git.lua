@@ -84,10 +84,78 @@ return {
     config = function()
       -- Example keymap to open Flog
       vim.keymap.set('n', '<leader>gl', ':Flog<CR>', { desc = 'Open Flog (git log)' })
-      -- Optional: more configuration or keymaps
+
+      -- Enable folding for Flog/diff buffers: fold by file diffs and hunks.
+      -- Detect buffers that look like git diffs (contain a '^diff --git' line in the
+      -- first N lines) and set a simple foldexpr that gives top-level folds to
+      -- 'diff --git' lines and nested folds to hunk headers ('@@ ... @@').
+      vim.api.nvim_create_autocmd({ 'BufReadPost', 'BufNewFile', 'BufWinEnter' }, {
+        callback = function(ev)
+          local buf = ev.buf
+          -- If buffer already unloaded or invalid, skip
+          if not vim.api.nvim_buf_is_valid(buf) then
+            return
+          end
+
+          -- Check first 200 lines for a git-diff header. This catches Flog output
+          -- without relying on filetype or buffer name.
+          local lines = vim.api.nvim_buf_get_lines(
+            buf,
+            0,
+            math.min(200, vim.api.nvim_buf_line_count(buf)),
+            false
+          )
+          local looks_like_diff = false
+          for _, l in ipairs(lines) do
+            if l:match('^diff %-%-git') then
+              looks_like_diff = true
+              break
+            end
+          end
+
+          if looks_like_diff then
+            -- Define a Lua-based fold function for flog/diff buffers. It scans
+            -- upward from the current line to find the nearest 'diff --git' or
+            -- hunk ('@@') header and returns a numeric fold level (1 for file
+            -- diff, 2 for hunk). This avoids complex Vimscript expressions and
+            -- works reliably when lines between headers exist.
+            _G.FlogFold = function(lnum)
+              local buf = vim.api.nvim_get_current_buf()
+              local n = tonumber(lnum) or 1
+              for i = n, 1, -1 do
+                local ok, line = pcall(vim.api.nvim_buf_get_lines, buf, i - 1, i, false)
+                line = ok and (line and line[1] or '') or ''
+                if line:match('^diff %-%-git') then
+                  return 1
+                end
+                if line:match('^@@') then
+                  return 2
+                end
+              end
+              return 0
+            end
+
+            -- fold options are window-local in Neovim, set them on the current
+            -- window. Fallback to buffer options if window API fails.
+            local ok_win_set = pcall(vim.api.nvim_win_set_option, 0, 'foldmethod', 'expr')
+            if not ok_win_set then
+              vim.api.nvim_buf_set_option(buf, 'foldmethod', 'expr')
+            end
+            ok_win_set = pcall(vim.api.nvim_win_set_option, 0, 'foldexpr', 'v:lua.FlogFold(v:lnum)')
+            if not ok_win_set then
+              vim.api.nvim_buf_set_option(buf, 'foldexpr', 'v:lua.FlogFold(v:lnum)')
+            end
+
+            -- Make sure folding is enabled for this window/buffer and start folded.
+            pcall(vim.api.nvim_win_set_option, 0, 'foldenable', true)
+            vim.api.nvim_buf_set_option(buf, 'foldenable', true)
+            pcall(vim.api.nvim_win_set_option, 0, 'foldlevel', 0)
+            vim.api.nvim_buf_set_option(buf, 'foldlevel', 0)
+          end
+        end,
+      })
     end,
-  },
-  -- {
+  }, -- {
   --   'NeogitOrg/neogit',
   --   dependencies = {
   --     'nvim-lua/plenary.nvim',
