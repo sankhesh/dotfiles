@@ -51,4 +51,15 @@ return {
       },
     },
   },
+
+  -- Browser live preview (requires node/npm). Plugin will run `cd app && npm install` on install.
+  {
+    'iamcco/markdown-preview.nvim',
+    ft = { 'markdown' },
+    run = 'cd app && npm install',
+    config = function()
+      -- Do not start automatically; use :MarkdownPreview or :MarkdownPreviewToggle
+      vim.g.mkdp_auto_start = 0
+    end,
+  },
 }

@@ -57,3 +57,6 @@ end
 
 -- Editor Toggles
 keymap('n', '<leader>l', ':set list!<CR>', { desc = 'Toggle list chars' })
+
+-- Markdown Preview toggle (MarkdownPreview.nvim)
+keymap('n', '<leader>mp', ':MarkdownPreviewToggle<CR>', { desc = 'Toggle Markdown Preview', noremap = true, silent = true })
