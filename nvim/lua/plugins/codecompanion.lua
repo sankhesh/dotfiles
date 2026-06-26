@@ -9,10 +9,10 @@ return {
   },
   config = function()
     require('codecompanion').setup({
-      strategies = {
+      interactions = {
         chat = {
           adapter = 'claude_code',
-          model = 'opus',
+          model = 'haiku',
           -- adapter = 'gemini',
           -- model = 'gemini-2.5-pro',
         },
