@@ -119,7 +119,7 @@ return {
       end
 
       require('mason-lspconfig').setup({
-        ensure_installed = { 'clangd', 'pyright', 'ts_ls', 'cmake' },
+        ensure_installed = { 'clangd', 'pyright', 'ts_ls', 'neocmakelsp' },
         handlers = {
           -- Default handler: applies on_attach and capabilities to all servers
           function(server_name)
@@ -130,6 +130,16 @@ return {
           end,
         },
       })
+
+      -- Manually configure cmake-language-server or neocmakelsp
+      -- Note: cmake-language-server requires Python < 3.14, so we use neocmakelsp as alternative
+      local lspconfig = require('lspconfig')
+      if lspconfig.neocmakelsp then
+        lspconfig.neocmakelsp.setup({
+          on_attach = on_attach,
+          capabilities = capabilities,
+        })
+      end
     end,
   },
   {
