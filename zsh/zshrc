@@ -12,6 +12,9 @@ fi
 
 # Customize to your needs...
 
+# Detailed git log alias similar to glg with valid colors and date at the end
+alias gld='git log --topo-order --graph --pretty=format:"%C(auto)%h | %C(white)%s%C(reset)%C(dim magenta)%d%C(reset) %C(blue)%an%C(reset) (%C(green)%ad %C(reset))" --date=format:"%Y-%m-%d %H:%M:%S"'
+
 # Alias vim with servername if compiled with clientserver
 [[ $(vim --clean --version --noplugin | grep -Eo "([-+])clientserver" | grep -Eo "[-+]") == "+" ]] &&\
   alias vim='vim --servername vim'
