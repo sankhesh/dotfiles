@@ -64,6 +64,7 @@
 # Generic links
 - link:
     ~/.git: git/
+    ~/.gnupg/gpg-agent.conf: gnupg/gpg-agent.conf
     ~/.tmux: tmux
     ~/.zlogin: zsh/prezto/runcoms/zlogin
     ~/.zlogout: zsh/zlogout
