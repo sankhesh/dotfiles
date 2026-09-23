@@ -6,6 +6,7 @@
 - clean: [
   '~',
   '~/.config',
+  '~/.claude/skills',
   '~/.vim',
   '~/.local/share/applications'
 ]
@@ -73,6 +74,7 @@
     ~/.zshrc: zsh/zshrc
     ~/.zpreztorc: zsh/zpreztorc
     ~/.zprezto: zsh/prezto
+    ~/.claude/skills/vtk-gitlab-review: claude/skills/vtk-gitlab-review
 
 # Shell commands
 - shell:
