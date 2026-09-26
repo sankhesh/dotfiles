@@ -119,7 +119,7 @@ return {
       end
 
       require('mason-lspconfig').setup({
-        ensure_installed = { 'clangd', 'pyright', 'ts_ls', 'neocmakelsp' },
+        ensure_installed = { 'clangd', 'pyright', 'ts_ls' },
         handlers = {
           -- Default handler: applies on_attach and capabilities to all servers
           function(server_name)
@@ -131,19 +131,15 @@ return {
         },
       })
 
-      -- Manually configure cmake-language-server or neocmakelsp
-      -- Note: cmake-language-server requires Python < 3.14, so we use neocmakelsp as alternative
-      local lspconfig = require('lspconfig')
-      if lspconfig.neocmakelsp then
-        lspconfig.neocmakelsp.setup({
-          on_attach = on_attach,
-          capabilities = capabilities,
-        })
-      end
+      -- Configure cmake-language-server using vim.lsp.config
+      vim.lsp.config('cmake-language-server', {
+        cmd = { 'cmake-language-server' },
+        filetypes = { 'cmake' },
+        root_markers = { 'CMakeLists.txt' },
+        on_attach = on_attach,
+        capabilities = capabilities,
+      })
     end,
-  },
-  {
-    'neovim/nvim-lspconfig',
   },
   {
     'hrsh7th/nvim-cmp',
@@ -193,7 +189,7 @@ return {
   --       provider_options = {
   --         gemini = {
   --           model = 'gemini-2.5-flash',
-  --         },
+  --         }
   --       },
   --       virtualtext = {
   --         auto_trigger_ft = {},
@@ -214,6 +210,6 @@ return {
   --         },
   --       },
   --     })
-  --   end,
+  -- end,
   -- },
 }
