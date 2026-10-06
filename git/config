@@ -5,6 +5,8 @@
 [core]
 	editor = vim
 	excludesfile = ~/.git/globalignore
+	autocrlf = false
+	safecrlf = warn
 [credential]
 	helper = cache
 [diff]
