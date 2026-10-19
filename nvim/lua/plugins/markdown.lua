@@ -56,7 +56,7 @@ return {
   {
     'iamcco/markdown-preview.nvim',
     ft = { 'markdown' },
-    run = 'cd app && npm install',
+    build = 'cd app && npm install',
     config = function()
       -- Do not start automatically; use :MarkdownPreview or :MarkdownPreviewToggle
       vim.g.mkdp_auto_start = 0
