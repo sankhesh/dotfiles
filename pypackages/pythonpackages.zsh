@@ -12,12 +12,18 @@ fi
 # linux (eg: /home/..), wsl (eg: /mnt/c/..) etc.
 relpath()
   {
-    $PYTHON_EXE -c "from pathlib import Path,PurePosixPath; print(PurePosixPath(Path('$1').relative_to(Path('${2:-${PWD:A}}'), walk_up=True)), end='');"
+    "$PYTHON_EXE" -c 'import posixpath, sys; print(posixpath.relpath(sys.argv[1], sys.argv[2]), end="")' "$1" "${2:-${PWD:A}}"
   }
-REQPATH=$(relpath ${0:A:h}/requirements.txt ${PWD:A})
-ERROROUT="$( $PYTHON_EXE -m pip install -r ${REQPATH%\\r} 2>&1 > /dev/null )"
-if [[ "$ERROROUT" =~ "error: externally-managed-environment" ]];
-then
+REQPATH=$(relpath "${0:A:h}/requirements.txt" "${PWD:A}") || exit $?
+REQPATH=${REQPATH%$'\r'}
+ERROROUT="$("$PYTHON_EXE" -m pip install -r "$REQPATH" 2>&1)"
+PIP_STATUS=$?
+if (( PIP_STATUS == 0 )); then
+  print -r -- "$ERROROUT"
+elif [[ "$ERROROUT" == *"error: externally-managed-environment"* ]]; then
   echo "Breaking system packages."
-  $PYTHON_EXE -m pip install --break-system-packages -r ${REQPATH%\\r}
+  "$PYTHON_EXE" -m pip install --break-system-packages -r "$REQPATH"
+else
+  print -ru2 -- "$ERROROUT"
+  exit "$PIP_STATUS"
 fi
