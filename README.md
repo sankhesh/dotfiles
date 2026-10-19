@@ -9,6 +9,12 @@ After cloning this repository, run `install` to automatically set up the
 development environment. Note that the script is idempotent: it can safely be
 run multiple times.
 
+The installer builds the local GPG agent config from `gnupg/gpg-agent.conf`,
+retaining additional local options and backing up an existing config before
+changing it. On macOS, it detects `pinentry-mac` in `PATH` and adds its path
+as `pinentry-program`. The config is written to `$GNUPGHOME/gpg-agent.conf`,
+or `~/.gnupg/gpg-agent.conf` when `GNUPGHOME` is unset.
+
 ## VIM setup
 
 This setup assumes that VIM 7.0 or greater is installed on the system.
